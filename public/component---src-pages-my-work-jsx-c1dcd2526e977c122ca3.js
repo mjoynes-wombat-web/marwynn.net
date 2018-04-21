@@ -1,0 +1,2 @@
+webpackJsonp([0xe5ead01692c0],{205:function(e,t,l){"use strict";function u(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var n=l(2),a=u(n),r=function(){return a.default.createElement("div",null,a.default.createElement("h1",null,"My Work"),a.default.createElement("p",null,"Check out my work below."))};t.default=r,e.exports=t.default}});
+//# sourceMappingURL=component---src-pages-my-work-jsx-c1dcd2526e977c122ca3.js.map

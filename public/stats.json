@@ -1,0 +1,72 @@
+{
+  "assetsByChunkName": {
+    "path---": [
+      "path----10f93b693130841c0a83.js",
+      "path----10f93b693130841c0a83.js.map"
+    ],
+    "component---src-layouts-index-jsx": [
+      "component---src-layouts-index-jsx-bf8baeffabf9818901ac.js",
+      "component---src-layouts-index-jsx-bf8baeffabf9818901ac.js.map"
+    ],
+    "component---src-pages-who-am-i-jsx": [
+      "component---src-pages-who-am-i-jsx-95c6b58434216dbd79ab.js",
+      "component---src-pages-who-am-i-jsx-95c6b58434216dbd79ab.js.map"
+    ],
+    "path---make-contact": [
+      "path---make-contact-a0e39f21c11f6a62c5ab.js",
+      "path---make-contact-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---index": [
+      "path---index-a0e39f21c11f6a62c5ab.js",
+      "path---index-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---who-am-i": [
+      "path---who-am-i-a0e39f21c11f6a62c5ab.js",
+      "path---who-am-i-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "commons": [
+      "commons-52be9918bb1b9cebd29c.js",
+      "commons-52be9918bb1b9cebd29c.js.map"
+    ],
+    "path---404-html": [
+      "path---404-html-a0e39f21c11f6a62c5ab.js",
+      "path---404-html-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-404-jsx": [
+      "component---src-pages-404-jsx-4503918ea3a16cfcdb75.js",
+      "component---src-pages-404-jsx-4503918ea3a16cfcdb75.js.map"
+    ],
+    "component---src-pages-index-jsx": [
+      "component---src-pages-index-jsx-53f0d0c54415fb00f13f.js",
+      "component---src-pages-index-jsx-53f0d0c54415fb00f13f.js.map"
+    ],
+    "app": [
+      "app-655cf4a38a8b31420191.js",
+      "app-655cf4a38a8b31420191.js.map"
+    ],
+    "path---my-work": [
+      "path---my-work-a0e39f21c11f6a62c5ab.js",
+      "path---my-work-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-coding-with-kids-jsx": [
+      "component---src-pages-coding-with-kids-jsx-f74e5d6e2912816c2c45.js",
+      "component---src-pages-coding-with-kids-jsx-f74e5d6e2912816c2c45.js.map"
+    ],
+    "component---src-pages-my-work-jsx": [
+      "component---src-pages-my-work-jsx-c1dcd2526e977c122ca3.js",
+      "component---src-pages-my-work-jsx-c1dcd2526e977c122ca3.js.map"
+    ],
+    "path---404": [
+      "path---404-a0e39f21c11f6a62c5ab.js",
+      "path---404-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-make-contact-jsx": [
+      "component---src-pages-make-contact-jsx-4900c4f2e5b44acfa3d0.js",
+      "component---src-pages-make-contact-jsx-4900c4f2e5b44acfa3d0.js.map"
+    ],
+    "path---coding-with-kids": [
+      "path---coding-with-kids-a0e39f21c11f6a62c5ab.js",
+      "path---coding-with-kids-a0e39f21c11f6a62c5ab.js.map"
+    ]
+  }
+}

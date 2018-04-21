@@ -34,7 +34,7 @@ const Menu = ({ className }) => (
 export default styled(Menu)`
   bottom: 0;
   box-sizing: border-box;
-  padding: 2.5rem;
+  padding: 2.5rem 15%;
   position: absolute;
   width: 100%;
 
@@ -46,10 +46,10 @@ export default styled(Menu)`
 
     li {
       display: flex;
-      font-size: 2rem;
+      font-size: 1.5rem;
       
       &.slash {
-        font-size: 2.25rem;
+        font-size: 2rem;
         font-weight: bold;
       }
 

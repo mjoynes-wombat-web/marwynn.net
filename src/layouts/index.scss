@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i|Josefin+Slab:600|Open+Sans:300');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css');
+@import '../consts/colors.scss';
+
+body {
+  background: $navy;
+  color: $carolina;
+  font-family: 'Open Sans', 'Arial', 'sans-serif';
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+}
+
+h1 {
+  color: $spring;
+  font-family: 'Josefin Slab', 'serif';
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 2.375rem 0 1.25rem 0;
+}
+
+h2, h3, h4, h5, h6 {
+  &.sub-heading {
+    color: $lilac;
+    font-size: 1.375rem;
+    font-style: italic;
+    font-weight: 300;
+    margin: 1.25rem 0;
+  }
+}
+
+p {
+  margin: 1rem 0;
+  line-height: 1.375rem;
+}
+
+a {
+  &:link {
+    color: $spring;
+
+    &:hover, &:focus, &:active {
+      color: $spring;
+    }
+  }
+
+  &:visited {
+    color: $spring-light;
+  }
+}
+
+main {
+  margin: 5rem 0 12rem 5rem;
+  max-height: calc(100vh - 17rem);
+  max-width: 37.5rem;
+  overflow: scroll;
+}
+
+.wrapper {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.background-wrapper {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: -1;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 50%;
+  box-sizing: border-box;
+}
+
+#background {
+  max-height: 100vh;
+  min-height: 100vh;
+  z-index: -1;
+}

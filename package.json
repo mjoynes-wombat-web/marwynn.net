@@ -11,7 +11,8 @@
     "gatsby-plugin-styled-components": "^2.0.11",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "styled-components": "^3.2.6"
   },
   "keywords": [
     "gatsby"
@@ -29,6 +30,7 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "gatsby-plugin-sass": "^1.0.26",
     "prettier": "^1.12.0"
   }
 }

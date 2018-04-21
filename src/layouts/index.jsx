@@ -10,8 +10,8 @@ const Layout = ({ children, data }) => (
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: data.site.siteMetadata.description },
+        { name: 'keywords', content: data.site.siteMetadata.keywords },
       ]}
     />
     <Header siteTitle={data.site.siteMetadata.title} />
@@ -32,6 +32,8 @@ Layout.propTypes = {
   children: PropTypes.func,
   data: PropTypes.shape({
     title: PropTypes.string,
+    description: PropTypes.string,
+    keywords: PropTypes.string,
   }),
 };
 
@@ -39,6 +41,8 @@ Layout.defaultProps = {
   children: null,
   data: {
     title: 'SimeonSmith.me',
+    description: 'Simeon Smith\'s Portfolio Website',
+    keywords: 'simeon, smith, graphic, designer, artist, web, developer',
   },
 };
 
@@ -48,7 +52,9 @@ export const query = graphql`
   query SiteTitleQuery {
     site {
       siteMetadata {
-        title
+        title,
+        description,
+        keywords
       }
     }
   }

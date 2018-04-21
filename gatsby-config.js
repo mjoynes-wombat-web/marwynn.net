@@ -4,5 +4,8 @@ module.exports = {
     description: 'Simeon Smith\'s Portfolio Website',
     keywords: 'simeon, smith, graphic, designer, artist, web, developer',
   },
-  plugins: ['gatsby-plugin-react-helmet'],
+  plugins: [
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
+  ],
 };

@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 const IndexPage = () => (
   <div>
     <h1>Simeon Smith</h1>
-    <h2 className="sub-heading">Problem Solver, Graphic Designer & Web Developer</h2>
+    <h2 className="sub-heading">Problem Solver, Graphic Designer, & Web Developer</h2>
     <p>
       I am a web developer, graphic designer, and avid problem solver. I have worked in a range
       of jobs and believe that I can learn and better myself from any situation. My experience

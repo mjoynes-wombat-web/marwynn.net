@@ -38,20 +38,21 @@ p {
 a {
   &:link {
     color: $spring;
+    transition: all 0.5s;
 
-    &:hover, &:focus, &:active {
+    &:focus, &:active {
       color: $spring;
     }
   }
 
-  &:visited {
+  &:visited, &:hover {
     color: $spring-light;
   }
 }
 
 main {
-  margin: 5rem 0 12rem 5rem;
-  max-height: calc(100vh - 17rem);
+  margin: 5rem 0 11.25rem 5rem;
+  max-height: calc(100vh - 11.25rem);
   max-width: 37.5rem;
   overflow: scroll;
 }

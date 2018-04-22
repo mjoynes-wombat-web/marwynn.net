@@ -64,6 +64,23 @@ ul {
     text-shadow: 0 0 0.125rem ${colors.lilacDeep};
     transition: all 0.5s;
     transition-timing-function: cubic-bezier(0.29, -0.69, 0.49, 1.46);
+
+    @media screen and (max-width: 1200px) {
+      font-size: 1.75rem;
+    }
+
+    @media screen and (max-width: 1000px) {
+      font-size: 1.5rem;
+    }
+
+    @media screen and (max-width: 850px) {
+      font-size: 1.25rem;
+    }
+
+    @media screen and (max-width: 700px) {
+      /* Change to hamburger menu */
+      display: none;
+    }
     
     &.slash {
       cursor: default;

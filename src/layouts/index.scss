@@ -98,19 +98,33 @@ a {
 }
 
 main {
-  margin: 5rem 5rem 8.25rem 5rem;
-  max-height: calc(100vh - 13.25rem);
+  margin: 5rem;
+  max-height: calc(100vh - 14.25rem);
   max-width: 35rem;
-  overflow: scroll;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+  overflow-y: scroll;
 
   > div {
     overflow: hidden;
+
+    @media screen and (max-width: 700px) {
+      overflow: initial;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    max-height: calc(100vh - 14rem);
   }
 
   @media screen and (max-width: 925px) {
-    margin: 4rem 4rem 10.25rem 4rem;
-    max-height: calc(100vh - 14.25rem);
+    margin: 4rem;
+    max-height: calc(100vh - 12.25rem);
     max-width: 30rem;
+  }
+
+  @media screen and (max-width: 850px) {
+    max-height: calc(100vh - 11.4375rem);
   }
 
   @media screen and (max-width: 800px) {
@@ -118,9 +132,15 @@ main {
   }
 
   @media screen and (max-width: 700px) {
-    margin: 3rem 3rem 7.25rem 3rem;
-    max-height: calc(100vh - 10.25rem);
+    margin: 3rem;
+    max-height: unset;
     width: calc(100vw - 6rem);
+    overflow: initial;
+  };
+
+  @media screen and (max-width: 500px) {
+    margin: 2rem;
+    width: calc(100vw - 4rem);
   };
 }
 
@@ -141,6 +161,10 @@ main {
   justify-content: flex-end;
   padding-left: 65%;
   box-sizing: border-box;
+
+  @media screen and (max-width: 700px) {
+    position: fixed;
+  }
 }
 
 #background {
@@ -157,4 +181,27 @@ main {
   position: absolute;
   top: 0;
   z-index: -1;
+
+  @media screen and (max-width: 700px) {
+    position: fixed;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  main::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px;
+  }
+  
+  main::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba($lilac-bright, 0.25);
+    box-shadow: inset 0 0 0.25rem rgba($lilac, 0.65);
+    transition: all 0.5s;
+  }
+
+  main:hover::-webkit-scrollbar-thumb {
+    background-color: rgba($lilac-bright, 0.75);
+    box-shadow: inset 0 0 0.25rem rgba($lilac, 0.85);
+  }
 }

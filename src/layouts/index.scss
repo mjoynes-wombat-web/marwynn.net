@@ -2,6 +2,19 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css');
 @import '../consts/colors.scss';
 
+@keyframes bgOn {
+  0%  {
+    opacity: 0.25;
+    transition: none;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 body {
   background: $navy;
   color: $carolina;
@@ -104,6 +117,8 @@ main {
   padding-right: 0.5rem;
   box-sizing: border-box;
   overflow-y: scroll;
+  position: relative;
+  z-index: 1;
 
   > div {
     overflow: hidden;
@@ -113,18 +128,14 @@ main {
     }
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1100px) {
     max-height: calc(100vh - 14rem);
   }
 
-  @media screen and (max-width: 925px) {
+  @media screen and (max-width: 900px) {
     margin: 4rem;
-    max-height: calc(100vh - 12.25rem);
+    max-height: calc(100vh - 11.6rem);
     max-width: 30rem;
-  }
-
-  @media screen and (max-width: 850px) {
-    max-height: calc(100vh - 11.4375rem);
   }
 
   @media screen and (max-width: 800px) {
@@ -173,6 +184,15 @@ main {
   z-index: -1;
 }
 
+#background.turnOff {
+  opacity: 0.25;
+}
+
+#background.turnOn {
+  animation-name: bgOn;
+  animation-duration: 2.5s;
+}
+
 .background-gradient {
   background: linear-gradient(to top, rgba($navy, 0) 5%, rgba($navy, 0.65) 30%);
   left: 0;
@@ -180,7 +200,7 @@ main {
   min-width: 100vw;
   position: absolute;
   top: 0;
-  z-index: -1;
+  z-index: 0;
 
   @media screen and (max-width: 700px) {
     position: fixed;

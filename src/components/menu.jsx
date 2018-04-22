@@ -5,29 +5,38 @@ import styled from 'styled-components';
 
 import colors from '../consts/colors';
 
-function animateMenu() {
-  const menuItems = document.querySelectorAll('#mainMenu li');
+function animateMenuItem(menuItem, duration) {
+  menuItem.classList.add('turnOff');
+
+  setTimeout(() => {
+    menuItem.classList.remove('turnOff');
+    menuItem.classList.add('turnOn');
+  }, duration);
+}
+
+function animateBg(duration) {
   const bgImg = document.getElementById('background');
-  const bgGradient = document.querySelector('.background-gradient');
+
+  bgImg.classList.add('turnOff');
+
+  setTimeout(() => {
+    bgImg.classList.remove('turnOff');
+    bgImg.classList.add('turnOn');
+  }, duration);
+}
+
+function animateLoad() {
+  const menuItems = document.querySelectorAll('#mainMenu li');
   const durations = [];
 
   menuItems.forEach((menuItem) => {
     const duration = Math.random() * 2000;
     durations.push(duration);
-    menuItem.classList.add('turnOff');
-    bgImg.classList.add('turnOff');
-
-    setTimeout(() => {
-      menuItem.classList.remove('turnOff');
-      menuItem.classList.add('turnOn');
-    }, duration);
+    animateMenuItem(menuItem, duration);
   });
-  durations.sort((a, b) => a - b);
 
-  setTimeout(() => {
-    bgImg.classList.remove('turnOff');
-    bgImg.classList.add('turnOn');
-  }, durations[0]);
+  durations.sort((a, b) => a - b);
+  animateBg(durations[0]);
 }
 
 class UnstyledMenu extends React.Component {
@@ -36,7 +45,7 @@ class UnstyledMenu extends React.Component {
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   componentDidMount() {
-    animateMenu();
+    animateLoad();
   }
   render() {
     return (

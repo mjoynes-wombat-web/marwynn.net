@@ -57,6 +57,15 @@ const IndexPage = styled(UnstyledIndexPage)`
   #signature {
     margin: 1rem 0 0 1rem;
     width: 300px;
+
+    @media screen and (max-width: 925px) {
+      margin: 0.875rem 0 0 0.875rem;
+      width: 250px;
+    }
+
+    @media screen and (max-width: 700px) {
+      width: 200px;
+    }
   }
 `;
 

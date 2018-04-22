@@ -4,8 +4,6 @@ import Helmet from 'react-helmet';
 
 import Menu from '../components/menu';
 
-import screenBreaks from '../consts/screen-breaks.scss';
-
 import Background720 from '../assets/img/background_720.jpg';
 import Background768 from '../assets/img/background_768.jpg';
 import Background1080 from '../assets/img/background_1080.jpg';
@@ -30,7 +28,7 @@ const Layout = ({ children, data }) => (
         alt="Blue Geode Background"
       />
     </div>
-
+    <div className="background-gradient" />
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[

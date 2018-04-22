@@ -66,7 +66,6 @@ ul {
     transition-timing-function: cubic-bezier(0.29, -0.69, 0.49, 1.46);
     
     &.slash {
-      font-weight: bold;
       cursor: default;
     }
 

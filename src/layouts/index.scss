@@ -20,6 +20,10 @@ h1 {
   margin: 2.375rem 0 1.25rem 0;
 }
 
+main > div > h1:first-child {
+  margin-top:0;
+}
+
 h2, h3, h4, h5, h6 {
   &.sub-heading {
     color: $lilac;
@@ -32,7 +36,7 @@ h2, h3, h4, h5, h6 {
 
 p {
   margin: 1rem 0;
-  line-height: 1.375rem;
+  line-height: 1.25rem;
 }
 
 a {
@@ -51,10 +55,14 @@ a {
 }
 
 main {
-  margin: 5rem 5rem 11.25rem 5rem;
-  max-height: calc(100vh - 16.25rem);
+  margin: 5rem 5rem 8.25rem 5rem;
+  max-height: calc(100vh - 13.25rem);
   max-width: 35rem;
   overflow: scroll;
+
+  > div {
+    overflow: hidden;
+  }
 }
 
 .wrapper {

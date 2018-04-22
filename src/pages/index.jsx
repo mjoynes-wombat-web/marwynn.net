@@ -1,8 +1,14 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const IndexPage = () => (
-  <div>
+import SignatureLarge from '../assets/img/signature_large.png';
+import SignatureMedium from '../assets/img/signature_medium.png';
+import SignatureSmall from '../assets/img/signature_small.png';
+
+const UnstyledIndexPage = ({ className }) => (
+  <div className={className}>
     <h1>Simeon Smith</h1>
     <h2 className="sub-heading">Problem Solver, Graphic Designer, & Web Developer</h2>
     <p>
@@ -24,7 +30,34 @@ const IndexPage = () => (
     <p>
       Please <Link to="/my-work.">check out my work</Link> and feel free to <Link to="/make-contact/">contact me</Link> with any questions.
     </p>
+    <img
+      id="signature"
+      srcSet={`${SignatureSmall} 309w,
+        ${SignatureMedium} 338w ,
+        ${SignatureLarge} 584w`}
+      size="(max-width: 411px) 309px,
+        (max-width: 768px) 338px,
+        584px"
+      src={SignatureLarge}
+      alt="Simeon Smith's Signature"
+    />
   </div>
 );
+
+UnstyledIndexPage.propTypes = {
+  className: PropTypes.string,
+};
+
+UnstyledIndexPage.defaultProps = {
+  className: '',
+};
+
+const IndexPage = styled(UnstyledIndexPage)`
+
+  #signature {
+    margin: 1rem 0 0 1rem;
+    width: 300px;
+  }
+`;
 
 export default IndexPage;

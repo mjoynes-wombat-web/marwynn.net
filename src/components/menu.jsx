@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import colors from '../consts/colors';
 
-const unstyledMenu = ({ className }) => (
+const UnstyledMenu = ({ className }) => (
   <nav className={className} id="mainMenu">
     <ul>
       <li className="active">
@@ -31,16 +31,16 @@ const unstyledMenu = ({ className }) => (
   </nav>
 );
 
-unstyledMenu.propTypes = {
+UnstyledMenu.propTypes = {
   className: PropTypes.string,
 };
 
-unstyledMenu.defaultProps = {
+UnstyledMenu.defaultProps = {
   className: '',
 };
 
 
-const Menu = styled(unstyledMenu)`
+const Menu = styled(UnstyledMenu)`
 bottom: 0;
 box-sizing: border-box;
 padding: 2rem 8%;

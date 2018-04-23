@@ -1,2 +1,2 @@
-webpackJsonp([60335399758886],{112:function(e,t){e.exports={data:{site:{siteMetadata:{title:"SimeonSmith.me",description:"Simeon Smith's Portfolio Website",keywords:"simeon, smith, graphic, designer, artist, web, developer"}}},layoutContext:{}}}});
+webpackJsonp([60335399758886],{114:function(e,t){e.exports={data:{site:{siteMetadata:{title:"SimeonSmith.me",description:"Simeon Smith's Portfolio Website",keywords:"simeon, smith, graphic, designer, artist, web, developer"}}},layoutContext:{}}}});
 //# sourceMappingURL=path----10f93b693130841c0a83.js.map

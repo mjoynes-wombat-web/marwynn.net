@@ -147,8 +147,8 @@ a {
 }
 
 main {
-  margin: 5rem;
-  max-height: calc(100vh - 14.25rem);
+  margin: 6rem;
+  max-height: calc(100vh - 16.25rem);
   max-width: 45rem;
   padding-right: 0.5rem;
   box-sizing: border-box;
@@ -165,6 +165,7 @@ main {
   }
 
   @media screen and (max-width: 1700px) {
+    margin: 5rem;
     max-height: calc(100vh - 14.25rem);
     max-width: 35rem;
   }

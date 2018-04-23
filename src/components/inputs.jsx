@@ -5,10 +5,12 @@ import styled from 'styled-components';
 import colors from '../consts/colors';
 
 const inputStyling = () => `
-input {
+margin-top: 1rem;
+
+input, textarea {
     appearance: none;
-    background-color: ${colors.lilacBright(0.05)};
-    box-shadow: inset 0 0 0.25rem ${colors.lilac(0.35)};
+    background: ${colors.navy(0.3)};
+    box-shadow: inset 0 0 0.25rem ${colors.lilac(0.5)};
     border: none;
     border-radius: 0.25rem;
     border: 1px solid transparent;
@@ -19,13 +21,21 @@ input {
     font-size: 1.125rem;
     font-weight: 300;
     line-height: normal;
-    margin: 0.375rem 0;
+    margin: 0.375rem 0 0 0;
     max-width: 100%;
     padding: 0.5rem;
     transition: all 0.5s;
     width: 15rem;
 
-    &:hover {
+    @media screen and (max-width: 925px) {
+      font-size: 1rem;
+    }
+  
+    @media screen and (max-width: 700px) {
+      font-size: 0.875rem;
+    }
+
+    &:hover, &:focus, &:active {
       background-color: ${colors.navy()};
       box-shadow: inset 0 0 0.25rem ${colors.lilac(0.25)};
     }
@@ -41,10 +51,14 @@ input {
   }
 
   .error {
-    margin: 0.5rem 0;
-    color: ${colors.tomato()};
+    margin: 0.125rem 0;
+    color: ${colors.lilac()};
     font-size: 0.875rem;
     line-height: normal;
+  
+    @media screen and (max-width: 700px) {
+      font-size: 0.75rem;
+    }
   }
 `;
 
@@ -56,7 +70,7 @@ const UnstyledLabel = ({
   text,
 }) => (
   <label htmlFor={id} className={className}>
-    {text} {required ? '*' : ''}
+    {text}{required ? '*' : ''}
     {children}
   </label>
 );
@@ -79,47 +93,110 @@ const Label = styled(UnstyledLabel)`
   font-weight: 300;
   font-size: 1.375rem;
   color: ${colors.spring()};
+
+  @media screen and (max-width: 925px) {
+    font-size: 1.25rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 1.125rem;
+  }
 `;
 
-const UnstyledEmail = ({
+const UnstyledInput = ({
   className,
+  label,
+  id,
   value,
   onChange,
+  placeholder,
+  type,
   error,
+  required,
 }) => (
   <div className={className}>
-    <Label text="Email" id="email" required>
+    <Label text={label} id={id} required={required}>
       <input
         onChange={onChange}
-        type="email"
-        placeholder="Please enter your email."
-        id="email"
-        name="email"
+        type={type}
+        placeholder={placeholder}
+        id={id}
+        name={id}
         value={value}
+        required={required}
       />
     </Label>
     <p className="error">{error}&nbsp;</p>
   </div>
 );
 
-UnstyledEmail.propTypes = {
+UnstyledInput.propTypes = {
   className: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  type: PropTypes.string.isRequired,
   error: PropTypes.string,
+  required: PropTypes.bool,
 };
 
-UnstyledEmail.defaultProps = {
+UnstyledInput.defaultProps = {
   className: '',
   value: '',
+  placeholder: '',
   error: '',
+  required: false,
 };
 
-export const EmailInput = styled(UnstyledEmail)`
+export const Input = styled(UnstyledInput)`
   ${inputStyling()}
   input {
-    width: 20rem;
+    width: ${props => props.width};
   }
 `;
 
-export default EmailInput;
+const UnstyledTextArea = ({
+  className,
+  label,
+  id,
+  value,
+  onChange,
+  required,
+}) => (
+  <div className={className}>
+    <Label text={label} id={id} required={required}>
+      <textarea
+        onChange={onChange}
+        id={id}
+        name={id}
+        value={value}
+        required={required}
+      />
+    </Label>
+  </div>
+);
+
+UnstyledTextArea.propTypes = {
+  className: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  required: PropTypes.bool,
+};
+
+UnstyledTextArea.defaultProps = {
+  className: '',
+  value: '',
+  required: false,
+};
+
+export const TextArea = styled(UnstyledTextArea)`
+  ${inputStyling()}
+  textarea {
+    width: ${props => props.width};
+    min-height: 10rem;
+  }
+`;

@@ -47,7 +47,7 @@ h1 {
   }
 }
 
-main > div > h1:first-child {
+main .page-content h1:first-child {
   margin-top:0;
 }
 
@@ -172,15 +172,16 @@ main {
 .background-wrapper {
   position: absolute;
   min-width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
   left: 0;
   top: 0;
   overflow: hidden;
   z-index: -1;
-  display: flex;
-  justify-content: flex-end;
   padding-left: 60%;
+  line-height: 0;
   box-sizing: border-box;
+  text-align: right;
 
   @media screen and (max-width: 700px) {
     position: fixed;
@@ -191,6 +192,7 @@ main {
   max-height: 100vh;
   min-height: 100vh;
   z-index: -1;
+  overflow: hidden;
 }
 
 #background.turnOff {

@@ -36,9 +36,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: data.site.siteMetadata.keywords },
       ]}
     />
-    <main>
-      {children()}
-    </main>
+    {children()}
     <Menu />
   </div>
 );

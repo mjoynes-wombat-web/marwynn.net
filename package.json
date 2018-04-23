@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Simeon Smith <ssmith@wombatweb.us>",
   "dependencies": {
+    "axios": "^0.18.0",
     "gatsby": "^1.9.247",
     "gatsby-cli": "^1.1.50",
     "gatsby-link": "^1.6.40",

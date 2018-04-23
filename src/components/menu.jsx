@@ -155,13 +155,17 @@ ul {
 
   li {
     display: flex;
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin: 0;
     color: ${colors.lilacBright()};
     font-family: 'Josefin Sans', 'Open Sans', 'Arial', sans-serif;
     text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
     transition: all 0.5s;
     transition-timing-function: cubic-bezier(0.29, -0.69, 0.49, 1.46);
+
+    @media screen and (max-width: 1700px) {
+      font-size: 2rem;
+    }
 
     @media screen and (max-width: 1100px) {
       font-size: 1.75rem;

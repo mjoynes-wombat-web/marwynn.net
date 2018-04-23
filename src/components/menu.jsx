@@ -30,7 +30,7 @@ function animateLoad() {
   const durations = [];
 
   menuItems.forEach((menuItem) => {
-    const duration = Math.random() * 2000;
+    const duration = Math.random() * 1000;
     durations.push(duration);
     animateMenuItem(menuItem, duration);
   });
@@ -191,11 +191,11 @@ ul {
 
     &.turnOn {
       animation-name: fluorescentOn;
-      animation-duration: 2.5s;
+      animation-duration: 2s;
 
       a, a:link, a:visited, a:active, a:focus {
         animation-name: fluorescentOn;
-        animation-duration: 2.5s;
+        animation-duration: 2s;
       }
     }
 

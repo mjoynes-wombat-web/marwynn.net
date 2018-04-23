@@ -18,7 +18,7 @@ input, textarea {
     color: ${colors.lilacBright()};
     display: block;
     font-family: 'Open Sans', 'Arial', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 300;
     line-height: normal;
     margin: 0.375rem 0 0 0;
@@ -26,6 +26,10 @@ input, textarea {
     padding: 0.5rem;
     transition: all 0.5s;
     width: 15rem;
+
+    @media screen and (max-width: 1700px) {
+      font-size: 1.125rem;
+    }
 
     @media screen and (max-width: 925px) {
       font-size: 1rem;
@@ -91,8 +95,12 @@ UnstyledLabel.defaultProps = {
 const Label = styled(UnstyledLabel)`
   font-family: 'Josefin Sans', 'Arial', sans-serif;
   font-weight: 300;
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   color: ${colors.spring()};
+
+  @media screen and (max-width: 1700px) {
+    font-size: 1.375rem;
+  }
 
   @media screen and (max-width: 925px) {
     font-size: 1.25rem;

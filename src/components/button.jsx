@@ -13,13 +13,17 @@ const Button = styled.button`
   box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.65)};
   color: ${colors.navy()};
   display: block;
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   margin: 0 auto;
   margin-top: 2rem;
   outline: none;
   padding: 1rem 0 0.75rem 0;
   transition: all 0.5s;
   width: 100%;
+
+  @media screen and (max-width: 1700px) {
+    font-size: 1.25rem;
+  }
 
   @media screen and (max-width: 925px) {
     font-size: 1.125rem;

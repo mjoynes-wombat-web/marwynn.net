@@ -7,10 +7,10 @@ const Button = styled.button`
   font-weight: 400;
   cursor: pointer;
   appearance: none;
-  background-color: ${colors.lilacBright(0.85)};
+  background-color: ${colors.lilacBright(0.75)};
   border: 0;
   border-radius: 0.5rem;
-  box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.75)};
+  box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.65)};
   color: ${colors.navy()};
   display: block;
   font-size: 1.25rem;

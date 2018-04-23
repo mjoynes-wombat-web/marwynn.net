@@ -7,6 +7,11 @@ import colors from '../consts/colors';
 
 function animateMenuItem(menuItem, duration) {
   menuItem.classList.add('turnOff');
+  menuItem.addEventListener(
+    'animationend',
+    () => menuItem.classList.remove('turnOn'),
+    { once: true },
+  );
 
   setTimeout(() => {
     menuItem.classList.remove('turnOff');
@@ -51,12 +56,12 @@ class UnstyledMenu extends React.Component {
     return (
       <nav className={this.props.className} id="mainMenu">
         <ul>
-          <li className="active">
-            <Link to="/">Home</Link>
+          <li>
+            <Link to="/" activeClassName="active" exact>Home</Link>
           </li>
           <li className="slash">/</li>
           <li>
-            <Link to="/my-work/">My Work</Link>
+            <Link to="/my-work/" activeClassName="active">My Work</Link>
           </li>
           {/* <li className="slash">/</li>
           <li>
@@ -64,11 +69,11 @@ class UnstyledMenu extends React.Component {
           </li> */}
           <li className="slash">/</li>
           <li>
-            <Link to="/make-contact/">Make Contact</Link>
+            <Link to="/make-contact/" activeClassName="active">Make Contact</Link>
           </li>
           <li className="slash">/</li>
           <li>
-            <Link to="/coding-with-kids/">Coding With Kids</Link>
+            <Link to="/coding-with-kids/" activeClassName="active">Coding With Kids</Link>
           </li>
         </ul>
       </nav>
@@ -175,13 +180,13 @@ ul {
       cursor: default;
     }
 
-    &.active {
-      font-weight: 400;
-    }
-
     a, a:link, a:visited, a:active, a:focus {
       text-decoration: none;
       color: ${colors.lilacBright()};
+
+      &.active {
+        font-weight: 400;
+      }
     }
 
     &:hover:not(.slash) {

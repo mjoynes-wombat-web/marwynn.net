@@ -51,33 +51,42 @@ main > div > h1:first-child {
   margin-top:0;
 }
 
-h2, h3, h4, h5, h6 {
-  font-size: 1.375rem;
-  line-height: 1.875rem;
+h2 {
+  color: $tomato;
+  font-family: 'Josefin Slab', 'Arial', sans-serif;
+  font-size: 1.875rem;
+  margin: 2.25rem 0 1.25rem 0;
+
+  @media screen and (max-width: 925px) {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 1.375rem;
+    margin: 1.875rem 0 0.875rem 0;
+  }
 
   &.sub-heading {
     color: $lilac;
+    font-family: 'Josefin Sans', 'Arial', sans-serif;
     font-style: italic;
     font-weight: 300;
     margin: 1.25rem 0;
+    font-size: 1.375rem;
+    line-height: 1.875rem;
 
     @media screen and (max-width: 925px) {
+      font-size: 1.25rem;
+      line-height: 1.625rem;
       margin: 1rem 0;
     }
 
     @media screen and (max-width: 700px) {
+      font-size: 1.125rem;
+      line-height: 1.375rem;
       margin: 0.875rem 0;
     }
-  }
-
-  @media screen and (max-width: 925px) {
-    font-size: 1.25rem;
-    line-height: 1.625rem;
-  }
-
-  @media screen and (max-width: 700px) {
-    font-size: 1.125rem;
-    line-height: 1.375rem;
   }
 }
 

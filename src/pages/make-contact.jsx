@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 import ContactForm from '../components/contact-form';
 
-const UnstyledMakeContact = ({ className }) => (
+const UnstyledMakeContact = ({ className, title }) => (
   <main className={className}>
+    <Helmet>
+      <title>Make Contact - {title}</title>
+    </Helmet>
     <div className="page-content">
       <div className="make-contact-text">
         <h1>How Can I Help You?</h1>
@@ -21,10 +25,12 @@ const UnstyledMakeContact = ({ className }) => (
 
 UnstyledMakeContact.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
 };
 
 UnstyledMakeContact.defaultProps = {
   className: '',
+  title: 'SimeonSmith.me',
 };
 
 const MakeContact = styled(UnstyledMakeContact)`

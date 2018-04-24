@@ -2,13 +2,17 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 import SignatureLarge from '../assets/img/signature_large.png';
 import SignatureMedium from '../assets/img/signature_medium.png';
 import SignatureSmall from '../assets/img/signature_small.png';
 
-const UnstyledIndexPage = ({ className }) => (
+const UnstyledIndexPage = ({ className, title }) => (
   <main className={className}>
+    <Helmet>
+      <title>{title} - Home</title>
+    </Helmet>
     <div className="page-content">
       <h1>Simeon Smith</h1>
       <h2 className="sub-heading">Problem Solver, Graphic Designer, & Web Developer</h2>
@@ -48,10 +52,12 @@ const UnstyledIndexPage = ({ className }) => (
 
 UnstyledIndexPage.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
 };
 
 UnstyledIndexPage.defaultProps = {
   className: '',
+  title: 'SimeonSmith.me',
 };
 
 const IndexPage = styled(UnstyledIndexPage)`

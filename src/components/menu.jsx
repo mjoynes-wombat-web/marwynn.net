@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 import colors from '../consts/colors';
 
+import MenuButton from './menu-button';
+
 function animateMenuItem(menuItem, duration) {
   menuItem.classList.add('turnOff');
   menuItem.addEventListener(
@@ -47,14 +49,26 @@ function animateLoad() {
 class UnstyledMenu extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      buttonActive: false,
+    };
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.clickMenu = this.clickMenu.bind(this);
   }
   componentDidMount() {
     animateLoad();
   }
+
+  clickMenu() {
+    this.setState({ buttonActive: !this.state.buttonActive });
+  }
   render() {
     return (
       <nav className={this.props.className} id="mainMenu">
+        <MenuButton
+          buttonActive={this.state.buttonActive}
+          onClick={this.clickMenu}
+        />
         <ul>
           <li>
             <Link to="/" activeClassName="active" exact>Home</Link>
@@ -144,6 +158,23 @@ box-sizing: border-box;
 padding: 2rem 8%;
 position: absolute;
 width: 100%;
+
+@media screen and (max-width: 700px){
+  top: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  z-index: 100;
+}
+
+.hamburger {
+  display: none;
+
+  @media screen and (max-width: 700px){
+    display: block;
+  }
+}
+
 
 ul {
   display: flex;

@@ -77,11 +77,12 @@ class UnstyledContactForm extends React.Component {
           message: '',
         };
         this.setState({ inputs, messageSent: true, messageSending: false });
+        window.scroll(0, 0);
         main.scroll(0, 0);
       })
       .catch(() => {
         this.setState({ messageSent: false, messageSending: false });
-
+        window.scroll(0, 0);
         main.scroll(0, 0);
       });
   }

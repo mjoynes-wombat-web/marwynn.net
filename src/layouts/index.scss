@@ -198,7 +198,7 @@ a {
 main {
   margin: 6rem;
   max-height: calc(100vh - 16.25rem);
-  max-width: 45rem;
+  min-width: calc(100% - 10rem);
   padding-right: 0.5rem;
   box-sizing: border-box;
   overflow-y: scroll;
@@ -216,7 +216,6 @@ main {
   @media screen and (max-width: 1700px) {
     margin: 5rem;
     max-height: calc(100vh - 14.25rem);
-    max-width: 35rem;
   }
 
   @media screen and (max-width: 1100px) {
@@ -226,11 +225,6 @@ main {
   @media screen and (max-width: 900px) {
     margin: 4rem;
     max-height: calc(100vh - 11.6rem);
-    max-width: 30rem;
-  }
-
-  @media screen and (max-width: 800px) {
-    max-width: 25rem;
   }
 
   @media screen and (max-width: 700px) {
@@ -244,6 +238,22 @@ main {
     margin: 2rem;
     width: calc(100vw - 4rem);
   };
+}
+
+.page-content {
+  max-width: 45rem;
+
+  @media screen and (max-width: 1700px) {
+    max-width: 35rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    max-width: 30rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    max-width: 25rem;
+  }
 }
 
 .wrapper {

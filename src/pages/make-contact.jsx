@@ -11,8 +11,8 @@ const UnstyledMakeContact = ({ className, title }) => (
       <title>Make Contact - {title}</title>
     </Helmet>
     <div className="page-content">
+      <h1>How Can I Help You?</h1>
       <div className="make-contact-text">
-        <h1>How Can I Help You?</h1>
         <p>
           Interested in hiring me or have questions about my work? Please feel free to contact me.
           I'll get back to you within 24 hours.
@@ -40,14 +40,32 @@ const MakeContact = styled(UnstyledMakeContact)`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    h1 {
+      flex: 1 0 100%;
+    }
 
     .make-contact-text {
       flex: 0 1 66.66%;
       max-width: 35rem;
+
+      @media screen and (min-width: 1216px) {
+          margin-right: 2rem;
+        }
+
+      > p:first-child {
+        margin-top: 0;
+      }
     }
 
     form {
       flex: 0 2;
+
+      > h2:first-child {
+
+        @media screen and (min-width: 1248px) {
+          margin-top: 0;
+        }
+      }
     }
   }
 `;

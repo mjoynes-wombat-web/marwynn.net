@@ -370,7 +370,7 @@ ul {
       animation-name: fluorescentOn;
       animation-duration: 2s;
 
-      @media screen and (max-width: 700px){ {
+      @media screen and (max-width: 700px) {
         animation-duration: 1.5s;
       }
 

@@ -315,9 +315,6 @@ ul {
     margin: 0;
     color: ${colors.lilacBright()};
     font-family: 'Josefin Sans', 'Open Sans', 'Arial', sans-serif;
-    text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
-    transition: all 0.5s;
-    transition-timing-function: cubic-bezier(0.29, -0.69, 0.49, 1.46);
     line-height: normal;
     overflow: visible;
 
@@ -355,13 +352,23 @@ ul {
     a, a:link, a:visited, a:active, a:focus {
       text-decoration: none;
       color: ${colors.lilacBright()};
+      text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
+      transition: all 0.5s;
+      transition-timing-function: cubic-bezier(0.29, -0.69, 0.49, 1.46);
 
       &.active {
         font-weight: 400;
+        transform: scale(1.125);
+
+        &:hover {
+          transform: scale(1.125);
+          text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
+          transition: all 0s;
+        }
       }
     }
 
-    &:hover:not(.slash) {
+    :not(.slash) a:hover {
       transform: scale(1.0625);
       text-shadow: 0 0 0.75rem ${colors.lilacDeep()};
     }

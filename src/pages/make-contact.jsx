@@ -45,12 +45,11 @@ const MakeContact = styled(UnstyledMakeContact)`
     }
 
     .make-contact-text {
-      flex: 0 1 66.66%;
-      max-width: 35rem;
+      flex: 1 1 35rem;
 
       @media screen and (min-width: 1216px) {
           margin-right: 2rem;
-        }
+      }
 
       > p:first-child {
         margin-top: 0;

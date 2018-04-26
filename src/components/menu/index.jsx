@@ -32,13 +32,6 @@ function animateBg(duration) {
   }, duration);
 }
 
-function animateMenuBg(duration) {
-  const bgGradient = document.querySelector('.background-gradient');
-
-  bgGradient.classList.add('turnOff');
-  console.log(duration);
-}
-
 function animateLoad(siteLoad) {
   const menuListItems = document.querySelectorAll('#mainMenu li');
   const menuButton = document.querySelector('.hamburger');
@@ -68,6 +61,7 @@ class UnstyledMenu extends React.Component {
     };
     this.componentDidMount = this.componentDidMount.bind(this);
     this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    this.selectPage = this.selectPage.bind(this);
     this.clickMenu = this.clickMenu.bind(this);
   }
   componentDidMount() {
@@ -76,6 +70,10 @@ class UnstyledMenu extends React.Component {
 
   componentDidUpdate() {
     if (this.state.isOpen) { animateLoad(false); }
+  }
+
+  selectPage() {
+    this.setState({ isOpen: false });
   }
 
   clickMenu() {
@@ -96,11 +94,11 @@ class UnstyledMenu extends React.Component {
         />
         <ul>
           <li>
-            <Link to="/" activeClassName="active" exact>Home</Link>
+            <Link to="/" activeClassName="active" exact onClick={this.selectPage}>Home</Link>
           </li>
           <li className="slash">/</li>
           <li>
-            <Link to="/my-work/" activeClassName="active">My Work</Link>
+            <Link to="/my-work/" activeClassName="active" onClick={this.selectPage}>My Work</Link>
           </li>
           {/* <li className="slash">/</li>
           <li>
@@ -108,11 +106,11 @@ class UnstyledMenu extends React.Component {
           </li> */}
           <li className="slash">/</li>
           <li>
-            <Link to="/make-contact/" activeClassName="active">Make Contact</Link>
+            <Link to="/make-contact/" activeClassName="active" onClick={this.selectPage}>Make Contact</Link>
           </li>
           <li className="slash">/</li>
           <li>
-            <Link to="/coding-with-kids/" activeClassName="active">Coding With Kids</Link>
+            <Link to="/coding-with-kids/" activeClassName="active" onClick={this.selectPage}>Coding With Kids</Link>
           </li>
         </ul>
       </nav>

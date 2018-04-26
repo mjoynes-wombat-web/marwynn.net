@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import colors from '../consts/colors';
+import colors from '../../consts/colors';
 
 const UnstyledMenuButton = ({ className, buttonActive, onClick }) => (
   <button
@@ -16,6 +16,16 @@ const UnstyledMenuButton = ({ className, buttonActive, onClick }) => (
   </button>
 );
 
+UnstyledMenuButton.propTypes = {
+  className: PropTypes.string,
+  buttonActive: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+UnstyledMenuButton.defaultProps = {
+  className: '',
+};
+
 const MenuButton = styled(UnstyledMenuButton)`
 /*!
  * Hamburgers
@@ -27,8 +37,8 @@ const MenuButton = styled(UnstyledMenuButton)`
 * @site https://www.simeonsmith.me
  */
 &.hamburger {
-  padding: 15px 15px;
   display: inline-block;
+  padding: 0;
   cursor: pointer;
   font: inherit;
   color: inherit;

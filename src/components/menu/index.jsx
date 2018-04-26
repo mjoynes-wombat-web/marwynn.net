@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import colors from '../consts/colors';
+import colors from '../../consts/colors';
 
 import MenuButton from './menu-button';
 
@@ -32,41 +32,66 @@ function animateBg(duration) {
   }, duration);
 }
 
-function animateLoad() {
-  const menuItems = document.querySelectorAll('#mainMenu li');
+function animateMenuBg(duration) {
+  const bgGradient = document.querySelector('.background-gradient');
+
+  bgGradient.classList.add('turnOff');
+  console.log(duration);
+}
+
+function animateLoad(siteLoad) {
+  const menuListItems = document.querySelectorAll('#mainMenu li');
+  const menuButton = document.querySelector('.hamburger');
+  const menuItems = Array.from(menuListItems);
+  if (siteLoad) { menuItems.push(menuButton); }
+
   const durations = [];
 
   menuItems.forEach((menuItem) => {
-    const duration = Math.random() * 1000;
+    const duration = Math.random() * (siteLoad ? 1000 : 500);
     durations.push(duration);
     animateMenuItem(menuItem, duration);
   });
 
   durations.sort((a, b) => a - b);
-  animateBg(durations[0]);
+
+  if (siteLoad) {
+    animateBg(durations[0]);
+  }
 }
 
 class UnstyledMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonActive: false,
+      isOpen: false,
     };
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentDidUpdate = this.componentDidUpdate.bind(this);
     this.clickMenu = this.clickMenu.bind(this);
   }
   componentDidMount() {
-    animateLoad();
+    animateLoad(true);
+  }
+
+  componentDidUpdate() {
+    if (this.state.isOpen) { animateLoad(false); }
   }
 
   clickMenu() {
-    this.setState({ buttonActive: !this.state.buttonActive });
+    const bgGradient = document.querySelector('.background-gradient');
+    if (!this.state.isOpen) {
+      bgGradient.classList.add('turnOff');
+    } else {
+      bgGradient.classList.remove('turnOff');
+    }
+    this.setState({ isOpen: !this.state.isOpen });
   }
   render() {
     return (
-      <nav className={this.props.className} id="mainMenu">
+      <nav className={`${this.props.className} ${this.state.isOpen ? 'is-open' : ''}`} id="mainMenu">
         <MenuButton
-          buttonActive={this.state.buttonActive}
+          buttonActive={this.state.isOpen}
           onClick={this.clickMenu}
         />
         <ul>
@@ -153,6 +178,54 @@ const Menu = styled(UnstyledMenu)`
   }
 }
 
+@keyframes hamFluorescentOn {
+  0%  {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep(0.65)};
+    background-color: ${colors.lilacBright(0.25)};
+    transition: none;
+  }
+  14% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep(0.65)};
+    background-color: ${colors.lilacBright(0.25)};
+  }
+  18% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep()};
+    background-color: ${colors.lilacBright()};
+  }
+  20% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep(0.65)};
+    background-color: ${colors.lilacBright(0.25)};
+  }
+  28% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep()};
+    background-color: ${colors.lilacBright()};
+  }
+  30% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep(0.65)};
+    background-color: ${colors.lilacBright(0.25)};
+  }
+  38% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep(0.65)};
+    background-color: ${colors.lilacBright(0.25)};
+  }
+  45% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep()};
+    background-color: ${colors.lilacBright()};
+  }
+  50% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep()};
+    background-color: ${colors.lilacBright()};
+  }
+  52% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep(0.65)};
+    background-color: ${colors.lilacBright(0.25)};
+  }
+  100% {
+    box-shadow: 0 0 0.5rem ${colors.lilacDeep()};
+    transition: all 0.5s;
+  }
+}
+
 bottom: 0;
 box-sizing: border-box;
 padding: 2rem 8%;
@@ -165,14 +238,56 @@ width: 100%;
   width: auto;
   height: auto;
   z-index: 100;
+  align-items: flex-end;
+  flex-direction: column;
+  display: flex;
+  width: 100vw;
+  background: transparent;
+  transition: background 2s;
+
+    &.is-open {
+      background: linear-gradient(to left, ${colors.navy(0)} 8%, ${colors.navy(0.75)} 35%);
+
+      ul {
+      max-height: 20rem;
+      overflow: visible;
+
+      li {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .hamburger {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 
   @media screen and (max-width: 700px){
     display: block;
+    opacity: 1;
+    pointer-events: auto;
+    width: auto;
+    height: auto;
+    overflow:  initial;
   }
+
+  &.turnOn {
+      .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
+        animation-name: hamFluorescentOn;
+        animation-duration: 2s;
+      }
+    }
+
+    &.turnOff {
+      .hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
+        box-shadow: 0 0 0.5rem ${colors.lilacDeep(0.65)};
+        background-color: ${colors.lilacBright(0.25)};
+      }
+    }
 }
 
 
@@ -183,6 +298,16 @@ ul {
   justify-content: space-around;
   align-items: center;
   margin: 0;
+  line-height: 0;
+
+  @media screen and (max-width: 700px){
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 2rem;
+    max-height: 0;
+    transition: max-height 0.25s;
+    overflow: hidden;
+  }
 
   li {
     display: flex;
@@ -193,6 +318,8 @@ ul {
     text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
     transition: all 0.5s;
     transition-timing-function: cubic-bezier(0.29, -0.69, 0.49, 1.46);
+    line-height: normal;
+    overflow: visible;
 
     @media screen and (max-width: 1700px) {
       font-size: 2rem;
@@ -207,12 +334,22 @@ ul {
     }
 
     @media screen and (max-width: 700px) {
-      /* Change to hamburger menu */
-      display: none;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transition: transform 0.5s, box-shadow 0.5s, opacity 0.15s;
     }
     
     &.slash {
       cursor: default;
+
+      @media screen and (max-width: 700px){
+        opacity: 0;
+        pointer-events: none;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
     }
 
     a, a:link, a:visited, a:active, a:focus {
@@ -233,9 +370,17 @@ ul {
       animation-name: fluorescentOn;
       animation-duration: 2s;
 
+      @media screen and (max-width: 700px){ {
+        animation-duration: 1.5s;
+      }
+
       a, a:link, a:visited, a:active, a:focus {
         animation-name: fluorescentOn;
         animation-duration: 2s;
+
+        @media screen and (max-width: 700px){
+          animation-duration: 1.5s;
+        }
       }
     }
 

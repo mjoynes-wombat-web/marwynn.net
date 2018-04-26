@@ -73,6 +73,8 @@ class UnstyledMenu extends React.Component {
   }
 
   selectPage() {
+    const bgGradient = document.querySelector('.background-gradient');
+    bgGradient.classList.remove('turnOff');
     this.setState({ isOpen: false });
   }
 
@@ -233,18 +235,18 @@ width: 100%;
 @media screen and (max-width: 700px){
   top: 0;
   right: 0;
-  width: auto;
-  height: auto;
+  height: 100vh;
   z-index: 100;
   align-items: flex-end;
   flex-direction: column;
   display: flex;
-  width: 100vw;
   background: transparent;
   transition: background 2s;
+  pointer-events: none;
 
     &.is-open {
       background: linear-gradient(to left, ${colors.navy(0)} 8%, ${colors.navy(0.75)} 35%);
+      pointer-events: initial;
 
       ul {
       max-height: 20rem;

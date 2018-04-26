@@ -56,8 +56,10 @@ h1 {
   }
 }
 
-main .page-content h1:first-child {
+main .page-content > h1:first-child {
   margin-top:0;
+  padding-right: 2.25rem;
+  box-sizing: border-box;
 }
 
 h2 {

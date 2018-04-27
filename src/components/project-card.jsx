@@ -114,8 +114,9 @@ const ProjectCard = styled(UnstyledProjectCard)`
       }
 
       @media screen and (max-width: 700px) {
-        min-height: 46px;
+        min-height: initial;
         font-size: 1.25rem;
+        margin-top: 0.5rem;
       }
     }
 

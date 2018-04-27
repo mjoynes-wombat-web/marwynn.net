@@ -25,8 +25,8 @@
       "path---who-am-i-a0e39f21c11f6a62c5ab.js.map"
     ],
     "commons": [
-      "commons-bc94b655fb16481be7bf.js",
-      "commons-bc94b655fb16481be7bf.js.map"
+      "commons-43d24fc7b948b4659304.js",
+      "commons-43d24fc7b948b4659304.js.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
@@ -36,13 +36,17 @@
       "component---src-pages-404-jsx-4503918ea3a16cfcdb75.js",
       "component---src-pages-404-jsx-4503918ea3a16cfcdb75.js.map"
     ],
+    "component---src-pages-my-work-index-jsx": [
+      "component---src-pages-my-work-index-jsx-1b8ad94868febe7ff8a2.js",
+      "component---src-pages-my-work-index-jsx-1b8ad94868febe7ff8a2.js.map"
+    ],
     "component---src-pages-index-jsx": [
-      "component---src-pages-index-jsx-940fa2cb3594d2dac39c.js",
-      "component---src-pages-index-jsx-940fa2cb3594d2dac39c.js.map"
+      "component---src-pages-index-jsx-3206ef4a532801fc9a8b.js",
+      "component---src-pages-index-jsx-3206ef4a532801fc9a8b.js.map"
     ],
     "app": [
-      "app-655cf4a38a8b31420191.js",
-      "app-655cf4a38a8b31420191.js.map"
+      "app-d0b38e0b334de1d42e94.js",
+      "app-d0b38e0b334de1d42e94.js.map"
     ],
     "path---my-work": [
       "path---my-work-a0e39f21c11f6a62c5ab.js",
@@ -52,17 +56,13 @@
       "component---src-pages-coding-with-kids-jsx-a8102a49d20608fb2637.js",
       "component---src-pages-coding-with-kids-jsx-a8102a49d20608fb2637.js.map"
     ],
-    "component---src-pages-my-work-jsx": [
-      "component---src-pages-my-work-jsx-161c2e722ebd9a9ff96e.js",
-      "component---src-pages-my-work-jsx-161c2e722ebd9a9ff96e.js.map"
-    ],
     "path---404": [
       "path---404-a0e39f21c11f6a62c5ab.js",
       "path---404-a0e39f21c11f6a62c5ab.js.map"
     ],
     "component---src-pages-make-contact-jsx": [
-      "component---src-pages-make-contact-jsx-fc0f74e8b6618204f3aa.js",
-      "component---src-pages-make-contact-jsx-fc0f74e8b6618204f3aa.js.map"
+      "component---src-pages-make-contact-jsx-b05affe5639720e51c96.js",
+      "component---src-pages-make-contact-jsx-b05affe5639720e51c96.js.map"
     ],
     "path---coding-with-kids": [
       "path---coding-with-kids-a0e39f21c11f6a62c5ab.js",

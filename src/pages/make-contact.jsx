@@ -47,7 +47,7 @@ const MakeContact = styled(UnstyledMakeContact)`
 
     .make-contact-text {
       flex: 1 1 35rem;
-      max-width: 45rem;
+      /* max-width: 45rem;
 
       @media screen and (max-width: 1700px) {
           max-width: 35rem;
@@ -59,7 +59,7 @@ const MakeContact = styled(UnstyledMakeContact)`
 
       @media screen and (min-width: 1216px) {
           margin-right: 2rem;
-      }
+      } */
 
       > p:first-child {
         margin-top: 0;

@@ -8,6 +8,14 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/markdown`,
+    //     name: 'markdown-pages',
+    //   },
+    // },
+    // 'gatsby-transformer-remark',
   ],
   pathPrefix: '/simeonsmith.me',
 };

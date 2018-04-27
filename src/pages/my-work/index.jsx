@@ -21,9 +21,8 @@ const UnstyledMyWork = ({ title, className }) => (
         visuals create easy to read and intriguing work.
       </p>
       <section className="projects">
-        {Object.entries(projects).map(project => (
-          <ProjectCard title={project[0]} text={project[1].text} imgs={project[1].imgs} />
-        ))}
+        {Object.entries(projects).map(project =>
+          <ProjectCard key={`project${project[1].id}`} projectId={project[1].id} title={project[0]} text={project[1].text} imgs={project[1].imgs} />)}
       </section>
     </div>
   </main>

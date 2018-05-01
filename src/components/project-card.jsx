@@ -116,6 +116,7 @@ const ImgButtons = styled(UnstyledImgButtons)`
     appearance: none;
     outline: none;
     border: none;
+    z-index: 10;
 
     .fa-arrow-circle-left, .fa-arrow-circle-right {
       color: transparent;
@@ -124,11 +125,6 @@ const ImgButtons = styled(UnstyledImgButtons)`
       height: 24px;
       transition: all 0.25s;
       cursor: pointer;
-
-      :hover {
-        color: ${colors.spring()};
-        transform: scale(1.125);
-      }
     }
 
     :disabled {
@@ -366,16 +362,25 @@ const ProjectCard = styled(UnstyledProjectCard)`
 
     &:hover {
       button {
-        z-index: 10;
         :disabled {
           .fa-arrow-circle-left, .fa-arrow-circle-right {
             color: ${colors.navy(0.25)};
             filter: drop-shadow(0 0 0.125rem ${colors.navy(0.75)});
+
+            &:hover {
+              color: ${colors.navy(0.25)};
+              transform: none;
+            }
           }
         }
         .fa-arrow-circle-left, .fa-arrow-circle-right {
           color: ${colors.spring(0.75)};
           filter: drop-shadow(0 0 0.125rem ${colors.navy(0.75)});
+
+          &:hover {
+            color: ${colors.spring()};
+            transform: scale(1.125);
+          }
         }
       }
     }

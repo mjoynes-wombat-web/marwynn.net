@@ -42,20 +42,6 @@ const MyWork = styled(UnstyledMyWork)`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    /* .project-card-wrapper {
-      flex: 0 1 calc(350px + 2rem);
-      display: flex;
-      justify-content: center; */
-
-      /* @media screen and (max-width: 1200px) {
-        flex-basis: 50%;
-      } */
-
-      /* @media screen and (max-width: 700px) {
-        flex-basis: 100%;
-      }
-    } */
   }
 `;
 

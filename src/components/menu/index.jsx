@@ -247,6 +247,7 @@ width: 100%;
     &.is-open {
       background: linear-gradient(to left, ${colors.navy(0)} 8%, ${colors.navy(0.75)} 35%);
       pointer-events: initial;
+      position: fixed;
 
       ul {
       max-height: 20rem;

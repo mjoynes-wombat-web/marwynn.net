@@ -15,8 +15,8 @@ const UnstyledMyWork = ({ title, className }) => (
     <div className="page-content">
       <h1>My Work</h1>
       <p>
-        I have been a graphic designer for 10 years and a
-        web designer for 3. My clean design and stunning
+        I have been a graphic designer for ten years and a
+        web designer for three. My clean design and stunning
         visuals create easy to read and intriguing work.
       </p>
       <section className="projects">

@@ -19,17 +19,17 @@ body {
   background: $navy;
   color: $carolina;
   font-family: 'Open Sans', 'Arial', 'sans-serif';
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 300;
 
   @media screen and (max-width: 1700px) {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
   @media screen and (max-width: 925px) {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 }
 
@@ -164,21 +164,21 @@ h3 {
 
 p {
   margin: 1.125rem 0;
-  line-height: 1.375rem;
+  line-height: 1.5rem;
 
 
   @media screen and (max-width: 1700px) {
     margin: 1rem 0;
-    line-height: 1.25rem;
+    line-height: 1.375rem;
   }
 
   @media screen and (max-width: 925px) {
     margin: 0.875rem 0;
-    line-height: 1.125rem;
+    line-height: 1.25rem;
   }
 
   @media screen and (max-width: 700px) {
-    line-height: 1.0625rem;
+    line-height: 1.125rem;
   }
 }
 

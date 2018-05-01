@@ -17,37 +17,49 @@ function scrollContent(e) {
   main.scrollTop += e.deltaY;
 }
 
-window.addEventListener('wheel', scrollContent);
+class Layout extends React.Component {
+  constructor(props) {
+    super(props);
 
-const Layout = ({ children, data }) => (
-  <div className="wrapper">
-    <div className="background-wrapper">
-      <img
-        id="background"
-        srcSet={`${Background720} 675w,
-          ${Background768} 720w ,
-          ${Background1080} 1012w,
-          ${BackgroundRetina} 1687w`}
-        size="(max-height: 768px) 675px,
-          (max-height: 900px) 720px,
-          (max-height: 1200px) 1012px,
-          1687px"
-        src={Background1080}
-        alt="Blue Geode Background"
-      />
-    </div>
-    <div className="background-gradient" />
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: data.site.siteMetadata.description },
-        { name: 'keywords', content: data.site.siteMetadata.keywords },
-      ]}
-    />
-    {children()}
-    <Menu />
-  </div>
-);
+    this.componentDidMount = this.componentDidMount.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('wheel', scrollContent);
+  }
+
+  render() {
+    return (
+      <div className="wrapper">
+        <div className="background-wrapper">
+          <img
+            id="background"
+            srcSet={`${Background720} 675w,
+              ${Background768} 720w ,
+              ${Background1080} 1012w,
+              ${BackgroundRetina} 1687w`}
+            size="(max-height: 768px) 675px,
+              (max-height: 900px) 720px,
+              (max-height: 1200px) 1012px,
+              1687px"
+            src={Background1080}
+            alt="Blue Geode Background"
+          />
+        </div>
+        <div className="background-gradient" />
+        <Helmet
+          title={this.props.data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: this.props.data.site.siteMetadata.description },
+            { name: 'keywords', content: this.props.data.site.siteMetadata.keywords },
+          ]}
+        />
+        {this.props.children()}
+        <Menu />
+      </div>
+    );
+  }
+}
 
 Layout.propTypes = {
   children: PropTypes.func,

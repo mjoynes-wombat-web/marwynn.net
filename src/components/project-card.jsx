@@ -214,7 +214,7 @@ class UnstyledProjectCard extends React.Component {
     const swipedImg = e.currentTarget;
     const movement = e.changedTouches[0].clientX - this.state.lastSwipedX;
 
-    if (Math.abs(movement) > 50) {
+    if (Math.abs(movement) > 75) {
       const currentImgKey = e.currentTarget.dataset.key;
       const nextImgId = movement < 0 ? this.state.activeImg - 1 : this.state.activeImg + 1;
       const beginningKey = currentImgKey.substr(0, currentImgKey.length - 1);
@@ -243,11 +243,6 @@ class UnstyledProjectCard extends React.Component {
     if (this.state.lastSwipedX) {
       const movement = e.changedTouches[0].clientX - this.state.lastSwipedX;
 
-      if (Math.abs(movement) < 50) {
-        swipedImg.style.transform = null;
-        return null;
-      }
-
       let { activeImg } = this.state;
 
       if (activeImg > 0 && movement < 0) {
@@ -262,6 +257,14 @@ class UnstyledProjectCard extends React.Component {
       const newActiveImg = document.querySelector(`[data-key=${swipedImg.dataset.key.substr(0, swipedImg.dataset.key.length - 1)}${activeImg}]`);
       newActiveImg.style.opacity = null;
       newActiveImg.style.zIndex = null;
+
+      if (Math.abs(movement) < 75) {
+        swipedImg.style.transform = null;
+        newActiveImg.style.opacity = null;
+        newActiveImg.style.zIndex = null;
+        return null;
+      }
+
       this.setState({ lastSwipedX: null, activeImg });
     }
     swipedImg.style.transform = null;

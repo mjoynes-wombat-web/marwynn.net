@@ -14,7 +14,6 @@ const UnstyledMyWork = ({ title, className }) => (
     </Helmet>
     <div className="page-content">
       <h1>My Work</h1>
-      <h2 className="sub-heading">UNDER CONSTRUCTION</h2>
       <p>
         I have been a graphic designer for 10 years and a
         web designer for 3. My clean design and stunning

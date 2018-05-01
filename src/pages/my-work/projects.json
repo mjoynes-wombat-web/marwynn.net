@@ -85,9 +85,9 @@
       }
     ]
   },
-  "Exchange Life Poster" : {
+  "Exchanged Life Poster" : {
     "id": 7,
-    "text": "Poster for the Exchange Life Conference.",
+    "text": "Poster for the Exchanged Life Conference.",
     "imgs": [
       {
         "id": 0,
@@ -247,7 +247,7 @@
   },
   "Ourea Airlines" : {
     "id": 21,
-    "text" : "Logo and website symbols for Ourea Airlines.",
+    "text" : "Logo and website symbols for Ourea Airlines. Completed for school.",
     "imgs" : [
       {
         "id": 0,
@@ -275,7 +275,7 @@
   },
   "Look with Your Eyes Shirt" : {
     "id": 23,
-    "text" : "\"Look with your eyes not with your hands\" Pregnancy T-Shirt ",
+    "text" : "\"Look with your eyes not with your hands\" pregnancy t-shirt ",
     "imgs" : [
       {
         "id": 0,
@@ -295,7 +295,7 @@
   },
   "Quality Roofing T-Shirt" : {
     "id": 25,
-    "text": "T-Shirt deisgn for Quality Roofing.",
+    "text": "T-Shirt design for Quality Roofing.",
     "imgs" : [
       {
         "id": 0,
@@ -305,7 +305,7 @@
   },
   "Red Hill Logo" : {
     "id": 26,
-    "text" : "Logo for Red Hill band.",
+    "text" : "Digital creation of logo for Red Hill band.",
     "imgs" : [
       {
         "id": 0,

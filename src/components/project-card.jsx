@@ -359,7 +359,6 @@ const ProjectCard = styled(UnstyledProjectCard)`
   .image-wrapper {
     flex: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1.375rem;
@@ -382,7 +381,7 @@ const ProjectCard = styled(UnstyledProjectCard)`
     }
 
     img {
-      max-width: calc(100% - 2rem);
+      max-width: calc(100% - 2.75rem);
       border-radius: 0.25rem;
       position: absolute;
       opacity: 0.35;

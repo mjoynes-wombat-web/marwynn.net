@@ -25,7 +25,7 @@ const UnstyledIndexPage = ({ className, title }) => (
         enhance messages and guide users to the content they seek.
       </p>
       <p>
-        People are are complex and surprising. Putting them in boxes does everyone a disservice.
+        People are complex and surprising. Putting them in boxes does everyone a disservice.
         Viewing individuals complexly helps me come up with unique and effective solutions for
         each challenge.
       </p>

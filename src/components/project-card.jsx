@@ -6,7 +6,6 @@ import faArrowCircleRight from '@fortawesome/fontawesome-free-solid/faArrowCircl
 import faArrowCircleLeft from '@fortawesome/fontawesome-free-solid/faArrowCircleLeft';
 
 import colors from '../consts/colors';
-import { ENGINE_METHOD_DIGESTS } from 'constants';
 
 const UnstyledImgBullets = ({
   imgs,
@@ -57,9 +56,16 @@ const ImgBullets = styled(UnstyledImgBullets)`
     border: none;
     padding: 0;
     outline: none;
+    cursor: pointer;
+    transition: all 0.25s;
 
     &.active {
       color: ${colors.lilacBright(1)};
+    }
+
+    :hover {
+      transform: scale(1.25);
+      color: ${colors.spring()}
     }
   }
 `;
@@ -116,7 +122,7 @@ const ImgButtons = styled(UnstyledImgButtons)`
       filter: none;
       width: 25px;
       height: 24px;
-      transition: all 0.5s;
+      transition: all 0.25s;
       cursor: pointer;
 
       :hover {
@@ -157,6 +163,31 @@ class UnstyledProjectCard extends React.Component {
     this.swipeImgStart = this.swipeImgStart.bind(this);
     this.swipeImgMove = this.swipeImgMove.bind(this);
     this.swipeImgEnd = this.swipeImgEnd.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.resizeImgHeight = this.resizeImgHeight.bind(this);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.resizeImgHeight);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeImgHeight);
+  }
+
+  resizeImgHeight() {
+    const project = document.querySelector(`[data-key=project${this.props.projectId}]`);
+    const maxImgHeight = this.state.imgs.reduce((prevImgHeight, img) => {
+      const currentImgHeight = document.querySelector(`[data-key=project${this.props.projectId}img${img.id}]`).height;
+
+      return prevImgHeight > currentImgHeight ? prevImgHeight : currentImgHeight;
+    }, 0);
+
+    console.log(maxImgHeight);
+    const projectImgWrap = project.querySelector('.image-wrapper');
+    projectImgWrap.style.height = `${maxImgHeight}px`;
+    console.log('resize-height');
   }
 
   changeImg(e) {
@@ -176,10 +207,14 @@ class UnstyledProjectCard extends React.Component {
   }
 
   swipeImgStart(e) {
-    this.setState({ lastSwipedX: e.changedTouches[0].clientX });
+    if (this.state.imgs.length <= 1) return null;
+
+    return this.setState({ lastSwipedX: e.changedTouches[0].clientX });
   }
 
   swipeImgMove(e) {
+    if (this.state.imgs.length <= 1) return null;
+
     const swipedImg = e.currentTarget;
     const movement = e.changedTouches[0].clientX - this.state.lastSwipedX;
 
@@ -202,9 +237,12 @@ class UnstyledProjectCard extends React.Component {
       nextImg.style.zIndex = '1';
     }
     swipedImg.style.transform = `translate(${movement}px, 0)`;
+    return null;
   }
 
   swipeImgEnd(e) {
+    if (this.state.imgs.length <= 1) return null;
+
     const swipedImg = e.currentTarget;
     if (this.state.lastSwipedX) {
       const movement = e.changedTouches[0].clientX - this.state.lastSwipedX;
@@ -236,7 +274,7 @@ class UnstyledProjectCard extends React.Component {
 
   render() {
     return (
-      <article className={`project-card ${this.props.className}`}>
+      <article className={`project-card ${this.props.className}`} data-key={`project${this.props.projectId}`}>
         <div
           className="image-wrapper"
         >
@@ -257,6 +295,7 @@ class UnstyledProjectCard extends React.Component {
               onTouchStart={this.swipeImgStart}
               onTouchMove={this.swipeImgMove}
               onTouchEnd={this.swipeImgEnd}
+              onLoad={this.resizeImgHeight}
             />
           ))}
           {this.state.imgs.length > 1
@@ -318,14 +357,12 @@ const ProjectCard = styled(UnstyledProjectCard)`
   }
 
   .image-wrapper {
-    width: 100%;
-    box-sizing: border-box;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem 1rem 1.25rem 1rem;
+    padding: 1.375rem;
     position: relative;
 
     &:hover {
@@ -349,16 +386,18 @@ const ProjectCard = styled(UnstyledProjectCard)`
       border-radius: 0.25rem;
       position: absolute;
       opacity: 0.35;
-      transform: translate(0.25rem, 0.25rem);
+      transform: translate(0.375rem, 0.375rem);
       transition: transform 0.25s, opacity 0.25s;
 
       &.active {
         max-width: 100%;
         z-index: 2;
         opacity: 1;
+        top: 0;
         margin: 0;
         position: relative;
         transform: none;
+        border: 1px solid ${colors.lilacBright()};
       }
     }
   }

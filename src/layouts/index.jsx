@@ -12,7 +12,6 @@ import BackgroundRetina from '../assets/img/background_retina.jpg';
 import './index.scss';
 
 function scrollContent(e) {
-  e.preventDefault();
   const main = document.querySelector('main');
   main.scrollTop += e.deltaY;
 }

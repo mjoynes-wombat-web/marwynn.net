@@ -1,150 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faArrowCircleRight from '@fortawesome/fontawesome-free-solid/faArrowCircleRight';
-import faArrowCircleLeft from '@fortawesome/fontawesome-free-solid/faArrowCircleLeft';
 
 import colors from '../../consts/colors';
 
-const UnstyledImgBullets = ({
-  imgs,
-  activeImg,
-  projectId,
-  className,
-  onClick,
-}) => (
-  <nav className={className} >
-    {imgs.map(img => (
-      <button
-        className={activeImg === img.id ? 'active' : null}
-        key={`project${projectId}img${img.id}bullet`}
-        onClick={e => onClick(e, img.id)}
-      >
-        •
-      </button>
-    ))}
-  </nav>
-);
-
-UnstyledImgBullets.propTypes = {
-  activeImg: PropTypes.number.isRequired,
-  projectId: PropTypes.number.isRequired,
-  imgs: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    url: PropTypes.string,
-  })).isRequired,
-  className: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-};
-
-UnstyledImgBullets.defaultProps = {
-  className: '',
-};
-
-const ImgBullets = styled(UnstyledImgBullets)`
-  position: absolute;
-  bottom: -0.125rem;
-  z-index: 1;
-
-  button {
-    color: ${colors.lilacBright(0.5)};
-    transition: all 0.5s;
-    font-size: 1.5rem;
-    line-height: 0;
-    font-family: 'Josefin Slab', 'Arial', sans-serif;
-    border: none;
-    padding: 0;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.25s;
-
-    &.active {
-      color: ${colors.lilacBright(1)};
-    }
-
-    :hover {
-      transform: scale(1.25);
-      color: ${colors.spring()}
-    }
-  }
-`;
-
-const UnstyledImgButtons = ({
-  onClick,
-  activeImg,
-  imgsLength,
-  className,
-}) => (
-  <div className={`img-buttons ${className}`}>
-    <button
-      className="left"
-      data-direction="left"
-      onClick={onClick}
-      disabled={activeImg === 0}
-    >
-      <FontAwesomeIcon icon={faArrowCircleLeft} />
-    </button>
-    <button
-      className="right"
-      data-direction="right"
-      onClick={onClick}
-      disabled={activeImg + 1 === imgsLength}
-    >
-      <FontAwesomeIcon icon={faArrowCircleRight} />
-    </button>
-  </div>
-);
-
-UnstyledImgButtons.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  activeImg: PropTypes.number.isRequired,
-  imgsLength: PropTypes.number.isRequired,
-  className: PropTypes.string,
-};
-
-UnstyledImgButtons.defaultProps = {
-  className: '',
-};
-
-const ImgButtons = styled(UnstyledImgButtons)`
-  button {
-    position: absolute;
-    top: calc(50% - 8px);
-    overflow: visible;
-    background: transparent;
-    appearance: none;
-    outline: none;
-    border: none;
-    z-index: 10;
-
-    .fa-arrow-circle-left, .fa-arrow-circle-right {
-      color: transparent;
-      filter: none;
-      width: 25px;
-      height: 24px;
-      transition: all 0.25s;
-      cursor: pointer;
-    }
-
-    :disabled {
-      .fa-arrow-circle-left, .fa-arrow-circle-right {
-        :hover {
-          transform: none;
-          cursor: not-allowed;
-        }
-      }
-    }
-  }
-
-  button.left {
-    left: 0.625rem;
-  }
-
-  button.right {
-    right: 0.625rem;
-  }
-`;
+import ImgBullets from './img-bullets';
+import ImgButtons from './img-buttons';
 
 class UnstyledProjectCard extends React.Component {
   constructor(props) {
@@ -180,10 +41,8 @@ class UnstyledProjectCard extends React.Component {
       return prevImgHeight > currentImgHeight ? prevImgHeight : currentImgHeight;
     }, 0);
 
-    console.log(maxImgHeight);
     const projectImgWrap = project.querySelector('.image-wrapper');
     projectImgWrap.style.height = `${maxImgHeight}px`;
-    console.log('resize-height');
   }
 
   changeImg(e) {

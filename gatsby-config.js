@@ -3,9 +3,9 @@ const generateBabelConfig = require('gatsby/dist/utils/babel-config');
 exports.modifyWebpackConfig = ({ config, stage }) => {
   const program = {
     directory: __dirname,
-    browserslist: ['> 0.5%', 'last 2 versions', 'IE >= 9'],
+    browserslist: ['last 2 versions', 'IE >= 9'],
   };
-
+  console.log('this ran');
   return generateBabelConfig(program, stage).then((babelConfig) => {
     config.removeLoader('js').loader('js', {
       test: /\.jsx?$/,

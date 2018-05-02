@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 const NotFoundPage = ({ title }) => (
   <main>
     <Helmet>
-      <title>{title} - Home</title>
+      <title>Page Not Found - {title}</title>
     </Helmet>
     <div className="page-content">
       <h1>Page Not Found</h1>

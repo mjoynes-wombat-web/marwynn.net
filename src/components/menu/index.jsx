@@ -41,7 +41,7 @@ function animateLoad(siteLoad) {
   const durations = [];
 
   menuItems.forEach((menuItem) => {
-    const duration = Math.random() * (siteLoad ? 1000 : 500);
+    const duration = Math.random() * (siteLoad ? 1000 : 400);
     durations.push(duration);
     animateMenuItem(menuItem, duration);
   });
@@ -170,6 +170,34 @@ const Menu = styled(UnstyledMenu)`
   }
   52% {
     text-shadow: 0 0 0.125rem ${colors.lilacDeep(0.65)};
+    color: ${colors.lilacBright(0.25)};
+  }
+  100% {
+    text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
+    transition: all 0.5s;
+  }
+}
+
+@keyframes mobileFluoOn {
+  0%  {
+    text-shadow: 0 0 0.125rem ${colors.lilacDeep(0.65)};
+    color: ${colors.lilacBright(0.25)};
+    transition: none;
+  }
+  38% {
+    text-shadow: 0 0 0.125rem ${colors.lilacDeep(0.85)};
+    color: ${colors.lilacBright(0.25)};
+  }
+  45% {
+    text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
+    color: ${colors.lilacBright()};
+  }
+  50% {
+    text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
+    color: ${colors.lilacBright()};
+  }
+  52% {
+    text-shadow: 0 0 0.125rem ${colors.lilacDeep(0.85)};
     color: ${colors.lilacBright(0.25)};
   }
   100% {
@@ -379,7 +407,8 @@ ul {
       animation-duration: 2s;
 
       @media screen and (max-width: 700px) {
-        animation-duration: 1.5s;
+        animation-name: mobileFluoOn;
+        animation-duration: 0.5s;
       }
 
       a, a:link, a:visited, a:active, a:focus {
@@ -387,7 +416,8 @@ ul {
         animation-duration: 2s;
 
         @media screen and (max-width: 700px){
-          animation-duration: 1.5s;
+          animation-name: mobileFluoOn;
+          animation-duration: 0.5s;
         }
       }
     }

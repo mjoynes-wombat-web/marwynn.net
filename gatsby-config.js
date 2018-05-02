@@ -3,7 +3,7 @@ const generateBabelConfig = require('gatsby/dist/utils/babel-config');
 exports.modifyWebpackConfig = ({ config, stage }) => {
   const program = {
     directory: __dirname,
-    browserslist: ['> 1%', 'last 2 versions', 'IE >= 9'],
+    browserslist: ['> 0.5%', 'last 2 versions', 'IE >= 9'],
   };
 
   return generateBabelConfig(program, stage).then((babelConfig) => {

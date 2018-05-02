@@ -35,7 +35,7 @@ class UnstyledBackToTop extends React.Component {
   }
 
   backToTop(e, duration = 600) {
-    const   scrollHeight = window.scrollY;
+    const scrollHeight = window.scrollY;
     const scrollStep = Math.PI / (duration / 15);
     const cosParameter = scrollHeight / 2;
     let scrollCount = 0;
@@ -81,7 +81,7 @@ const BackToTop = styled(UnstyledBackToTop)`
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 0.5rem 0.625rem;
+  padding: 0.75rem 0.875rem;
   border-radius: 0.5rem;
   background-color: ${colors.lilacBright(0.75)};
   box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.65)};

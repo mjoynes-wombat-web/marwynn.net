@@ -1,24 +1,3 @@
-const generateBabelConfig = require('gatsby/dist/utils/babel-config');
-
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  const program = {
-    directory: __dirname,
-    browserslist: ['last 2 versions', 'IE >= 9'],
-  };
-  console.log('this ran');
-  return generateBabelConfig(program, stage).then((babelConfig) => {
-    config.removeLoader('js').loader('js', {
-      test: /\.jsx?$/,
-      exclude: modulePath => (
-        /node_modules/.test(modulePath) &&
-        !/node_modules\/(swiper|dom7)/.test(modulePath)
-      ),
-      loader: 'babel',
-      query: babelConfig,
-    });
-  });
-};
-
 module.exports = {
   siteMetadata: {
     title: 'SimeonSmith.me',
@@ -38,5 +17,4 @@ module.exports = {
     // },
     // 'gatsby-transformer-remark',
   ],
-  pathPrefix: '/simeonsmith.me',
 };

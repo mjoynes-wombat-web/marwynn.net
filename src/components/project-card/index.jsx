@@ -5,7 +5,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faArrowCircleRight from '@fortawesome/fontawesome-free-solid/faArrowCircleRight';
 import faArrowCircleLeft from '@fortawesome/fontawesome-free-solid/faArrowCircleLeft';
 
-import colors from '../consts/colors';
+import colors from '../../consts/colors';
 
 const UnstyledImgBullets = ({
   imgs,

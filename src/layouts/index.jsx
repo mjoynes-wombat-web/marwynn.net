@@ -46,6 +46,11 @@ class Layout extends React.Component {
           />
         </div>
         <div className="background-gradient" />
+        <p className="bg-photo-credit">
+          <a href="https://www.flickr.com/photos/136594255@N06/23696957286/in/photolist-RjVgij-49MV9f-8fh3H9-3EjPyR-zDWxv-8uEN47-bq4KFB-9n8Ynd-6D2qUY-8Lypuv-8Fm1wP-49HJ3T-8GLDMJ-49MDjm-49ME4A-C726P5-pNjEgX-8fhH1A-8AwJi7-p5FtS3">
+            Background photo by Lisa Ann Yount.
+          </a>
+        </p>
         <Helmet
           title={this.props.data.site.siteMetadata.title}
           meta={[

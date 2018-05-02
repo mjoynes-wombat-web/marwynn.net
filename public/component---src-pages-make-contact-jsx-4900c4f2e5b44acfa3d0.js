@@ -1,2 +1,0 @@
-webpackJsonp([0xee5f603918c2],{204:function(e,t,n){"use strict";function l(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var u=n(2),a=l(u),r=function(){return a.default.createElement("div",null,a.default.createElement("h1",null,"Make Contact"),a.default.createElement("p",null,"Interested in hiring me or have questions about my work? Please feel free to contact me."))};t.default=r,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-make-contact-jsx-4900c4f2e5b44acfa3d0.js.map

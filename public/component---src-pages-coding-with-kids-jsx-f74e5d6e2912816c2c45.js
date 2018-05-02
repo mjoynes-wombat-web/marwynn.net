@@ -1,2 +1,0 @@
-webpackJsonp([0xdcc1b79b835e],{202:function(e,t,l){"use strict";function u(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var n=l(2),o=u(n),a=function(){return o.default.createElement("div",null,o.default.createElement("h1",null,"Coding With Kids"),o.default.createElement("p",null,"Welcome to my blog about coding fun little web apps for my kids to play with."))};t.default=a,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-coding-with-kids-jsx-f74e5d6e2912816c2c45.js.map

@@ -259,6 +259,11 @@ box-sizing: border-box;
 padding: 2rem 8%;
 position: absolute;
 width: 100%;
+pointer-events: none;
+
+> * {
+  pointer-events: all;
+}
 
 @media screen and (max-width: 700px){
   top: 0;

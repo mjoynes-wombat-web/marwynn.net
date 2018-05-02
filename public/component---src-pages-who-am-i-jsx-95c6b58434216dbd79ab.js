@@ -1,2 +1,0 @@
-webpackJsonp([86641246890425],{206:function(e,t,l){"use strict";function u(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var n=l(2),a=u(n),r=function(){return a.default.createElement("div",null,a.default.createElement("h1",null,"Who Am I?"),a.default.createElement("p",null,"I am Simeon Smith."))};t.default=r,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-who-am-i-jsx-95c6b58434216dbd79ab.js.map

@@ -109,7 +109,6 @@ class UnstyledProjectCard extends React.Component {
       } else if (movement > 0) {
         activeImg = 0;
       }
-      const newActiveImg = document.querySelector(`[data-key=${swipedImg.dataset.key.substr(0, swipedImg.dataset.key.length - 1)}${activeImg}]`);
 
       if (Math.abs(movement) < 75) {
         swipedImg.style.transform = null;
@@ -245,7 +244,7 @@ const ProjectCard = styled(UnstyledProjectCard)`
       position: absolute;
       opacity: 0.35;
       transform: translate(0.375rem, 0.375rem);
-      transition: transform 0.25s, opacity 0.25s;
+      transition: transform 0.25s, opacity 0.25s, box-shadow 0.25s;
 
       &.active {
         max-width: 100%;
@@ -256,6 +255,7 @@ const ProjectCard = styled(UnstyledProjectCard)`
         position: relative;
         transform: none;
         border: 1px solid ${colors.lilacBright()};
+        box-shadow: 0 0 0.5rem ${colors.navy()};
       }
       &.next {
         opacity: 0.85;

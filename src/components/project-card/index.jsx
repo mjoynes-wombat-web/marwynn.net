@@ -7,6 +7,10 @@ import colors from '../../consts/colors';
 import ImgBullets from './img-bullets';
 import ImgButtons from './img-buttons';
 
+function test() {
+  console.log('test');
+}
+
 class UnstyledProjectCard extends React.Component {
   constructor(props) {
     super(props);
@@ -68,6 +72,7 @@ class UnstyledProjectCard extends React.Component {
   }
 
   swipeImgMove(e) {
+    console.log('this ran');
     if (this.state.imgs.length <= 1) return null;
 
     const swipedImg = e.currentTarget;
@@ -85,6 +90,7 @@ class UnstyledProjectCard extends React.Component {
     } else {
       this.setState({ nextImg: null });
     }
+    swipedImg.style.transition = 'none';
     swipedImg.style.transform = `translate(${movement}px, 0)`;
     return null;
   }
@@ -112,11 +118,13 @@ class UnstyledProjectCard extends React.Component {
 
       if (Math.abs(movement) < 75) {
         swipedImg.style.transform = null;
+        swipedImg.style.transition = null;
         return null;
       }
 
       this.setState({ lastSwipedX: null, activeImg });
     }
+    swipedImg.style.transition = null;
     swipedImg.style.transform = null;
     return null;
   }
@@ -245,6 +253,7 @@ const ProjectCard = styled(UnstyledProjectCard)`
       opacity: 0.35;
       transform: translate(0.375rem, 0.375rem);
       transition: transform 0.25s, opacity 0.25s, box-shadow 0.25s;
+      display: none;
 
       &.active {
         max-width: 100%;
@@ -256,6 +265,7 @@ const ProjectCard = styled(UnstyledProjectCard)`
         transform: none;
         border: 1px solid ${colors.lilacBright()};
         box-shadow: 0 0 0.5rem ${colors.navy()};
+        display: block;
       }
       &.next {
         opacity: 0.85;

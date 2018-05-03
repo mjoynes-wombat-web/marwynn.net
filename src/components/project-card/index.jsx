@@ -74,28 +74,24 @@ class UnstyledProjectCard extends React.Component {
     const movement = e.changedTouches[0].clientX - this.state.lastSwipedX;
 
     if (Math.abs(movement) > 75) {
-      const currentImgKey = e.currentTarget.dataset.key;
       const nextImgId = movement < 0 ? this.state.activeImg - 1 : this.state.activeImg + 1;
-      const beginningKey = currentImgKey.substr(0, currentImgKey.length - 1);
-      let nextImg;
-
-      console.log(`${nextImgId}`);
-
       if (nextImgId < 0) {
-        nextImg = document.querySelector(`[data-key=${beginningKey}${this.state.imgs.length - 1}]`);
+        this.setState({ nextImg: (this.state.imgs.length - 1) });
       } else if (nextImgId > this.state.imgs.length - 1) {
-        nextImg = document.querySelector(`[data-key=${beginningKey}0]`);
+        this.setState({ nextImg: 0 });
       } else {
-        nextImg = document.querySelector(`[data-key=${beginningKey}${nextImgId}]`);
+        this.setState({ nextImg: nextImgId });
       }
-      nextImg.style.opacity = '0.85';
-      nextImg.style.zIndex = '1';
+    } else {
+      this.setState({ nextImg: null });
     }
     swipedImg.style.transform = `translate(${movement}px, 0)`;
     return null;
   }
 
   swipeImgEnd(e) {
+    this.setState({ nextImg: null });
+
     if (this.state.imgs.length <= 1) return null;
 
     const swipedImg = e.currentTarget;
@@ -114,13 +110,9 @@ class UnstyledProjectCard extends React.Component {
         activeImg = 0;
       }
       const newActiveImg = document.querySelector(`[data-key=${swipedImg.dataset.key.substr(0, swipedImg.dataset.key.length - 1)}${activeImg}]`);
-      newActiveImg.style.opacity = null;
-      newActiveImg.style.zIndex = null;
 
       if (Math.abs(movement) < 75) {
         swipedImg.style.transform = null;
-        newActiveImg.style.opacity = null;
-        newActiveImg.style.zIndex = null;
         return null;
       }
 
@@ -147,7 +139,7 @@ class UnstyledProjectCard extends React.Component {
             <img
               data-key={`project${this.props.projectId}img${img.id}`}
               key={`project${this.props.projectId}img${img.id}`}
-              className={img.id === this.state.activeImg ? 'active' : ''}
+              className={`${img.id === this.state.activeImg ? 'active' : ''}${this.state.nextImg === img.id ? 'next' : ''}`}
               src={`https://res.cloudinary.com/design-bright/image/upload/c_limit,w_300,h_250/v1524792633/portfolio/${img.url}`}
               alt={this.props.title}
               onTouchStart={this.swipeImgStart}
@@ -264,6 +256,10 @@ const ProjectCard = styled(UnstyledProjectCard)`
         position: relative;
         transform: none;
         border: 1px solid ${colors.lilacBright()};
+      }
+      &.next {
+        opacity: 0.85;
+        z-index: 1;
       }
     }
   }

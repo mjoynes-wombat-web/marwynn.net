@@ -253,7 +253,6 @@ const ProjectCard = styled(UnstyledProjectCard)`
       opacity: 0.35;
       transform: translate(0.375rem, 0.375rem);
       transition: transform 0.25s, opacity 0.25s, box-shadow 0.25s;
-      display: none;
 
       &.active {
         max-width: 100%;

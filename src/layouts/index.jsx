@@ -61,6 +61,8 @@ class Layout extends React.Component {
           ]}
         >
           <link rel="icon" type="image/png" href={favicon} sizes="110x110" />
+          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+          <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300i|Josefin+Slab:600|Open+Sans:300" />
         </Helmet>
         {this.props.children()}
         <Menu />

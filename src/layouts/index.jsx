@@ -11,6 +11,8 @@ import BackgroundRetina from '../assets/img/background_retina.jpg';
 
 import './index.scss';
 
+import favicon from '../assets/img/favicon.png';
+
 function scrollContent(e) {
   const main = document.querySelector('main');
   main.scrollTop += e.deltaY;
@@ -57,7 +59,9 @@ class Layout extends React.Component {
             { name: 'description', content: this.props.data.site.siteMetadata.description },
             { name: 'keywords', content: this.props.data.site.siteMetadata.keywords },
           ]}
-        />
+        >
+          <link rel="icon" type="image/png" href={favicon} sizes="110x110" />
+        </Helmet>
         {this.props.children()}
         <Menu />
       </div>

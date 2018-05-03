@@ -27,6 +27,10 @@ UnstyledMenuButton.defaultProps = {
 };
 
 const MenuButton = styled(UnstyledMenuButton)`
+  &:active, &:focus, span:active, span:focus {
+    outline: none;
+    background-color: transparent;
+  }
 /*!
  * Hamburgers
  * @description Tasty CSS-animated hamburgers

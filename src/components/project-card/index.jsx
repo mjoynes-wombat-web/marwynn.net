@@ -290,6 +290,8 @@ const ProjectCard = styled(UnstyledProjectCard)`
       opacity: 0.35;
       transform: translate(0.375rem, 0.375rem);
       transition: transform 0.25s, opacity 0.25s, box-shadow 0.25s;
+      pointer-events: none;
+
 
       &.active {
         max-width: 100%;
@@ -302,6 +304,8 @@ const ProjectCard = styled(UnstyledProjectCard)`
         border: 1px solid ${colors.lilacBright()};
         box-shadow: 0 0 0.5rem ${colors.navy()};
         display: block;
+        pointer-events: all;
+
       }
       &.next {
         opacity: 0.85;

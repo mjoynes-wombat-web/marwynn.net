@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
+import throttle from 'lodash/throttle';
 
 import ProjectCard from '../../components/project-card';
 import BackToTop from '../../components/back-to-top';
@@ -12,41 +13,48 @@ class UnstyledMyWork extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgHeight: null,
+      projectsHeight: null,
       images: [],
     };
 
-    this.setImgHeight = this.setImgHeight.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.throttleResizeProjects = throttle(this.resizeProjects.bind(this), 16);
+    this.resizeProjects = this.resizeProjects.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.setImgHeight);
+    window.addEventListener('resize', this.throttleResizeProjects);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.setImgHeight);
+    window.removeEventListener('resize', this.throttleResizeProjects);
   }
 
-  setImgHeight() {
-    if (this.state.images.length === 0) {
-      const projectCards = Array.from(document.getElementsByClassName('project-card'));
+  resizeProjects() {
+    if (window.innerWidth <= 700) return null;
 
-      const images = projectCards.reduce((newImgs, cards) => {
-        newImgs.push(...Array.from(cards.getElementsByTagName('img')));
-        return newImgs;
-      }, []);
+    const images = (this.state.images.length > 0
+      ? this.state.images
+      : Array.from(document
+        .getElementsByClassName('project-card'))
+        .reduce(
+          (newImgs, cards) => {
+            newImgs.push(...Array
+              .from(cards.getElementsByTagName('img')));
+            return newImgs;
+          },
+          [],
+        )
+    );
 
-      this.setState({ images });
-    }
-    const imgHeight = this.state.images
+    const projectsHeight = images
       .reduce(
         (prevHeight, img) => (img.height > prevHeight ? img.height : prevHeight),
         0,
       );
 
-    this.setState({ imgHeight });
+    return this.setState({ projectsHeight, images });
   }
 
   render() {
@@ -66,7 +74,8 @@ class UnstyledMyWork extends React.Component {
           <section className="web projects">
             {Object.entries(projects.web).map(project =>
               (<ProjectCard
-                minImgHeight={this.state.imgHeight}
+                projectsHeight={this.state.projectsHeight}
+                resizeProjects={this.resizeProjects}
                 projectType="web"
                 key={`graphic${project[1].id}`}
                 projectId={project[1].id}
@@ -81,7 +90,8 @@ class UnstyledMyWork extends React.Component {
           <section className="graphic projects">
             {Object.entries(projects.graphic).map(project =>
               (<ProjectCard
-                minImgHeight={this.state.imgHeight}
+                projectsHeight={this.state.projectsHeight}
+                resizeProjects={this.resizeProjects}
                 projectType="graphic"
                 key={`graphic${project[1].id}`}
                 projectId={project[1].id}

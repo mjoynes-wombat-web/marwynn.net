@@ -193,7 +193,7 @@ class UnstyledProjectCard extends React.Component {
                 </p>
                 <h3>Made with:</h3>
                 <div className="logos">
-                  {this.props.techs.map(tech => <Logos type={tech} />)}
+                  {this.props.techs.map(tech => <Logos key={`${this.props.projectType}${this.props.projectId}tech${tech.id}`} type={tech.type} />)}
                 </div>
               </div>
             )
@@ -209,11 +209,14 @@ UnstyledProjectCard.propTypes = {
   text: PropTypes.string.isRequired,
   projectId: PropTypes.number.isRequired,
   projectType: PropTypes.string.isRequired,
-  links: PropTypes.arrayOf(PropTypes.shape({
+  links: PropTypes.shape({
     site: PropTypes.string,
     repo: PropTypes.string,
+  }),
+  techs: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
   })),
-  techs: PropTypes.arrayOf(PropTypes.string),
   imgs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     url: PropTypes.string,

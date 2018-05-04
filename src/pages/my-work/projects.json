@@ -18,11 +18,11 @@
         "repo": "https://github.com/ssmith-wombatweb/design-bright-client"
       },
       "techs": [
-        "express",
-        "mysql",
-        "node",
-        "react",
-        "redux"
+        { "id": 0, "type": "express" },
+        { "id": 1, "type": "mysql" },
+        { "id": 2, "type": "node" },
+        { "id": 3, "type": "react" },
+        { "id": 4, "type": "redux" }
       ]
     },
     "This Website" : {
@@ -38,9 +38,9 @@
         "repo": "https://github.com/ssmith-wombatweb/simeonsmith.me"
       },
       "techs": [
-        "gatsby",
-        "react",
-        "node"
+        { "id": 0, "type": "gatsby" },
+        { "id": 1, "type": "react" },
+        { "id": 2, "type": "node" }
       ]
     },
     "JavaScript 30 Challenge": {
@@ -56,7 +56,7 @@
         "repo": "https://github.com/ssmith-wombatweb/JavaScript30"
       },
       "techs": [
-        "javascript"
+        { "id": 0, "type": "javascript" }
       ]
     }
   },

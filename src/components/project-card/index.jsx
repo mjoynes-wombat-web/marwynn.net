@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import throttle from 'lodash/debounce';
 
 import colors from '../../consts/colors';
 
@@ -22,33 +23,38 @@ class UnstyledProjectCard extends React.Component {
     this.swipeImgMove = this.swipeImgMove.bind(this);
     this.swipeImgEnd = this.swipeImgEnd.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
-    this.resizeImgHeight = this.resizeImgHeight.bind(this);
+    this.resizeProject = this.resizeProject.bind(this);
+    this.throttleResizeProject = throttle(this.resizeProject.bind(this), 32);
     this.componentWillUnmount = this.componentWillUnmount.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.resizeImgHeight);
+    window.addEventListener('resize', this.throttleResizeProject);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.resizeImgHeight);
+    window.removeEventListener('resize', this.throttleResizeProject);
   }
 
-  resizeImgHeight() {
+  resizeProject(e) {
     const project = document.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}]`);
-    const maxImgHeight = this.state.imgs.reduce((prevImgHeight, img) => {
-      const currentImgHeight = project.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}img${img.id}]`).height;
-
-      return prevImgHeight > currentImgHeight ? prevImgHeight : currentImgHeight;
-    }, 0);
-
     const projectImgWrap = project.querySelector('.image-wrapper');
 
     if (window.innerWidth <= 700) {
+      const maxImgHeight = this.state.imgs.reduce((prevImgHeight, img) => {
+        const currentImgHeight = project.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}img${img.id}]`).height;
+
+        return prevImgHeight > currentImgHeight ? prevImgHeight : currentImgHeight;
+      }, 0);
+
       projectImgWrap.style.height = `${maxImgHeight}px`;
-    } else {
-      projectImgWrap.style.height = null;
+      return null;
+    } else if (e.type === 'load' && window.innerWidth > 700) {
+      this.props.resizeProjects();
     }
+
+    projectImgWrap.style.height = null;
+    return null;
   }
 
   changeImg(e) {
@@ -151,7 +157,7 @@ class UnstyledProjectCard extends React.Component {
               onTouchStart={this.swipeImgStart}
               onTouchMove={this.swipeImgMove}
               onTouchEnd={this.swipeImgEnd}
-              onLoad={this.resizeImgHeight}
+              onLoad={this.resizeProject}
             />
           ))}
           {this.state.imgs.length > 1
@@ -187,7 +193,7 @@ class UnstyledProjectCard extends React.Component {
                 </p>
                 <h3>Made with:</h3>
                 <div className="logos">
-                  {this.props.techs.map(tech => <Logos type={tech} />)}
+                  {this.props.techs.map(tech => <Logos key={`${this.props.projectType}${this.props.projectId}tech${tech.id}`} type={tech.type} />)}
                 </div>
               </div>
             )
@@ -203,16 +209,20 @@ UnstyledProjectCard.propTypes = {
   text: PropTypes.string.isRequired,
   projectId: PropTypes.number.isRequired,
   projectType: PropTypes.string.isRequired,
-  links: PropTypes.arrayOf(PropTypes.shape({
+  links: PropTypes.shape({
     site: PropTypes.string,
     repo: PropTypes.string,
+  }),
+  techs: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
   })),
-  techs: PropTypes.arrayOf(PropTypes.string),
   imgs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     url: PropTypes.string,
   })).isRequired,
   className: PropTypes.string,
+  resizeProjects: PropTypes.func.isRequired,
 };
 
 UnstyledProjectCard.defaultProps = {
@@ -252,7 +262,8 @@ const ProjectCard = styled(UnstyledProjectCard)`
     align-items: center;
     padding: 1.375rem;
     position: relative;
-    height: ${props => props.minImgHeight}px;
+    transition: height 0.25s;
+    height: ${props => props.projectsHeight || 250}px;
 
     @media screen and (max-width: 700px) {
       height: initial;

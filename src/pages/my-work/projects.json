@@ -42,6 +42,22 @@
         "react",
         "node"
       ]
+    },
+    "JavaScript 30 Challenge": {
+      "id": 2,
+      "text": "30 Day JavaScript coding challenge.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "javascript30-logo.jpg"
+        }
+      ],
+      "links": {
+        "repo": "https://github.com/ssmith-wombatweb/JavaScript30"
+      },
+      "techs": [
+        "javascript"
+      ]
     }
   },
   "graphic": {

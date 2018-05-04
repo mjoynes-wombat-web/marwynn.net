@@ -37,13 +37,18 @@ class UnstyledProjectCard extends React.Component {
   resizeImgHeight() {
     const project = document.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}]`);
     const maxImgHeight = this.state.imgs.reduce((prevImgHeight, img) => {
-      const currentImgHeight = document.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}img${img.id}]`).height;
+      const currentImgHeight = project.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}img${img.id}]`).height;
 
       return prevImgHeight > currentImgHeight ? prevImgHeight : currentImgHeight;
     }, 0);
 
     const projectImgWrap = project.querySelector('.image-wrapper');
-    projectImgWrap.style.height = `${maxImgHeight}px`;
+
+    if (window.innerWidth <= 700) {
+      projectImgWrap.style.height = `${maxImgHeight}px`;
+    } else {
+      projectImgWrap.style.height = null;
+    }
   }
 
   changeImg(e) {
@@ -69,7 +74,6 @@ class UnstyledProjectCard extends React.Component {
   }
 
   swipeImgMove(e) {
-    console.log('this ran');
     if (this.state.imgs.length <= 1) return null;
 
     const swipedImg = e.currentTarget;
@@ -129,9 +133,7 @@ class UnstyledProjectCard extends React.Component {
   render() {
     return (
       <article className={`project-card ${this.props.className}`} data-key={`${this.props.projectType}${this.props.projectId}`}>
-        <div
-          className="image-wrapper"
-        >
+        <div className="image-wrapper">
           {this.state.imgs.length > 1
             ? <ImgButtons
               onClick={this.changeImg}
@@ -169,14 +171,18 @@ class UnstyledProjectCard extends React.Component {
               <div className="web-details">
                 <p className="links">
                   {this.props.links.site
-                    ? <a href={this.props.links.site}>
-                        Website
+                    ? (
+                      <a href={this.props.links.site}>
+                          Website
                       </a>
+                    )
                     : null}
                   {this.props.links.repo
-                    ? <a href={this.props.links.repo}>
+                    ? (
+                      <a href={this.props.links.repo}>
                         Code Repo
                       </a>
+                    )
                     : null}
                 </p>
                 <h3>Made with:</h3>
@@ -199,7 +205,7 @@ UnstyledProjectCard.propTypes = {
   projectType: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(PropTypes.shape({
     site: PropTypes.string,
-    repo: PropTypes.string, 
+    repo: PropTypes.string,
   })),
   techs: PropTypes.arrayOf(PropTypes.string),
   imgs: PropTypes.arrayOf(PropTypes.shape({
@@ -222,7 +228,6 @@ const ProjectCard = styled(UnstyledProjectCard)`
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: calc(25% - 1.5rem);
   transition: all 0.5s;
   overflow: hidden;
@@ -241,12 +246,17 @@ const ProjectCard = styled(UnstyledProjectCard)`
   }
 
   .image-wrapper {
-    flex: 1;
     display: flex;
     justify-content: center;
+    justify-self: flex-start;
     align-items: center;
     padding: 1.375rem;
     position: relative;
+    height: ${props => props.minImgHeight}px;
+
+    @media screen and (max-width: 700px) {
+      height: initial;
+    }
 
     &:hover {
       button {
@@ -301,7 +311,6 @@ const ProjectCard = styled(UnstyledProjectCard)`
   }
 
   .text {
-    justify-self: flex-end;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -309,6 +318,7 @@ const ProjectCard = styled(UnstyledProjectCard)`
     text-align: center;
     transition: all 0.5s;
     box-sizing: border-box;
+    flex: 1;
 
     h2 {
       margin: 0;
@@ -360,58 +370,8 @@ const ProjectCard = styled(UnstyledProjectCard)`
       margin: 0.5rem 0;
       color: white;
       display: inline-block;
-      min-height: 44px;
       display: flex;
       align-items: center;
-
-      @media screen and (max-width: 1982px) {
-        min-height: 66px;
-      }
-
-      @media screen and (max-width: 1700px) {
-        min-height: 60px;
-      }
-
-      @media screen and (max-width: 1500px) {
-        min-height: 40px;
-      }
-
-      @media screen and (max-width: 1401px) {
-        min-height: 60px;
-      }
-      @media screen and (max-width: 1165px) {
-        min-height: 80px;
-      }
-      @media screen and (max-width: 1000px) {
-        min-height: 40px;
-      }
-      @media screen and (max-width: 982px) {
-        min-height: 60px;
-      }
-      @media screen and (max-width: 982px) {
-        min-height: 60px;
-      }
-      @media screen and (max-width: 925px) {
-        min-height: 36px;
-      }
-      @media screen and (max-width: 901px) {
-        min-height: 54px;
-      }
-      @media screen and (max-width: 900px) {
-        min-height: 36px;
-      }
-      @media screen and (max-width: 869px) {
-        min-height: 54px;
-      }
-      @media screen and (max-width: 731px) {
-        min-height: 72px;
-      }
-      @media screen and (max-width: 700px) {
-        min-height: 34px;
-      }
-      @media screen and (max-width: 418px) {
-        min-height: 51px;
-      }
     }
 
     .web-details {
@@ -419,6 +379,8 @@ const ProjectCard = styled(UnstyledProjectCard)`
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-end;
+      flex: 1;
 
       .links {
         width: 100%;

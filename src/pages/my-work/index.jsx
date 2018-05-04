@@ -20,9 +20,31 @@ const UnstyledMyWork = ({ title, className }) => (
         web designer for three. My clean design and stunning
         visuals create easy to read and intriguing work.
       </p>
-      <section className="projects">
-        {Object.entries(projects).map(project =>
-          <ProjectCard key={`project${project[1].id}`} projectId={project[1].id} title={project[0]} text={project[1].text} imgs={project[1].imgs} />)}
+      <h2>Web Design Projects</h2>
+      <section className="web projects">
+        {Object.entries(projects.web).map(project =>
+          (<ProjectCard
+            projectType="web"
+            key={`graphic${project[1].id}`}
+            projectId={project[1].id}
+            title={project[0]}
+            text={project[1].text}
+            imgs={project[1].imgs}
+            links={project[1].links}
+            techs={project[1].techs}
+          />))}
+      </section>
+      <h2>Graphic Design Projects</h2>
+      <section className="graphic projects">
+        {Object.entries(projects.graphic).map(project =>
+          (<ProjectCard
+            projectType="graphic"
+            key={`graphic${project[1].id}`}
+            projectId={project[1].id}
+            title={project[0]}
+            text={project[1].text}
+            imgs={project[1].imgs}
+          />))}
       </section>
       <BackToTop />
     </div>

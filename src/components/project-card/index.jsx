@@ -6,10 +6,7 @@ import colors from '../../consts/colors';
 
 import ImgBullets from './img-bullets';
 import ImgButtons from './img-buttons';
-
-function test() {
-  console.log('test');
-}
+import Logos from '../logos';
 
 class UnstyledProjectCard extends React.Component {
   constructor(props) {
@@ -38,9 +35,9 @@ class UnstyledProjectCard extends React.Component {
   }
 
   resizeImgHeight() {
-    const project = document.querySelector(`[data-key=project${this.props.projectId}]`);
+    const project = document.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}]`);
     const maxImgHeight = this.state.imgs.reduce((prevImgHeight, img) => {
-      const currentImgHeight = document.querySelector(`[data-key=project${this.props.projectId}img${img.id}]`).height;
+      const currentImgHeight = document.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}img${img.id}]`).height;
 
       return prevImgHeight > currentImgHeight ? prevImgHeight : currentImgHeight;
     }, 0);
@@ -131,7 +128,7 @@ class UnstyledProjectCard extends React.Component {
 
   render() {
     return (
-      <article className={`project-card ${this.props.className}`} data-key={`project${this.props.projectId}`}>
+      <article className={`project-card ${this.props.className}`} data-key={`${this.props.projectType}${this.props.projectId}`}>
         <div
           className="image-wrapper"
         >
@@ -144,8 +141,8 @@ class UnstyledProjectCard extends React.Component {
             : null}
           {this.state.imgs.map(img => (
             <img
-              data-key={`project${this.props.projectId}img${img.id}`}
-              key={`project${this.props.projectId}img${img.id}`}
+              data-key={`${this.props.projectType}${this.props.projectId}img${img.id}`}
+              key={`${this.props.projectType}${this.props.projectId}img${img.id}`}
               className={`${img.id === this.state.activeImg ? 'active' : ''}${this.state.nextImg === img.id ? 'next' : ''}`}
               src={`https://res.cloudinary.com/design-bright/image/upload/c_limit,w_300,h_250/v1524792633/portfolio/${img.url}`}
               alt={this.props.title}
@@ -167,6 +164,28 @@ class UnstyledProjectCard extends React.Component {
         <div className="text">
           <h2>{this.props.title}</h2>
           <p>{this.props.text}</p>
+          {this.props.projectType === 'web'
+            ? (
+              <div className="web-details">
+                <p className="links">
+                  {this.props.links.site
+                    ? <a href={this.props.links.site}>
+                        Website
+                      </a>
+                    : null}
+                  {this.props.links.repo
+                    ? <a href={this.props.links.repo}>
+                        Code Repo
+                      </a>
+                    : null}
+                </p>
+                <h3>Made with:</h3>
+                <div className="logos">
+                  {this.props.techs.map(tech => <Logos type={tech} />)}
+                </div>
+              </div>
+            )
+            : null}
         </div>
       </article>
     );
@@ -177,6 +196,12 @@ UnstyledProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   projectId: PropTypes.number.isRequired,
+  projectType: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(PropTypes.shape({
+    site: PropTypes.string,
+    repo: PropTypes.string, 
+  })),
+  techs: PropTypes.arrayOf(PropTypes.string),
   imgs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     url: PropTypes.string,
@@ -186,6 +211,8 @@ UnstyledProjectCard.propTypes = {
 
 UnstyledProjectCard.defaultProps = {
   className: '',
+  links: null,
+  techs: null,
 };
 
 const ProjectCard = styled(UnstyledProjectCard)`
@@ -307,6 +334,27 @@ const ProjectCard = styled(UnstyledProjectCard)`
       }
     }
 
+    h3 {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.625rem;
+
+      @media screen and (max-width: 1700px) {
+        margin: 0.375rem 0;
+        font-size: 1.375rem;
+      }
+
+      @media screen and (max-width: 925px) {
+        margin: 0.25rem 0;
+        font-size: 1.25rem;
+      }
+
+      @media screen and (max-width: 700px) {
+        font-size: 1.125rem;
+      }
+    }
+
     p {
       padding: 0 1rem;
       margin: 0.5rem 0;
@@ -363,6 +411,29 @@ const ProjectCard = styled(UnstyledProjectCard)`
       }
       @media screen and (max-width: 418px) {
         min-height: 51px;
+      }
+    }
+
+    .web-details {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .links {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        min-height: initial
+        margin: 0.5rem 0 1rem 0;;
+      }
+
+      .logos {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        min-width: 100%;
+        justify-content: space-around;
       }
     }
   }

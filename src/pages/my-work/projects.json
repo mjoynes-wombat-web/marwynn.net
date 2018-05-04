@@ -1,360 +1,407 @@
 {
-  "Auction Block BC" : {
-    "id": 0,
-    "text": "Business card for Auction Block seafood sales.",
-    "imgs": [
-      {
-        "id": 0,
-        "url": "auction-block-seafood-bc_font_ec0yqy.jpg"
-      },
-      {
-        "id": 1,
-        "url": "auction-block-seafood-bc_back_vm9qzh.jpg"
-      }
-    ]
-  },
-  "Auto B Clean Sign" : {
-    "id": 1,
-    "text": "Sign for Auto B Clean carwash.",
-    "imgs": [
-      {
-        "id": 0,
-        "url": "auto-b-clean_sign_fczgs9.jpg"
-      }
-    ]
-  },
-  "Baklava Labels" : {
-    "id": 2,
-    "text": "Vinyl labels for greek and arabic style baklava. Made for a fundraiser.",
-    "imgs": [
-      {
-        "id": 0,
-        "url": "baklava-blue_label_mzfqdg.jpg"
-      },
-      {
-        "id": 1,
-        "url": "baklava-red_label_vd7tpu.jpg"
-      }
-    ]
-  },
-  "Blackbird Recording Logo" : {
-    "id": 3,
-    "text": "Logo for Blackbird Recording studio.",
-    "imgs": [
-      {
-        "id": 0,
-        "url": "blackbird-logo.jpg"
-      }
-    ]
-  },
-  "Boinski Realty Newsletter" : {
-    "id": 4,
-    "text" : "Realty newsletter for Sue and Dan Boinski.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "boinski-newsletter_suxvqd.jpg"
-      }
-    ]
-  },
-  "Christ is Risen CD" : {
-    "id": 5,
-    "text" : "Paschal Byzantine Chant CD case.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "Christ-is-Risen_CD_font-cover.jpg"
-      },
-      {
-        "id": 1,
-        "url": "Christ-is-Risen_CD_vrelmn.jpg"
-      },
-      {
-        "id": 2,
-        "url": "Christ-is-Risen_CD_cover_outside_n7aygz.jpg"
-      }
-    ]
-  },
-  "Dostoyevsky Poster" : {
-    "id": 6,
-    "text": "Poster of a Dostoyevsky quote created for school.",
-    "imgs": [
-      {
-        "id": 0,
-        "url": "dostoyevsky-poster_d89syu.jpg"
-      }
-    ]
-  },
-  "Exchanged Life Poster" : {
-    "id": 7,
-    "text": "Poster for the Exchanged Life Conference.",
-    "imgs": [
-      {
-        "id": 0,
-        "url": "Exchange_Life_Poster_pavz5g.jpg"
-      }
-    ]
-  },
-  "Fish Connections Ad" : {
-    "id": 8,
-    "text": "Fish Connections advertisement for Homer Chamber of Commerce magazine.",
-    "imgs": [
-      {
-        "id": 0,
-        "url": "fish-connection_ad_jpjwv6.jpg"
-      }
-    ]
-  },
-  "Fishin' Buddy Logo" : {
-    "id": 9,
-    "text": "Logo for Fishin' Buddy fishing gear.",
-    "imgs": [
-      {
-        "id": 0,
-        "url": "fishing-buddy_logo_ceezgu.jpg"
-      }
-    ]
-  },
-  "The Grog Shop Ad" : {
-    "id": 10,
-    "text": "The Grog Shop advertisement for Homer Chamber of Commerce magazine.",
-    "imgs": [
+  "web" : {
+    "Design Bright" : {
+      "id": 0,
+      "text": "Design Bright is a personal project that I created. It's purpose is to help non-profits get funding and marketing assistance.",
+      "imgs": [
         {
-        "id": 0,
-        "url": "grog-shop_ad_vfhtxk.jpg"
-      }
-    ]
-  },
-  "Hallo Bay Ad" : {
-    "id": 11,
-    "text" : "Hallo Bay Wilderness Camp advertisement for Homer Chamber of Commerce magazine.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "hallo-bay_ad_lghpzi.jpg"
-      }
-    ]
-  },
-  "Hannah's Bead Design" : {
-    "id": 12,
-    "text": "Business card and flyer for Hannah's Bead Design.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "Hannah_s_Bead_Design_BC-1_zztrqp.jpg"
+          "id": 0,
+          "url": "design-bright-logo.jpg"
+        },
+        {
+          "id": 1,
+          "url": "design-bright-site.jpg"
+        }
+      ],
+      "links": {
+        "site": "https://www.designbright.org/",
+        "repo": "https://github.com/ssmith-wombatweb/design-bright-client"
       },
-      {
-        "id": 1,
-        "url": "Hannah_s_Bead_Design_Flyers_kmedp3.jpg"
-      }
-    ]
-  },
-  "Hogan for Homer Council" : {
-    "id": 13,
-    "text" : "Hogan for Homer Council yard sign.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "hogan-homer-council_sign_entkjk.jpg"
-      }
-    ]
-  },
-  "Homer Photo Contest" : {
-    "id": 14,
-    "text" : "Homer Photo Contest flyer for the Homer Chamber of Commerce magazine.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "photo-contest_poster_dqwrhw.jpg"
-      }
-    ]
-  },
-  "Inland Empire 4 Rent BC" : {
-    "id": 15,
-    "text" : "Business card for Inland Empire 4 Rent.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "inlaind-empire_bc-v1_w93jwb.jpg"
+      "techs": [
+        "express",
+        "mysql",
+        "node",
+        "react",
+        "redux"
+      ]
+    },
+    "This Website" : {
+      "id" : 1,
+      "text": "My personal portfolio website.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "signature.png"
+        }
+      ],
+      "links": {
+        "repo": "https://github.com/ssmith-wombatweb/simeonsmith.me"
       },
-      {
-        "id": 1,
-        "url": "inland-empire_bc-v2_h7ffbg.jpg"
-      }
-    ]
+      "techs": [
+        "gatsby",
+        "react",
+        "node"
+      ]
+    }
   },
-  "Kachemak Cruises BC" : {
-    "id": 16,
-    "text" : "Kachemak Cruises business card.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "kachemak_cruises_bc_001_ohex8n.jpg"
-      }
-    ]
-  },
-  "Midtown Cafe" : {
-    "id": 17,
-    "text" : "Logo and sign for Midtown Cafe.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "midtown-cafe_logo_yxos0v.jpg"
-      },
-      {
-        "id": 1,
-        "url": "midtown-cafe_sign_p2bpxl"
-      }
-    ]
-  },
-  "Christ is Born CD" : {
-    "id": 18,
-    "text" : "Christmas Byzantine Chant CD case.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "Nativity_CD_cover-front.jpg"
-      },
-      {
-        "id": 1,
-        "url": "Nativity_CD_disc_cover_vcgdpg.jpg"
-      },
-      {
-        "id": 2,
-        "url": "Nativity_CD_cover-1_rtdon7.jpg"
-      }
-    ]
-  },
-  "Nomad Shelters Ad" : {
-    "id": 19,
-    "text" : "Nomad Shelters advertisement for Homer Chamber of Commerce magazine.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "nomad-shelters_ad_zbpn9j.jpg"
-      }
-    ]
-  },
-  "One of a Kind Jeans BC" : {
-    "id": 20,
-    "text": "Business card for One of a Kind Jeans",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "one-of-a-kind_bc_iijin5.jpg"
-      }
-    ]
-  },
-  "Ourea Airlines" : {
-    "id": 21,
-    "text" : "Logo and website symbols for Ourea Airlines. Completed for school.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "oreau_logo_izhlhg.jpg"
-      },
-      {
-        "id": 1,
-        "url": "oreau_icons_qjca7v.jpg"
-      }
-    ]
-  },
-  "Prayer Card" : {
-    "id": 22,
-    "text" : "Prayer Card postcard for missionary.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "prayer-card_front_irybp0.jpg"
-      },
-      {
-        "id": 1,
-        "url": "prayer-card_back_fjz7bj.jpg"
-      }
-    ]
-  },
-  "Look with Your Eyes Shirt" : {
-    "id": 23,
-    "text" : "\"Look with your eyes not with your hands\" pregnancy t-shirt ",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "pregnancy_shirt_vow9rl.jpg"
-      }
-    ]
-  },
-  "Prom Invitations" : {
-    "id": 24,
-    "text" : "Homer High School prom invitations.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "prom-invitation_m0jmhf.jpg"
-      }
-    ]
-  },
-  "Quality Roofing T-Shirt" : {
-    "id": 25,
-    "text": "T-Shirt design for Quality Roofing.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "quality-roofing_shirt_sv0kny.jpg"
-      }
-    ]
-  },
-  "Red Hill Logo" : {
-    "id": 26,
-    "text" : "Digital creation of logo for Red Hill band.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "red-hill_logo_x2ranq.jpg"
-      }
-    ]
-  },
-  "Sea Flight Charters" : {
-    "id": 27,
-    "text" : "Ad for Sea Flight Charters in Homer Chamber of Commerce magazine.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "sea-flight-charters_ad_wcidw9.jpg"
-      }
-    ]
-  },
-  "Smith Wedding Invitations" : {
-    "id": 28,
-    "text" : "Wedding invitations for Simeon and Emily Smith.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "smith-wedding-announcements_outside.jpg"
-      },
-      {
-        "id": 1,
-        "url": "smith-wedding-announcements_inside"
-      }
-    ]
-  },
-  "Speakeasy Playing Cards" : {
-    "id": 29,
-    "text" : "Playing card design for Speakeasy playing cards.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "speakeasy_card_e1u2bv.jpg"
-      }
-    ]
-  },
-  "Wombat Web Design Logo" : {
-    "id": 30,
-    "text" : "Logo for Wombat Web Design.",
-    "imgs" : [
-      {
-        "id": 0,
-        "url": "wombat_logo_eryuj0.jpg"
-      }
-    ]
+  "graphic": {
+    "Auction Block BC" : {
+      "id": 0,
+      "text": "Business card for Auction Block seafood sales.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "auction-block-seafood-bc_font_ec0yqy.jpg"
+        },
+        {
+          "id": 1,
+          "url": "auction-block-seafood-bc_back_vm9qzh.jpg"
+        }
+      ]
+    },
+    "Auto B Clean Sign" : {
+      "id": 1,
+      "text": "Sign for Auto B Clean carwash.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "auto-b-clean_sign_fczgs9.jpg"
+        }
+      ]
+    },
+    "Baklava Labels" : {
+      "id": 2,
+      "text": "Vinyl labels for greek and arabic style baklava. Made for a fundraiser.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "baklava-blue_label_mzfqdg.jpg"
+        },
+        {
+          "id": 1,
+          "url": "baklava-red_label_vd7tpu.jpg"
+        }
+      ]
+    },
+    "Blackbird Recording Logo" : {
+      "id": 3,
+      "text": "Logo for Blackbird Recording studio.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "blackbird-logo.jpg"
+        }
+      ]
+    },
+    "Boinski Realty Newsletter" : {
+      "id": 4,
+      "text" : "Realty newsletter for Sue and Dan Boinski.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "boinski-newsletter_suxvqd.jpg"
+        }
+      ]
+    },
+    "Christ is Risen CD" : {
+      "id": 5,
+      "text" : "Paschal Byzantine Chant CD case.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "Christ-is-Risen_CD_font-cover.jpg"
+        },
+        {
+          "id": 1,
+          "url": "Christ-is-Risen_CD_vrelmn.jpg"
+        },
+        {
+          "id": 2,
+          "url": "Christ-is-Risen_CD_cover_outside_n7aygz.jpg"
+        }
+      ]
+    },
+    "Dostoyevsky Poster" : {
+      "id": 6,
+      "text": "Poster of a Dostoyevsky quote created for school.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "dostoyevsky-poster_d89syu.jpg"
+        }
+      ]
+    },
+    "Exchanged Life Poster" : {
+      "id": 7,
+      "text": "Poster for the Exchanged Life Conference.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "Exchange_Life_Poster_pavz5g.jpg"
+        }
+      ]
+    },
+    "Fish Connections Ad" : {
+      "id": 8,
+      "text": "Fish Connections advertisement for Homer Chamber of Commerce magazine.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "fish-connection_ad_jpjwv6.jpg"
+        }
+      ]
+    },
+    "Fishin' Buddy Logo" : {
+      "id": 9,
+      "text": "Logo for Fishin' Buddy fishing gear.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "fishing-buddy_logo_ceezgu.jpg"
+        }
+      ]
+    },
+    "The Grog Shop Ad" : {
+      "id": 10,
+      "text": "The Grog Shop advertisement for Homer Chamber of Commerce magazine.",
+      "imgs": [
+          {
+          "id": 0,
+          "url": "grog-shop_ad_vfhtxk.jpg"
+        }
+      ]
+    },
+    "Hallo Bay Ad" : {
+      "id": 11,
+      "text" : "Hallo Bay Wilderness Camp advertisement for Homer Chamber of Commerce magazine.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "hallo-bay_ad_lghpzi.jpg"
+        }
+      ]
+    },
+    "Hannah's Bead Design" : {
+      "id": 12,
+      "text": "Business card and flyer for Hannah's Bead Design.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "Hannah_s_Bead_Design_BC-1_zztrqp.jpg"
+        },
+        {
+          "id": 1,
+          "url": "Hannah_s_Bead_Design_Flyers_kmedp3.jpg"
+        }
+      ]
+    },
+    "Hogan for Homer Council" : {
+      "id": 13,
+      "text" : "Hogan for Homer Council yard sign.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "hogan-homer-council_sign_entkjk.jpg"
+        }
+      ]
+    },
+    "Homer Photo Contest" : {
+      "id": 14,
+      "text" : "Homer Photo Contest flyer for the Homer Chamber of Commerce magazine.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "photo-contest_poster_dqwrhw.jpg"
+        }
+      ]
+    },
+    "Inland Empire 4 Rent BC" : {
+      "id": 15,
+      "text" : "Business card for Inland Empire 4 Rent.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "inlaind-empire_bc-v1_w93jwb.jpg"
+        },
+        {
+          "id": 1,
+          "url": "inland-empire_bc-v2_h7ffbg.jpg"
+        }
+      ]
+    },
+    "Kachemak Cruises BC" : {
+      "id": 16,
+      "text" : "Kachemak Cruises business card.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "kachemak_cruises_bc_001_ohex8n.jpg"
+        }
+      ]
+    },
+    "Midtown Cafe" : {
+      "id": 17,
+      "text" : "Logo and sign for Midtown Cafe.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "midtown-cafe_logo_yxos0v.jpg"
+        },
+        {
+          "id": 1,
+          "url": "midtown-cafe_sign_p2bpxl"
+        }
+      ]
+    },
+    "Christ is Born CD" : {
+      "id": 18,
+      "text" : "Christmas Byzantine Chant CD case.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "Nativity_CD_cover-front.jpg"
+        },
+        {
+          "id": 1,
+          "url": "Nativity_CD_disc_cover_vcgdpg.jpg"
+        },
+        {
+          "id": 2,
+          "url": "Nativity_CD_cover-1_rtdon7.jpg"
+        }
+      ]
+    },
+    "Nomad Shelters Ad" : {
+      "id": 19,
+      "text" : "Nomad Shelters advertisement for Homer Chamber of Commerce magazine.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "nomad-shelters_ad_zbpn9j.jpg"
+        }
+      ]
+    },
+    "One of a Kind Jeans BC" : {
+      "id": 20,
+      "text": "Business card for One of a Kind Jeans",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "one-of-a-kind_bc_iijin5.jpg"
+        }
+      ]
+    },
+    "Ourea Airlines" : {
+      "id": 21,
+      "text" : "Logo and website symbols for Ourea Airlines. Completed for school.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "oreau_logo_izhlhg.jpg"
+        },
+        {
+          "id": 1,
+          "url": "oreau_icons_qjca7v.jpg"
+        }
+      ]
+    },
+    "Prayer Card" : {
+      "id": 22,
+      "text" : "Prayer Card postcard for missionary.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "prayer-card_front_irybp0.jpg"
+        },
+        {
+          "id": 1,
+          "url": "prayer-card_back_fjz7bj.jpg"
+        }
+      ]
+    },
+    "Look with Your Eyes Shirt" : {
+      "id": 23,
+      "text" : "\"Look with your eyes not with your hands\" pregnancy t-shirt ",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "pregnancy_shirt_vow9rl.jpg"
+        }
+      ]
+    },
+    "Prom Invitations" : {
+      "id": 24,
+      "text" : "Homer High School prom invitations.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "prom-invitation_m0jmhf.jpg"
+        }
+      ]
+    },
+    "Quality Roofing T-Shirt" : {
+      "id": 25,
+      "text": "T-Shirt design for Quality Roofing.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "quality-roofing_shirt_sv0kny.jpg"
+        }
+      ]
+    },
+    "Red Hill Logo" : {
+      "id": 26,
+      "text" : "Digital creation of logo for Red Hill band.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "red-hill_logo_x2ranq.jpg"
+        }
+      ]
+    },
+    "Sea Flight Charters" : {
+      "id": 27,
+      "text" : "Ad for Sea Flight Charters in Homer Chamber of Commerce magazine.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "sea-flight-charters_ad_wcidw9.jpg"
+        }
+      ]
+    },
+    "Smith Wedding Invitations" : {
+      "id": 28,
+      "text" : "Wedding invitations for Simeon and Emily Smith.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "smith-wedding-announcements_outside.jpg"
+        },
+        {
+          "id": 1,
+          "url": "smith-wedding-announcements_inside"
+        }
+      ]
+    },
+    "Speakeasy Playing Cards" : {
+      "id": 29,
+      "text" : "Playing card design for Speakeasy playing cards.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "speakeasy_card_e1u2bv.jpg"
+        }
+      ]
+    },
+    "Wombat Web Design Logo" : {
+      "id": 30,
+      "text" : "Logo for Wombat Web Design.",
+      "imgs" : [
+        {
+          "id": 0,
+          "url": "wombat_logo_eryuj0.jpg"
+        }
+      ]
+    }
   }
 }

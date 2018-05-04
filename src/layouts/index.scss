@@ -111,24 +111,24 @@ h2 {
 }
 
 h3 {
-  // color: $tomato;
+  color: white;
   font-family: 'Josefin Slab', 'Arial', sans-serif;
-  // font-size: 2.125rem;
-  // margin: 2.375rem 0 1.2375rem 0;
+  font-size: 2rem;
+  margin: 2.375rem 0 1.2375rem 0;
 
-  // @media screen and (max-width: 1700px) {
-  //   font-size: 1.875rem;
-  //   margin: 2.25rem 0 1.25rem 0;
-  // }
-  // @media screen and (max-width: 925px) {
-  //   font-size: 1.5rem;
-  //   margin: 2rem 0 1rem 0;
-  // }
+  @media screen and (max-width: 1700px) {
+    font-size: 1.75rem;
+    margin: 2.25rem 0 1.25rem 0;
+  }
+  @media screen and (max-width: 925px) {
+    font-size: 1.375rem;
+    margin: 2rem 0 1rem 0;
+  }
 
-  // @media screen and (max-width: 700px) {
-  //   font-size: 1.375rem;
-  //   margin: 1.875rem 0 0.875rem 0;
-  // }
+  @media screen and (max-width: 700px) {
+    font-size: 1.25rem;
+    margin: 1.875rem 0 0.875rem 0;
+  }
 
   &.sub-heading {
     color: $lilac;
@@ -186,7 +186,11 @@ a {
     }
   }
 
-  &:visited, &:hover {
+  &:visited {
+    color: $lilac;
+  }
+
+  &:hover {
     color: $spring-light;
   }
 }

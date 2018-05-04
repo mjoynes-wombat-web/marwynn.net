@@ -19,7 +19,7 @@ class UnstyledMyWork extends React.Component {
 
     this.componentDidMount = this.componentDidMount.bind(this);
     this.componentWillUnmount = this.componentWillUnmount.bind(this);
-    this.throttleResizeProjects = throttle(this.resizeProjects.bind(this), 16);
+    this.throttleResizeProjects = throttle(this.resizeProjects.bind(this), 32);
     this.resizeProjects = this.resizeProjects.bind(this);
   }
 

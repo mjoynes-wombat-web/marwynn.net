@@ -24,7 +24,7 @@ class UnstyledProjectCard extends React.Component {
     this.swipeImgEnd = this.swipeImgEnd.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.resizeProject = this.resizeProject.bind(this);
-    this.throttleResizeProject = throttle(this.resizeProject.bind(this), 16);
+    this.throttleResizeProject = throttle(this.resizeProject.bind(this), 32);
     this.componentWillUnmount = this.componentWillUnmount.bind(this);
   }
 

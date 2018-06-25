@@ -70,7 +70,7 @@ class UnstyledMyWork extends React.Component {
             web designer for three. My clean design and stunning
             visuals create easy to read and intriguing work.
           </p>
-          <h2>Web Design Projects</h2>
+          <h2 id="web-design">Web Design Projects</h2>
           <section className="web projects">
             {Object.entries(projects.web).map(project =>
               (<ProjectCard
@@ -86,7 +86,7 @@ class UnstyledMyWork extends React.Component {
                 techs={project[1].techs}
               />))}
           </section>
-          <h2>Graphic Design Projects</h2>
+          <h2 id="graphic-design">Graphic Design Projects</h2>
           <section className="graphic projects">
             {Object.entries(projects.graphic).map(project =>
               (<ProjectCard

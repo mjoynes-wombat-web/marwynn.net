@@ -66,7 +66,7 @@ class UnstyledContactForm extends React.Component {
     this.setState({ messageSending: true });
     console.log('CHANGE THIS TO A DYNAMIC URL');
     axios.post(
-      'https://www.designbright.org:3000/api/help',
+      'https://www.wombatweb.us:7777/api/v1/contact',
       Message(this.state.inputs),
     )
       .then(() => {

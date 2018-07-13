@@ -48,26 +48,12 @@ class UnstyledContactForm extends React.Component {
   sendMessage(e) {
     e.preventDefault();
     const main = document.querySelector('main');
-    const Message = ({
-      name,
-      email,
-      subject,
-      message,
-    }) =>
-      (
-        {
-          name,
-          email,
-          subject,
-          message,
-        }
-      );
 
     this.setState({ messageSending: true });
     console.log('CHANGE THIS TO A DYNAMIC URL');
     axios.post(
       'https://www.wombatweb.us:7777/api/v1/contact',
-      Message({
+      {
         firstName: this.state.inputs.firstName,
         senderEmail: this.state.inputs.email,
         receiverEmail: 'ssmith@wombatweb.us',
@@ -76,7 +62,7 @@ class UnstyledContactForm extends React.Component {
         confirmation: 'Thank you for reaching out to me. I will get back to you within 24 hours.',
         receptionMsg: 'This message was sent from simeonsmith.me',
         receiverName: 'Simeon Smith',
-      }),
+      },
     )
       .then(() => {
         const inputs = {

@@ -57,7 +57,7 @@ class UnstyledContactForm extends React.Component {
       subject: `${this.state.inputs.subject} - SimeonSmith.me`,
       msg: this.state.inputs.message,
       confirmation: 'Thank you for reaching out to me. I will get back to you within 24 hours.',
-      receptionMsg: 'This message was sent from simeonsmith.me',
+      receptionMsg: 'This message was sent from simeonsmith.me.',
       receiverName: 'Simeon Smith',
     };
 

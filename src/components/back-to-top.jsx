@@ -51,8 +51,10 @@ class UnstyledBackToTop extends React.Component {
   }
 
   render() {
+    const { className } = this.props;
+    const { showToTopLink } = this.state;
     return (
-      <button onClick={this.backToTop} className={`${this.props.className} ${this.state.showToTopLink ? 'visible' : null}`} href="./#">
+      <button onClick={this.backToTop} className={`${className} ${showToTopLink ? 'visible' : null}`} href="./#" type="button">
         <FontAwesomeIcon icon={faArrowCircleRight} />
         <span>
           To Top

@@ -7,15 +7,22 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "next",
+    "gatsby-plugin-eslint": "^2.0.1",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "^2.0.0-rc.0",
     "gatsby-plugin-styled-components": "^3.0.0-rc.0",
+    "gatsby-plugin-styled-jsx": "^2.0.6",
+    "gatsby-plugin-styled-jsx-postcss": "^1.1.2",
+    "lodash": "^4.17.10",
+    "normalize.css": "^8.0.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
-    "styled-components": "^3.4.4"
+    "styled-components": "^3.4.4",
+    "styled-jsx": "^3.0.2"
   },
   "keywords": [
     "gatsby"

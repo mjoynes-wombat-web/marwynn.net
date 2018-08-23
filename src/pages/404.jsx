@@ -6,18 +6,17 @@ import Layout from '../layouts';
 
 const NotFoundPage = ({ title }) => (
   <Layout>
-  <main>
-    <Helmet>
-      <title>Page Not Found - {title}</title>
-    </Helmet>
-    <div className="page-content">
-      <h1>Page Not Found</h1>
-      <p>
-        Oh No! You've wondered off and gotten lost. Please choose from the pages in the menu to
-        find your way back.
-      </p>
-    </div>
-  </main>
+    <main>
+      <Helmet>
+        <title>{`Page Not Found - ${title}`}</title>
+      </Helmet>
+      <div className="page-content">
+        <h1>Page Not Found</h1>
+        <p>
+          {'Oh No! You\'ve wondered off and gotten lost. Please choose from the pages in the menu to find your way back.'}
+        </p>
+      </div>
+    </main>
   </Layout>
 );
 

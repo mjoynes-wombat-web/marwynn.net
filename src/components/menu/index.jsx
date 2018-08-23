@@ -64,12 +64,14 @@ class UnstyledMenu extends React.Component {
     this.selectPage = this.selectPage.bind(this);
     this.clickMenu = this.clickMenu.bind(this);
   }
+
   componentDidMount() {
     animateLoad(true);
   }
 
   componentDidUpdate() {
-    if (this.state.isOpen) { animateLoad(false); }
+    const { isOpen } = this.state;
+    if (isOpen) { animateLoad(false); }
   }
 
   selectPage() {
@@ -79,19 +81,23 @@ class UnstyledMenu extends React.Component {
   }
 
   clickMenu() {
+    const { isOpen } = this.state;
     const bgGradient = document.querySelector('.background-gradient');
-    if (!this.state.isOpen) {
+    if (!isOpen) {
       bgGradient.classList.add('turnOff');
     } else {
       bgGradient.classList.remove('turnOff');
     }
-    this.setState({ isOpen: !this.state.isOpen });
+    this.setState({ isOpen: !isOpen });
   }
+
   render() {
+    const { className } = this.props;
+    const { isOpen } = this.state;
     return (
-      <nav className={`${this.props.className} ${this.state.isOpen ? 'is-open' : ''}`} id="mainMenu">
+      <nav className={`${className} ${isOpen ? 'is-open' : ''}`} id="mainMenu">
         <MenuButton
-          buttonActive={this.state.isOpen}
+          buttonActive={isOpen}
           onClick={this.clickMenu}
         />
         <ul>

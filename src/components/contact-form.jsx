@@ -47,15 +47,16 @@ class UnstyledContactForm extends React.Component {
 
   sendMessage(e) {
     e.preventDefault();
+    const { inputs: currentInputs } = this.state;
     const main = document.querySelector('main');
 
     this.setState({ messageSending: true });
     const messageDetails = {
-      firstName: this.state.inputs.name,
-      senderEmail: this.state.inputs.email,
+      firstName: currentInputs.name,
+      senderEmail: currentInputs.email,
       receiverEmail: 'ssmith@wombatweb.us',
-      subject: `${this.state.inputs.subject} - SimeonSmith.me`,
-      msg: this.state.inputs.message,
+      subject: `${currentInputs.subject} - SimeonSmith.me`,
+      msg: currentInputs.message,
       confirmation: 'Thank you for reaching out to me. I will get back to you within 24 hours.',
       receptionMsg: 'This message was sent from simeonsmith.me.',
       receiverName: 'Simeon Smith',
@@ -86,13 +87,15 @@ class UnstyledContactForm extends React.Component {
   }
 
   render() {
+    const { className } = this.props;
+    const { messageSent, inputs, messageSending } = this.state;
     return (
-      <form className={this.props.className} onSubmit={this.sendMessage}>
+      <form className={className} onSubmit={this.sendMessage}>
         <h2>Send Me a Message</h2>
-        {this.state.messageSent !== null
+        {messageSent !== null
           ? (
-            <h3 className={`sub-heading ${this.state.messageSent ? null : 'error'}`}>
-              {this.state.messageSent
+            <h3 className={`sub-heading ${messageSent ? null : 'error'}`}>
+              {messageSent
                 ? 'Thank you for contacting me.'
                 : "Your message couldn't be sent. Please try again."
               }
@@ -103,7 +106,7 @@ class UnstyledContactForm extends React.Component {
           label="Name"
           id="name"
           type="text"
-          value={this.state.inputs.name}
+          value={inputs.name}
           placeholder="Please enter your name."
           onChange={this.onChange}
           width="22rem"
@@ -113,10 +116,10 @@ class UnstyledContactForm extends React.Component {
           label="Email"
           id="email"
           type="email"
-          value={this.state.inputs.email}
+          value={inputs.email}
           placeholder="Please enter your email."
           onChange={this.onChangeEmail}
-          error={!validEmail(this.state.inputs.email) && this.state.inputs.email ? 'Please enter a valid email.' : null}
+          error={!validEmail(inputs.email) && inputs.email ? 'Please enter a valid email.' : null}
           width="20rem"
           required
         />
@@ -124,7 +127,7 @@ class UnstyledContactForm extends React.Component {
           label="Subject"
           id="subject"
           type="text"
-          value={this.state.inputs.subject}
+          value={inputs.subject}
           placeholder="How can I help you?"
           onChange={this.onChange}
           width="25rem"
@@ -133,13 +136,13 @@ class UnstyledContactForm extends React.Component {
         <TextArea
           label="Message"
           id="message"
-          value={this.state.inputs.message}
+          value={inputs.message}
           onChange={this.onChange}
           width="30rem"
           required
         />
-        <Button className={this.state.messageSending ? 'processing' : null}>
-          {this.state.messageSending ? 'Sending Message...' : 'Make Contact'}
+        <Button className={messageSending ? 'processing' : null}>
+          {messageSending ? 'Sending Message...' : 'Make Contact'}
         </Button>
       </form>
     );

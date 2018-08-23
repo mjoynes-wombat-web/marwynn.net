@@ -11,12 +11,13 @@ const UnstyledImgBullets = ({
   className,
   onClick,
 }) => (
-  <nav className={className} >
+  <nav className={className}>
     {imgs.map(img => (
       <button
         className={activeImg === img.id ? 'active' : null}
         key={`project${projectId}img${img.id}bullet`}
         onClick={e => onClick(e, img.id)}
+        type="button"
       >
         •
       </button>

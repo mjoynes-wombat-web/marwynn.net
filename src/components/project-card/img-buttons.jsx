@@ -17,6 +17,7 @@ const UnstyledImgButtons = ({
       data-direction="left"
       onClick={onClick}
       disabled={activeImg === 0}
+      type="button"
     >
       <FontAwesomeIcon icon={faArrowCircleLeft} />
     </button>
@@ -25,6 +26,7 @@ const UnstyledImgButtons = ({
       data-direction="right"
       onClick={onClick}
       disabled={activeImg + 1 === imgsLength}
+      type="button"
     >
       <FontAwesomeIcon icon={faArrowCircleRight} />
     </button>

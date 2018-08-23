@@ -14,7 +14,7 @@ class UnstyledProjectCard extends React.Component {
     super(props);
     this.state = {
       activeImg: 0,
-      imgs: this.props.imgs,
+      imgs: props.imgs,
     };
 
     this.changeImg = this.changeImg.bind(this);
@@ -37,20 +37,23 @@ class UnstyledProjectCard extends React.Component {
   }
 
   resizeProject(e) {
-    const project = document.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}]`);
+    const { projectType, projectId, resizeProjects } = this.props;
+    const { imgs } = this.state;
+
+    const project = document.querySelector(`[data-key=${projectType}${projectId}]`);
     const projectImgWrap = project.querySelector('.image-wrapper');
 
     if (window.innerWidth <= 700) {
-      const maxImgHeight = this.state.imgs.reduce((prevImgHeight, img) => {
-        const currentImgHeight = project.querySelector(`[data-key=${this.props.projectType}${this.props.projectId}img${img.id}]`).height;
+      const maxImgHeight = imgs.reduce((prevImgHeight, img) => {
+        const currentImgHeight = project.querySelector(`[data-key=${projectType}${projectId}img${img.id}]`).height;
 
         return prevImgHeight > currentImgHeight ? prevImgHeight : currentImgHeight;
       }, 0);
 
       projectImgWrap.style.height = `${maxImgHeight}px`;
       return null;
-    } else if (e.type === 'load' && window.innerWidth > 700) {
-      this.props.resizeProjects();
+    } if (e.type === 'load' && window.innerWidth > 700) {
+      resizeProjects();
     }
 
     projectImgWrap.style.height = null;
@@ -74,22 +77,24 @@ class UnstyledProjectCard extends React.Component {
   }
 
   swipeImgStart(e) {
-    if (this.state.imgs.length <= 1) return null;
+    const { imgs } = this.state;
+    if (imgs.length <= 1) return null;
 
     return this.setState({ lastSwipedX: e.changedTouches[0].clientX });
   }
 
   swipeImgMove(e) {
-    if (this.state.imgs.length <= 1) return null;
+    const { imgs, lastSwipedX, activeImg } = this.state;
+    if (imgs.length <= 1) return null;
 
     const swipedImg = e.currentTarget;
-    const movement = e.changedTouches[0].clientX - this.state.lastSwipedX;
+    const movement = e.changedTouches[0].clientX - lastSwipedX;
 
     if (Math.abs(movement) > 75) {
-      const nextImgId = movement < 0 ? this.state.activeImg - 1 : this.state.activeImg + 1;
+      const nextImgId = movement < 0 ? activeImg - 1 : activeImg + 1;
       if (nextImgId < 0) {
-        this.setState({ nextImg: (this.state.imgs.length - 1) });
-      } else if (nextImgId > this.state.imgs.length - 1) {
+        this.setState({ nextImg: (imgs.length - 1) });
+      } else if (nextImgId > imgs.length - 1) {
         this.setState({ nextImg: 0 });
       } else {
         this.setState({ nextImg: nextImgId });
@@ -103,22 +108,23 @@ class UnstyledProjectCard extends React.Component {
   }
 
   swipeImgEnd(e) {
+    const { imgs, lastSwipedX, activeImg: currentActiveImg } = this.state;
     this.setState({ nextImg: null });
 
-    if (this.state.imgs.length <= 1) return null;
+    if (imgs.length <= 1) return null;
 
     const swipedImg = e.currentTarget;
-    if (this.state.lastSwipedX) {
-      const movement = e.changedTouches[0].clientX - this.state.lastSwipedX;
+    if (lastSwipedX) {
+      const movement = e.changedTouches[0].clientX - lastSwipedX;
 
-      let { activeImg } = this.state;
+      let activeImg = currentActiveImg;
 
       if (activeImg > 0 && movement < 0) {
         activeImg -= 1;
-      } else if (activeImg + 1 < this.state.imgs.length && movement > 0) {
+      } else if (activeImg + 1 < imgs.length && movement > 0) {
         activeImg += 1;
       } else if (movement < 0) {
-        activeImg = this.state.imgs.length - 1;
+        activeImg = imgs.length - 1;
       } else if (movement > 0) {
         activeImg = 0;
       }
@@ -137,55 +143,63 @@ class UnstyledProjectCard extends React.Component {
   }
 
   render() {
+    const {
+      className, projectType, projectId, title, text, links, techs,
+    } = this.props;
+    const { imgs, activeImg, nextImg } = this.state;
     return (
-      <article className={`project-card ${this.props.className}`} data-key={`${this.props.projectType}${this.props.projectId}`}>
+      <article className={`project-card ${className}`} data-key={`${projectType}${projectId}`}>
         <div className="image-wrapper">
-          {this.state.imgs.length > 1
-            ? <ImgButtons
-              onClick={this.changeImg}
-              activeImg={this.state.activeImg}
-              imgsLength={this.state.imgs.length}
-            />
+          {imgs.length > 1
+            ? (
+              <ImgButtons
+                onClick={this.changeImg}
+                activeImg={activeImg}
+                imgsLength={imgs.length}
+              />
+            )
             : null}
-          {this.state.imgs.map(img => (
+          {imgs.map(img => (
             <img
-              data-key={`${this.props.projectType}${this.props.projectId}img${img.id}`}
-              key={`${this.props.projectType}${this.props.projectId}img${img.id}`}
-              className={`${img.id === this.state.activeImg ? 'active' : ''}${this.state.nextImg === img.id ? 'next' : ''}`}
+              data-key={`${projectType}${projectId}img${img.id}`}
+              key={`${projectType}${projectId}img${img.id}`}
+              className={`${img.id === activeImg ? 'active' : ''}${nextImg === img.id ? 'next' : ''}`}
               src={`https://res.cloudinary.com/design-bright/image/upload/c_limit,w_300,h_250/v1524792633/portfolio/${img.url}`}
-              alt={this.props.title}
+              alt={title}
               onTouchStart={this.swipeImgStart}
               onTouchMove={this.swipeImgMove}
               onTouchEnd={this.swipeImgEnd}
               onLoad={this.resizeProject}
             />
           ))}
-          {this.state.imgs.length > 1
-            ? <ImgBullets
-              imgs={this.state.imgs}
-              activeImg={this.state.activeImg}
-              projectId={this.props.projectId}
-              onClick={this.selectImg}
-            />
+          {imgs.length > 1
+            ? (
+              <ImgBullets
+                imgs={imgs}
+                activeImg={activeImg}
+                projectId={projectId}
+                onClick={this.selectImg}
+              />
+            )
             : null}
         </div>
         <div className="text">
-          <h2>{this.props.title}</h2>
-          <p>{this.props.text}</p>
-          {this.props.projectType === 'web'
+          <h2>{title}</h2>
+          <p>{text}</p>
+          {projectType === 'web'
             ? (
               <div className="web-details">
                 <p className="links">
-                  {this.props.links.site
+                  {links.site
                     ? (
-                      <a href={this.props.links.site}>
+                      <a href={links.site}>
                           Website
                       </a>
                     )
                     : null}
-                  {this.props.links.repo
+                  {links.repo
                     ? (
-                      <a href={this.props.links.repo}>
+                      <a href={links.repo}>
                         Code Repo
                       </a>
                     )
@@ -193,7 +207,7 @@ class UnstyledProjectCard extends React.Component {
                 </p>
                 <h3>Made with:</h3>
                 <div className="logos">
-                  {this.props.techs.map(tech => <Logos key={`${this.props.projectType}${this.props.projectId}tech${tech.id}`} type={tech.type} />)}
+                  {techs.map(tech => <Logos key={`${projectType}${projectId}tech${tech.id}`} type={tech.type} />)}
                 </div>
               </div>
             )

@@ -73,8 +73,10 @@ const UnstyledLabel = ({
   required,
   text,
 }) => (
+  // eslint-disable-next-line
   <label htmlFor={id} className={className}>
-    {text}{required ? '*' : ''}
+    {text}
+    {required ? '*' : ''}
     {children}
   </label>
 );
@@ -134,7 +136,10 @@ const UnstyledInput = ({
         required={required}
       />
     </Label>
-    <p className="error">{error}&nbsp;</p>
+    <p className="error">
+      {error}
+      &nbsp;
+    </p>
   </div>
 );
 

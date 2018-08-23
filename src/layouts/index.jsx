@@ -34,7 +34,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { className, children } = this.props;
+    const { className, children, data } = this.props;
     return (
       <div className={`wrapper ${className}`}>
         <div className="background-wrapper">
@@ -59,10 +59,10 @@ class Layout extends React.Component {
           </a>
         </p>
         <Helmet
-          title={this.props.data.title}
+          title={data.title}
           meta={[
-            { name: 'description', content: this.props.data.description },
-            { name: 'keywords', content: this.props.data.keywords },
+            { name: 'description', content: data.description },
+            { name: 'keywords', content: data.keywords },
           ]}
         >
           <link rel="icon" type="image/png" href={favicon} sizes="110x110" />
@@ -184,7 +184,7 @@ Layout.defaultProps = {
 //     font-size: 1.5625rem;
 //     line-height: 2rem;
 //     margin: 1.375rem 0;
-    
+
 
 //     @media screen and (max-width: 1700px) {
 //       font-size: 1.375rem;
@@ -234,7 +234,7 @@ Layout.defaultProps = {
 //     font-size: 1.375rem;
 //     line-height: 1.875rem;
 //     margin: 1.25rem 0;
-    
+
 
 //     @media screen and (max-width: 1700px) {
 //       font-size: 1.25rem;
@@ -436,7 +436,8 @@ Layout.defaultProps = {
 
 //   @media screen and (max-width: 700px) {
 //     position: fixed;
-//     background: radial-gradient(at top right, ${colors.navy(0)} 4rem, ${colors.navy(0.65)} 18rem);
+//     background: radial-gradient(at top right, ${colors.navy(0)} 4rem,
+// ${colors.navy(0.65)} 18rem);
 
 //     &.turnOff {
 //       opacity: 0;
@@ -449,7 +450,7 @@ Layout.defaultProps = {
 //     -webkit-appearance: none;
 //     width: 8px;
 //   }
-  
+
 //   main::-webkit-scrollbar-thumb {
 //     border-radius: 4px;
 //     background-color: ${colors.lilacBright(0.25)};

@@ -1,20 +1,22 @@
 module.exports = {
   siteMetadata: {
-    title: 'SimeonSmith.me',
-    description: 'Simeon Smith\'s Portfolio Website',
-    keywords: 'simeon, smith, graphic, designer, artist, web, developer',
+    title: 'Gatsby Default Starter',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'gatsby-starter-default',
+        short_name: 'starter',
+        start_url: '/',
+        background_color: '#663399',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+      },
+    },
+    'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     path: `${__dirname}/markdown`,
-    //     name: 'markdown-pages',
-    //   },
-    // },
-    // 'gatsby-transformer-remark',
   ],
-};
+}

@@ -8,7 +8,10 @@ import SignatureLarge from '../assets/img/signature_large.png';
 import SignatureMedium from '../assets/img/signature_medium.png';
 import SignatureSmall from '../assets/img/signature_small.png';
 
+import Layout from '../layouts';
+
 const UnstyledIndexPage = ({ className, title }) => (
+  <Layout>
   <main className={className}>
     <Helmet>
       <title>{title} - Home</title>
@@ -45,6 +48,7 @@ const UnstyledIndexPage = ({ className, title }) => (
       />
     </div>
   </main>
+  </Layout>
 );
 
 UnstyledIndexPage.propTypes = {

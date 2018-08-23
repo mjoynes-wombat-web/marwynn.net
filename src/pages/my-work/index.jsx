@@ -6,6 +6,7 @@ import throttle from 'lodash/throttle';
 
 import ProjectCard from '../../components/project-card';
 import BackToTop from '../../components/back-to-top';
+import Layout from '../../layouts';
 
 import projects from './projects.json';
 
@@ -59,6 +60,7 @@ class UnstyledMyWork extends React.Component {
 
   render() {
     return (
+      <Layout>
       <main className={this.props.className}>
         <Helmet>
           <title>My Work - {this.props.title}</title>
@@ -103,6 +105,7 @@ class UnstyledMyWork extends React.Component {
           <BackToTop />
         </div>
       </main>
+      </Layout>
     );
   }
 }

@@ -5,7 +5,10 @@ import { Helmet } from 'react-helmet';
 
 import ContactForm from '../components/contact-form';
 
+import Layout from '../layouts';
+
 const UnstyledMakeContact = ({ className, title }) => (
+  <Layout>
   <main className={className}>
     <Helmet>
       <title>Make Contact - {title}</title>
@@ -21,6 +24,7 @@ const UnstyledMakeContact = ({ className, title }) => (
       <ContactForm />
     </div>
   </main>
+  </Layout>
 );
 
 UnstyledMakeContact.propTypes = {

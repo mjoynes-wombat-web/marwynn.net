@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import faReact from '@fortawesome/fontawesome-free-brands/faReact';
 import faNodeJS from '@fortawesome/fontawesome-free-brands/faNodeJs';
 import faJS from '@fortawesome/fontawesome-free-brands/faJs';

@@ -96,7 +96,7 @@ class UnstyledMenu extends React.Component {
         />
         <ul>
           <li>
-            <Link to="/" activeClassName="active" exact onClick={this.selectPage}>Home</Link>
+            <Link to="/" activeClassName="active" exact="true" onClick={this.selectPage}>Home</Link>
           </li>
           <li className="slash">/</li>
           <li>

@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+import Layout from '../layouts';
+
 const CodingWithKids = ({ title }) => (
+  <Layout >
   <main>
     <Helmet>
       <title>Coding With Kids - {title}</title>
@@ -13,6 +16,7 @@ const CodingWithKids = ({ title }) => (
       <p>Welcome to my blog about coding fun little web apps for my kids to play with.</p>
     </div>
   </main>
+  </Layout>
 );
 
 CodingWithKids.propTypes = {

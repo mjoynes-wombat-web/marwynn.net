@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+import Layout from '../layouts';
+
 const NotFoundPage = ({ title }) => (
+  <Layout>
   <main>
     <Helmet>
       <title>Page Not Found - {title}</title>
@@ -15,6 +18,7 @@ const NotFoundPage = ({ title }) => (
       </p>
     </div>
   </main>
+  </Layout>
 );
 
 NotFoundPage.propTypes = {

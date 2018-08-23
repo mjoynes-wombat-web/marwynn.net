@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import faArrowCircleRight from '@fortawesome/fontawesome-free-solid/faArrowCircleRight';
 import faArrowCircleLeft from '@fortawesome/fontawesome-free-solid/faArrowCircleLeft';
 

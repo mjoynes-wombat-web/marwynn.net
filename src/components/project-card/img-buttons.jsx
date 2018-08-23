@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import faArrowCircleRight from '@fortawesome/fontawesome-free-solid/faArrowCircleRight';
 import faArrowCircleLeft from '@fortawesome/fontawesome-free-solid/faArrowCircleLeft';
 
-const UnstyledImgButtons = ({
+import colors from '../../consts/colors';
+
+const ImgButtons = ({
   onClick,
   activeImg,
   imgsLength,
-  className,
 }) => (
-  <div className={`img-buttons ${className}`}>
+  <div className="img-buttons">
     <button
       className="left"
       data-direction="left"
@@ -30,57 +30,66 @@ const UnstyledImgButtons = ({
     >
       <FontAwesomeIcon icon={faArrowCircleRight} />
     </button>
+
+    <style jsx>
+      {`
+      .img-buttons {
+        button {
+          opacity: 0;
+          position: absolute;
+          top: calc(50% - 8px);
+          overflow: visible;
+          background: transparent;
+          appearance: none;
+          outline: none;
+          border: none;
+          z-index: 10;
+          transition: 0.5s;
+        }
+
+        button :global(.fa-arrow-circle-left), button :global(.fa-arrow-circle-right) {
+          color: transparent;
+          filter: none;
+          width: 25px;
+          height: 24px;
+          transition: all 0.25s;
+          cursor: pointer;
+          color: ${colors.spring(0.85)};
+          filter: drop-shadow(0 0 0.125rem ${colors.navy(0.75)});
+
+          &:hover {
+            color: ${colors.spring()};
+            transform: scale(1.125);
+          }
+        }
+
+        button:disabled :global(.fa-arrow-circle-left), button:disabled :global(.fa-arrow-circle-right) {
+          color: ${colors.navy(0.25)};
+          filter: drop-shadow(0 0 0.125rem ${colors.navy(0.75)});
+          &:hover {
+            transform: none;
+            cursor: not-allowed;
+            color: ${colors.navy(0.25)};
+          }
+        }
+
+        button.left {
+          left: 0.625rem;
+        }
+
+        button.right {
+          right: 0.625rem;
+        }
+      }
+      `}
+    </style>
   </div>
 );
 
-UnstyledImgButtons.propTypes = {
+ImgButtons.propTypes = {
   onClick: PropTypes.func.isRequired,
   activeImg: PropTypes.number.isRequired,
   imgsLength: PropTypes.number.isRequired,
-  className: PropTypes.string,
 };
-
-UnstyledImgButtons.defaultProps = {
-  className: '',
-};
-
-const ImgButtons = styled(UnstyledImgButtons)`
-  button {
-    position: absolute;
-    top: calc(50% - 8px);
-    overflow: visible;
-    background: transparent;
-    appearance: none;
-    outline: none;
-    border: none;
-    z-index: 10;
-
-    .fa-arrow-circle-left, .fa-arrow-circle-right {
-      color: transparent;
-      filter: none;
-      width: 25px;
-      height: 24px;
-      transition: all 0.25s;
-      cursor: pointer;
-    }
-
-    :disabled {
-      .fa-arrow-circle-left, .fa-arrow-circle-right {
-        :hover {
-          transform: none;
-          cursor: not-allowed;
-        }
-      }
-    }
-  }
-
-  button.left {
-    left: 0.625rem;
-  }
-
-  button.right {
-    right: 0.625rem;
-  }
-`;
 
 export default ImgButtons;

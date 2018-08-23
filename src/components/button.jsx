@@ -1,71 +1,95 @@
-import styled from 'styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import colors from '../consts/colors';
 
-const Button = styled.button`
+const Button = ({
+  className, disabled, children, onClick,
+}) => (
+  <button className={className} disabled={disabled} type="submit" onClick={onClick}>
+    {children}
+    <style jsx>
+      {`
+      button {
+        @keyframes pulse {
+          0% {
+            background-color: ${colors.lilacBright()};
+            box-shadow: inset 0 0 0.75rem ${colors.lilacDeep()},
+            0 0 0.75rem ${colors.lilac(1)};
+          }
+          50% {
+            background-color: ${colors.lilacBright(0.75)};
+            box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.65)};
+          }
 
-  @keyframes pulse {
-    0% {
-      background-color: ${colors.lilacBright()};
-      box-shadow: inset 0 0 0.75rem ${colors.lilacDeep()},
-      0 0 0.75rem ${colors.lilac(1)};
-    }
-    50% {
-      background-color: ${colors.lilacBright(0.75)};
-      box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.65)};
-    }
+          100% {
+            background-color: ${colors.lilacBright()};
+            box-shadow: inset 0 0 0.75rem ${colors.lilacDeep()},
+            0 0 0.75rem ${colors.lilac(1)};
+          }
+        }
+        font-family: 'Josefin Sans', 'Arial', sans-serif;
+        font-weight: 400;
+        cursor: pointer;
+        appearance: none;
+        background-color: ${colors.lilacBright(0.75)};
+        border: 0;
+        border-radius: 0.5rem;
+        box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.65)};
+        color: ${colors.navy()};
+        display: block;
+        font-size: 1.375rem;
+        margin: 0 auto;
+        margin-top: 2rem;
+        outline: none;
+        padding: 1rem 0 0.75rem 0;
+        transition: all 0.5s;
+        width: 100%;
 
-    100% {
-      background-color: ${colors.lilacBright()};
-      box-shadow: inset 0 0 0.75rem ${colors.lilacDeep()},
-      0 0 0.75rem ${colors.lilac(1)};
-    }
-  }
-  font-family: 'Josefin Sans', 'Arial', sans-serif;
-  font-weight: 400;
-  cursor: pointer;
-  appearance: none;
-  background-color: ${colors.lilacBright(0.75)};
-  border: 0;
-  border-radius: 0.5rem;
-  box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.65)};
-  color: ${colors.navy()};
-  display: block;
-  font-size: 1.375rem;
-  margin: 0 auto;
-  margin-top: 2rem;
-  outline: none;
-  padding: 1rem 0 0.75rem 0;
-  transition: all 0.5s;
-  width: 100%;
+        &.processing {
+          animation-name: pulse;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+        }
 
-  &.processing {
-    animation-name: pulse;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-  }
+        @media screen and (max-width: 1700px) {
+          font-size: 1.25rem;
+        }
 
-  @media screen and (max-width: 1700px) {
-    font-size: 1.25rem;
-  }
+        @media screen and (max-width: 925px) {
+          font-size: 1.125rem;
+        }
 
-  @media screen and (max-width: 925px) {
-    font-size: 1.125rem;
-  }
+        @media screen and (max-width: 700px) {
+          font-size: 1rem;
+        }
 
-  @media screen and (max-width: 700px) {
-    font-size: 1rem;
-  }
+        &:hover {
+          background-color: ${colors.lilacBright()};
+          box-shadow: inset 0 0 0.75rem ${colors.lilacDeep()},
+            0 0 0.75rem ${colors.lilac(1)};
+        }
 
-  &:hover {
-    background-color: ${colors.lilacBright()};
-    box-shadow: inset 0 0 0.75rem ${colors.lilacDeep()},
-      0 0 0.75rem ${colors.lilac(1)};
-  }
+        :disabled {
+          cursor: not-allowed;
+        }
+      }
+      `}
+    </style>
+  </button>
+);
 
-  :disabled {
-    cursor: not-allowed;
-  }
-`;
+Button.propTypes = {
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  onClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+  className: '',
+  disabled: false,
+  onClick: () => null,
+};
 
 export default Button;

@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import css from 'styled-jsx/css';
 import styled from 'styled-components';
 
 import colors from '../consts/colors';
 
-const inputStyling = () => `
+const inputStyling = css`
 margin-top: 1rem;
+
+textarea {
+  min-height: 10rem;
+}
 
 input, textarea {
     appearance: none;
@@ -66,54 +71,52 @@ input, textarea {
   }
 `;
 
-const UnstyledLabel = ({
-  className,
+export const Label = ({
   children,
   id,
   required,
   text,
 }) => (
   // eslint-disable-next-line
-  <label htmlFor={id} className={className}>
+  <label htmlFor={id}>
     {text}
     {required ? '*' : ''}
     {children}
+    <style jsx>
+      {`
+      font-family: 'Josefin Sans', 'Arial', sans-serif;
+      font-weight: 300;
+      font-size: 1.5rem;
+      color: ${colors.spring()};
+
+      @media screen and (max-width: 1700px) {
+        font-size: 1.375rem;
+      }
+
+      @media screen and (max-width: 925px) {
+        font-size: 1.25rem;
+      }
+
+      @media screen and (max-width: 700px) {
+        font-size: 1.125rem;
+      }
+      `}
+    </style>
   </label>
 );
 
-UnstyledLabel.propTypes = {
-  className: PropTypes.string,
+Label.propTypes = {
   text: PropTypes.string.isRequired,
   required: PropTypes.bool,
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 
-UnstyledLabel.defaultProps = {
-  className: '',
+Label.defaultProps = {
   required: false,
 };
 
-const Label = styled(UnstyledLabel)`
-  font-family: 'Josefin Sans', 'Arial', sans-serif;
-  font-weight: 300;
-  font-size: 1.5rem;
-  color: ${colors.spring()};
-
-  @media screen and (max-width: 1700px) {
-    font-size: 1.375rem;
-  }
-
-  @media screen and (max-width: 925px) {
-    font-size: 1.25rem;
-  }
-
-  @media screen and (max-width: 700px) {
-    font-size: 1.125rem;
-  }
-`;
-
-const UnstyledInput = ({
+export const Input = ({
   className,
   label,
   id,
@@ -123,6 +126,7 @@ const UnstyledInput = ({
   type,
   error,
   required,
+  width,
 }) => (
   <div className={className}>
     <Label text={label} id={id} required={required}>
@@ -134,16 +138,22 @@ const UnstyledInput = ({
         name={id}
         value={value}
         required={required}
+        style={{
+          width,
+        }}
       />
     </Label>
     <p className="error">
       {error}
       &nbsp;
     </p>
+    <style jsx>
+      {inputStyling}
+    </style>
   </div>
 );
 
-UnstyledInput.propTypes = {
+Input.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -153,30 +163,26 @@ UnstyledInput.propTypes = {
   type: PropTypes.string.isRequired,
   error: PropTypes.string,
   required: PropTypes.bool,
+  width: PropTypes.string,
 };
 
-UnstyledInput.defaultProps = {
+Input.defaultProps = {
   className: '',
   value: '',
   placeholder: '',
   error: '',
   required: false,
+  width: '20rem',
 };
 
-export const Input = styled(UnstyledInput)`
-  ${inputStyling()}
-  input {
-    width: ${props => props.width};
-  }
-`;
-
-const UnstyledTextArea = ({
+export const TextArea = ({
   className,
   label,
   id,
   value,
   onChange,
   required,
+  width,
 }) => (
   <div className={className}>
     <Label text={label} id={id} required={required}>
@@ -186,30 +192,30 @@ const UnstyledTextArea = ({
         name={id}
         value={value}
         required={required}
+        style={{
+          width,
+        }}
       />
     </Label>
+    <style jsx>
+      {inputStyling}
+    </style>
   </div>
 );
 
-UnstyledTextArea.propTypes = {
+TextArea.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
+  width: PropTypes.string,
 };
 
-UnstyledTextArea.defaultProps = {
+TextArea.defaultProps = {
   className: '',
   value: '',
   required: false,
+  width: '20rem',
 };
-
-export const TextArea = styled(UnstyledTextArea)`
-  ${inputStyling()}
-  textarea {
-    width: ${props => props.width};
-    min-height: 10rem;
-  }
-`;

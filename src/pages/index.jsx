@@ -33,15 +33,7 @@ const UnstyledIndexPage = ({ className, title }) => (
         each challenge.
         </p>
         <p>
-        Please
-          <Link to="/my-work">
-            check out my work
-          </Link>
-          and feel free to
-          <Link to="/make-contact/">
-            contact me
-          </Link>
-          with any questions.
+          {`Please ${<Link to="/my-work">check out my work</Link>} and feel free to ${<Link to="/make-contact/">contact me</Link>} with any questions.`}
         </p>
         <img
           id="signature"

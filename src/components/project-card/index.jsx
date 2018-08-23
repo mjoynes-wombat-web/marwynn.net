@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import throttle from 'lodash/debounce';
 
 import colors from '../../consts/colors';
@@ -9,7 +8,7 @@ import ImgBullets from './img-bullets';
 import ImgButtons from './img-buttons';
 import Logos from '../logos';
 
-class UnstyledProjectCard extends React.Component {
+class ProjectCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -144,11 +143,11 @@ class UnstyledProjectCard extends React.Component {
 
   render() {
     const {
-      className, projectType, projectId, title, text, links, techs,
+      projectType, projectId, title, text, links, techs,
     } = this.props;
     const { imgs, activeImg, nextImg } = this.state;
     return (
-      <article className={`project-card ${className}`} data-key={`${projectType}${projectId}`}>
+      <article className="project-card" data-key={`${projectType}${projectId}`}>
         <div className="image-wrapper">
           {imgs.length > 1
             ? (
@@ -213,12 +212,179 @@ class UnstyledProjectCard extends React.Component {
             )
             : null}
         </div>
+        <style jsx>
+          {`
+          .project-card {
+            box-sizing: border-box;
+            background-color: ${colors.navy(0.3)};
+            box-shadow: inset 0 0 0.25rem ${colors.lilac(0.5)};
+            border-radius: 0.25rem;
+            display: flex;
+            flex-direction: column;
+            width: calc(25% - 1.5rem);
+            transition: all 0.5s;
+            overflow: hidden;
+            margin: 1rem 0;
+
+            @media screen and (max-width: 1500px) {
+              width: calc(33.3333% - 1.3333rem);
+            }
+
+            @media screen and (max-width: 1000px) {
+              width: calc(50% - 1rem);
+            }
+
+            @media screen and (max-width: 700px) {
+              width: 100%;
+            }
+
+            .image-wrapper {
+              display: flex;
+              justify-content: center;
+              justify-self: flex-start;
+              align-items: center;
+              padding: 1.375rem;
+              position: relative;
+              transition: height 0.25s;
+              height: ${props => props.projectsHeight || 250}px;
+
+              @media screen and (max-width: 700px) {
+                height: initial;
+              }
+            }
+
+            .image-wrapper :global(img) {
+              max-width: calc(100% - 2.75rem);
+              border-radius: 0.25rem;
+              position: absolute;
+              opacity: 0.35;
+              transform: translate(0.375rem, 0.375rem);
+              transition: transform 0.25s, opacity 0.25s, box-shadow 0.25s;
+              pointer-events: none;
+            }
+
+            .image-wrapper :global(img.active) {
+              max-width: 100%;
+              z-index: 2;
+              opacity: 1;
+              top: 0;
+              margin: 0;
+              position: relative;
+              transform: none;
+              border: 1px solid ${colors.lilacBright()};
+              box-shadow: 0 0 0.5rem ${colors.navy()};
+              display: block;
+              pointer-events: all;
+
+            }
+
+            .image-wrapper :global(img.next) {
+              opacity: 0.85;
+              z-index: 1;
+            }
+
+            .image-wrapper:hover :global(.img-buttons button) {
+              opacity: 1;
+            }
+
+            .text {
+              padding: 1rem;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              transition: all 0.5s;
+              box-sizing: border-box;
+              flex: 1;
+
+              h2 {
+                margin: 0;
+                min-height: 64px;
+                display: flex;
+                align-items: center;
+                font-size: 1.75rem;
+
+                @media screen and (max-width: 1700px) {
+                  min-height: 54px;
+                  font-size: 1.5rem;
+                }
+
+                @media screen and (max-width: 925px) {
+                  min-height: 50px;
+                  font-size: 1.375rem;
+                }
+
+                @media screen and (max-width: 700px) {
+                  min-height: initial;
+                  font-size: 1.25rem;
+                  margin-top: 0.5rem;
+                }
+              }
+
+              h3 {
+                margin: 0.5rem 0;
+                display: flex;
+                align-items: center;
+                font-size: 1.625rem;
+
+                @media screen and (max-width: 1700px) {
+                  margin: 0.375rem 0;
+                  font-size: 1.375rem;
+                }
+
+                @media screen and (max-width: 925px) {
+                  margin: 0.25rem 0;
+                  font-size: 1.25rem;
+                }
+
+                @media screen and (max-width: 700px) {
+                  font-size: 1.125rem;
+                }
+              }
+
+              p {
+                padding: 0 1rem;
+                margin: 0.5rem 0;
+                color: white;
+                display: inline-block;
+                display: flex;
+                align-items: center;
+              }
+
+              .web-details {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                flex: 1;
+
+                .links {
+                  width: 100%;
+                  display: flex;
+                  justify-content: space-evenly;
+                  min-height: initial;
+                  margin: 0.5rem 0 1rem 0;
+                }
+
+                .logos {
+                  display: flex;
+                  align-items: flex-end;
+                  flex-wrap: wrap;
+                  min-width: 100%;
+                  justify-content: space-around;
+                }
+              }
+            }
+          }
+          `}
+        </style>
       </article>
     );
   }
 }
 
-UnstyledProjectCard.propTypes = {
+ProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   projectId: PropTypes.number.isRequired,
@@ -235,199 +401,12 @@ UnstyledProjectCard.propTypes = {
     id: PropTypes.number,
     url: PropTypes.string,
   })).isRequired,
-  className: PropTypes.string,
   resizeProjects: PropTypes.func.isRequired,
 };
 
-UnstyledProjectCard.defaultProps = {
-  className: '',
+ProjectCard.defaultProps = {
   links: null,
   techs: null,
 };
-
-const ProjectCard = styled(UnstyledProjectCard)`
-  box-sizing: border-box;
-  background-color: ${colors.navy(0.3)};
-  box-shadow: inset 0 0 0.25rem ${colors.lilac(0.5)};
-  border-radius: 0.25rem;
-  display: flex;
-  flex-direction: column;
-  width: calc(25% - 1.5rem);
-  transition: all 0.5s;
-  overflow: hidden;
-  margin: 1rem 0;
-
-  @media screen and (max-width: 1500px) {
-    width: calc(33.3333% - 1.3333rem);
-  }
-
-  @media screen and (max-width: 1000px) {
-    width: calc(50% - 1rem);
-  }
-
-  @media screen and (max-width: 700px) {
-    width: 100%;
-  }
-
-  .image-wrapper {
-    display: flex;
-    justify-content: center;
-    justify-self: flex-start;
-    align-items: center;
-    padding: 1.375rem;
-    position: relative;
-    transition: height 0.25s;
-    height: ${props => props.projectsHeight || 250}px;
-
-    @media screen and (max-width: 700px) {
-      height: initial;
-    }
-
-    &:hover {
-      button {
-        :disabled {
-          .fa-arrow-circle-left, .fa-arrow-circle-right {
-            color: ${colors.navy(0.25)};
-            filter: drop-shadow(0 0 0.125rem ${colors.navy(0.75)});
-
-            &:hover {
-              color: ${colors.navy(0.25)};
-              transform: none;
-            }
-          }
-        }
-        .fa-arrow-circle-left, .fa-arrow-circle-right {
-          color: ${colors.spring(0.75)};
-          filter: drop-shadow(0 0 0.125rem ${colors.navy(0.75)});
-
-          &:hover {
-            color: ${colors.spring()};
-            transform: scale(1.125);
-          }
-        }
-      }
-    }
-
-    img {
-      max-width: calc(100% - 2.75rem);
-      border-radius: 0.25rem;
-      position: absolute;
-      opacity: 0.35;
-      transform: translate(0.375rem, 0.375rem);
-      transition: transform 0.25s, opacity 0.25s, box-shadow 0.25s;
-      pointer-events: none;
-
-
-      &.active {
-        max-width: 100%;
-        z-index: 2;
-        opacity: 1;
-        top: 0;
-        margin: 0;
-        position: relative;
-        transform: none;
-        border: 1px solid ${colors.lilacBright()};
-        box-shadow: 0 0 0.5rem ${colors.navy()};
-        display: block;
-        pointer-events: all;
-
-      }
-      &.next {
-        opacity: 0.85;
-        z-index: 1;
-      }
-    }
-  }
-
-  .text {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: all 0.5s;
-    box-sizing: border-box;
-    flex: 1;
-
-    h2 {
-      margin: 0;
-      min-height: 64px;
-      display: flex;
-      align-items: center;
-      font-size: 1.75rem;
-
-      @media screen and (max-width: 1700px) {
-        min-height: 54px;
-        font-size: 1.5rem;
-      }
-
-      @media screen and (max-width: 925px) {
-        min-height: 50px;
-        font-size: 1.375rem;
-      }
-
-      @media screen and (max-width: 700px) {
-        min-height: initial;
-        font-size: 1.25rem;
-        margin-top: 0.5rem;
-      }
-    }
-
-    h3 {
-      margin: 0.5rem 0;
-      display: flex;
-      align-items: center;
-      font-size: 1.625rem;
-
-      @media screen and (max-width: 1700px) {
-        margin: 0.375rem 0;
-        font-size: 1.375rem;
-      }
-
-      @media screen and (max-width: 925px) {
-        margin: 0.25rem 0;
-        font-size: 1.25rem;
-      }
-
-      @media screen and (max-width: 700px) {
-        font-size: 1.125rem;
-      }
-    }
-
-    p {
-      padding: 0 1rem;
-      margin: 0.5rem 0;
-      color: white;
-      display: inline-block;
-      display: flex;
-      align-items: center;
-    }
-
-    .web-details {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      flex: 1;
-
-      .links {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        min-height: initial
-        margin: 0.5rem 0 1rem 0;;
-      }
-
-      .logos {
-        display: flex;
-        align-items: flex-end;
-        flex-wrap: wrap;
-        min-width: 100%;
-        justify-content: space-around;
-      }
-    }
-  }
-`;
 
 export default ProjectCard;

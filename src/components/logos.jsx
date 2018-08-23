@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import faReact from '@fortawesome/fontawesome-free-brands/faReact';
 import faNodeJS from '@fortawesome/fontawesome-free-brands/faNodeJs';
@@ -72,6 +71,16 @@ const ExpressLogo = ({ className }) => (
       <path d="M28.405,8.454c0,0.469 -0.178,0.829 -0.534,1.082c-0.357,0.252 -0.862,0.378 -1.517,0.378c-0.7,0 -1.256,-0.108 -1.667,-0.323l0,-0.515c0.527,0.263 1.082,0.394 1.667,0.394c0.517,0 0.909,-0.085 1.177,-0.257c0.268,-0.172 0.402,-0.401 0.402,-0.686c0,-0.264 -0.106,-0.485 -0.32,-0.665c-0.213,-0.18 -0.564,-0.356 -1.052,-0.53c-0.523,-0.189 -0.891,-0.352 -1.103,-0.489c-0.212,-0.136 -0.372,-0.29 -0.479,-0.462c-0.108,-0.172 -0.162,-0.381 -0.162,-0.629c0,-0.391 0.165,-0.701 0.494,-0.929c0.329,-0.228 0.789,-0.342 1.38,-0.342c0.565,0 1.101,0.106 1.608,0.318l-0.178,0.433c-0.513,-0.212 -0.99,-0.318 -1.43,-0.318c-0.427,0 -0.766,0.071 -1.016,0.212c-0.251,0.142 -0.376,0.337 -0.376,0.588c0,0.273 0.097,0.491 0.291,0.655c0.195,0.164 0.574,0.347 1.139,0.549c0.472,0.17 0.816,0.323 1.031,0.46c0.215,0.136 0.377,0.291 0.484,0.465c0.108,0.173 0.161,0.377 0.161,0.611Z" />
       <path d="M33,8.454c0,0.469 -0.178,0.829 -0.535,1.082c-0.356,0.252 -0.862,0.378 -1.517,0.378c-0.7,0 -1.255,-0.108 -1.666,-0.323l0,-0.515c0.527,0.263 1.082,0.394 1.666,0.394c0.517,0 0.91,-0.085 1.178,-0.257c0.268,-0.172 0.402,-0.401 0.402,-0.686c0,-0.264 -0.107,-0.485 -0.32,-0.665c-0.214,-0.18 -0.565,-0.356 -1.053,-0.53c-0.523,-0.189 -0.891,-0.352 -1.102,-0.489c-0.212,-0.136 -0.372,-0.29 -0.48,-0.462c-0.107,-0.172 -0.161,-0.381 -0.161,-0.629c0,-0.391 0.165,-0.701 0.494,-0.929c0.329,-0.228 0.789,-0.342 1.379,-0.342c0.566,0 1.102,0.106 1.609,0.318l-0.178,0.433c-0.514,-0.212 -0.991,-0.318 -1.431,-0.318c-0.427,0 -0.765,0.071 -1.016,0.212c-0.25,0.142 -0.375,0.337 -0.375,0.588c0,0.273 0.097,0.491 0.291,0.655c0.194,0.164 0.574,0.347 1.139,0.549c0.472,0.17 0.816,0.323 1.031,0.46c0.215,0.136 0.376,0.291 0.484,0.465c0.107,0.173 0.161,0.377 0.161,0.611Z" />
     </g>
+    <style jsx>
+      {`
+      .express {
+        padding-bottom: 0;
+        .artboard {
+          fill: none;
+        }
+      }
+      `}
+    </style>
   </svg>
 );
 
@@ -83,7 +92,7 @@ ExpressLogo.defaultProps = {
   className: '',
 };
 
-const UnstyledMySQLLogo = ({ className }) => (
+const MySQLLogo = ({ className }) => (
   <svg alt="MySQL" className={`mysql-logo ${className}`} width="100%" height="100%" viewBox="0 0 1755 1192" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g>
       <g>
@@ -94,23 +103,23 @@ const UnstyledMySQLLogo = ({ className }) => (
       </g>
 
     </g>
-
+    <style jsx>
+      {`
+      .mysql-logo {
+        height: 2rem;
+      }
+      `}
+    </style>
   </svg>
 );
 
-UnstyledMySQLLogo.propTypes = {
+MySQLLogo.propTypes = {
   className: PropTypes.string,
 };
 
-UnstyledMySQLLogo.defaultProps = {
+MySQLLogo.defaultProps = {
   className: '',
 };
-
-const MySQLLogo = styled(UnstyledMySQLLogo)`
-  &.mysql-logo {
-    height: 2rem;
-  }
-`;
 
 const GatsbyLogo = ({ className }) => (
   <svg className={className} viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
@@ -128,49 +137,51 @@ GatsbyLogo.defaultProps = {
   className: '',
 };
 
-const UnstyledLogos = ({ type, className }) => {
+function pickLogo(type) {
   switch (type) {
     case 'react':
-      return <ReactLogo className={className} />;
+      return <ReactLogo />;
     case 'redux':
-      return <ReduxLogo className={className} />;
+      return <ReduxLogo />;
     case 'node':
-      return <NodeLogo className={className} />;
+      return <NodeLogo />;
     case 'express':
-      return <ExpressLogo className={className} />;
+      return <ExpressLogo />;
     case 'mysql':
-      return <MySQLLogo className={className} />;
+      return <MySQLLogo />;
     case 'gatsby':
-      return <GatsbyLogo className={className} />;
+      return <GatsbyLogo />;
     case 'javascript':
-      return <JavaScriptLogo className={className} />;
+      return <JavaScriptLogo />;
     default:
       return null;
   }
-};
+}
 
-const Logos = styled(UnstyledLogos)`
-  width: initial;
-  height: 1.5rem;
-  fill: white;
-  padding: 0.25rem;
+const Logos = ({ type, className }) => (
+  <span className="tech-logos">
+    {pickLogo(type)}
+    <style jsx>
+      {`
+      .tech-logos :global(svg) {
+        width: initial;
+        height: 1.5rem;
+        fill: white;
+        color: white;
+        padding: 0.25rem;
 
-  > * {
-    fill: white;
-  }
+        > * {
+          fill: white;
+        }
 
-  &.svg-inline--fa {
-    width: initial;
-    height: 1.5rem;
-  }
-
-  .artboard {
-    fill: none;
-  }
-
-  &.express {
-    padding-bottom: 0;
-  }
-`;
+        &.svg-inline--fa {
+          width: initial;
+          height: 1.5rem;
+        }
+      }
+      `}
+    </style>
+  </span>
+);
 
 export default Logos;

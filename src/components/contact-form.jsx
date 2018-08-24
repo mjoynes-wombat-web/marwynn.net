@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import axios from 'axios';
 
 import { Input, TextArea } from './inputs';
@@ -9,7 +7,7 @@ import colors from '../consts/colors';
 
 import validEmail from '../helpers/validEmail';
 
-class UnstyledContactForm extends React.Component {
+class ContactForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,8 +60,6 @@ class UnstyledContactForm extends React.Component {
       receiverName: 'Simeon Smith',
     };
 
-    console.log(messageDetails);
-
     axios.post(
       'https://www.wombatweb.us:7777/api/v1/contact',
       messageDetails,
@@ -87,10 +83,41 @@ class UnstyledContactForm extends React.Component {
   }
 
   render() {
-    const { className } = this.props;
     const { messageSent, inputs, messageSending } = this.state;
     return (
-      <form className={className} onSubmit={this.sendMessage}>
+      <form onSubmit={this.sendMessage}>
+        <style jsx>
+          {`
+          @keyframes errorPulse {
+            0%{
+              color: ${colors.lilac()};
+            }
+            25%{
+              color: ${colors.tomato()};
+              transform: scale(1.05);
+            }
+            50%{
+              color: ${colors.lilac()};
+              transform: scale(1);
+            }
+            75%{
+              color: ${colors.tomato()};
+              transform: scale(1.05);
+            }
+            100%{
+              color: ${colors.lilac()};
+              transform: scale(1);
+            }
+          }
+          max-width: 100%;
+
+          h3.error {
+            animation-name: errorPulse;
+            animation-duration: 1.5s;
+            transform-origin: left center;
+          }
+          `}
+        </style>
         <h2>Send Me a Message</h2>
         {messageSent !== null
           ? (
@@ -148,44 +175,5 @@ class UnstyledContactForm extends React.Component {
     );
   }
 }
-
-UnstyledContactForm.propTypes = {
-  className: PropTypes.string,
-};
-
-UnstyledContactForm.defaultProps = {
-  className: '',
-};
-
-const ContactForm = styled(UnstyledContactForm)`
-  @keyframes errorPulse {
-    0%{
-      color: ${colors.lilac()};
-    }
-    25%{
-      color: ${colors.tomato()};
-      transform: scale(1.05);
-    }
-    50%{
-      color: ${colors.lilac()};
-      transform: scale(1);
-    }
-    75%{
-      color: ${colors.tomato()};
-      transform: scale(1.05);
-    }
-    100%{
-      color: ${colors.lilac()};
-      transform: scale(1);
-    }
-  }
-  max-width: 100%;
-
-  h3.error {
-    animation-name: errorPulse;
-    animation-duration: 1.5s;
-    transform-origin: left center;
-  }
-`;
 
 export default ContactForm;

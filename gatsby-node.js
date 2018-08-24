@@ -1,5 +1,3 @@
-
-
 const chokidar = require('chokidar');
 const { remove } = require('fs-extra');
 const touch = require('touch');
@@ -13,20 +11,20 @@ exports.onCreateBabelConfig = ({ actions }) => {
 };
 
 // Watch CSS files
-exports.modifyWebpackConfig = ({ config, stage }, options) => {
+exports.onCreateWebpackConfig = ({ stage, actions }, options) => {
   if (stage === 'develop') {
-    options = {
+    const newOptions = {
       watchCss: true,
       watch: 'src/**/*.css',
       remove: 'node_modules/.cache',
       touch: 'src/**/*.js',
       ...options,
     };
-    if (options.watchCss) {
-      const watcher = chokidar.watch(options.watch);
+    if (newOptions.watchCss) {
+      const watcher = chokidar.watch(newOptions.watch);
       watcher.on('change', (event) => {
-        remove(options.remove)
-          .then(() => glob(options.touch))
+        remove(newOptions.remove)
+          .then(() => glob(newOptions.touch))
           .then(files => Promise.all(files.map(file => touch(file))))
           .catch(console.error);
       });
@@ -34,5 +32,5 @@ exports.modifyWebpackConfig = ({ config, stage }, options) => {
     }
   }
 
-  return config;
+  return actions;
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
 import throttle from 'lodash/throttle';
 
 import ProjectCard from '../../components/project-card';
@@ -10,7 +9,7 @@ import Layout from '../../layouts';
 
 import projects from './projects.json';
 
-class UnstyledMyWork extends React.Component {
+class MyWork extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,11 +59,20 @@ class UnstyledMyWork extends React.Component {
   }
 
   render() {
-    const { className, title } = this.props;
+    const { title } = this.props;
     const { projectsHeight } = this.state;
     return (
       <Layout>
-        <main className={className}>
+        <style jsx>
+          {`
+          .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+          }
+          `}
+        </style>
+        <main>
           <Helmet>
             <title>
 My Work -
@@ -119,22 +127,12 @@ My Work -
   }
 }
 
-UnstyledMyWork.propTypes = {
+MyWork.propTypes = {
   title: PropTypes.string,
-  className: PropTypes.string,
 };
 
-UnstyledMyWork.defaultProps = {
+MyWork.defaultProps = {
   title: 'SimeonSmith.me',
-  className: '',
 };
-
-const MyWork = styled(UnstyledMyWork)`
-  .projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-`;
 
 export default MyWork;

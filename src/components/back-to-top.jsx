@@ -33,7 +33,6 @@ class BackToTop extends React.Component {
   }
 
   backToTop(e, duration = 600) {
-    console.log(e);
     const scrollHeight = window.scrollY;
     const scrollStep = Math.PI / (duration / 15);
     const cosParameter = scrollHeight / 2;

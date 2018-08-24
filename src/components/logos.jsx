@@ -158,7 +158,7 @@ function pickLogo(type) {
   }
 }
 
-const Logos = ({ type, className }) => (
+const Logos = ({ type }) => (
   <span className="tech-logos">
     {pickLogo(type)}
     <style jsx>
@@ -183,5 +183,9 @@ const Logos = ({ type, className }) => (
     </style>
   </span>
 );
+
+Logos.propTypes = {
+  type: PropTypes.string.isRequired,
+};
 
 export default Logos;

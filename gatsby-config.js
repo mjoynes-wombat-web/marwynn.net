@@ -16,8 +16,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-eslint',
     // {
     //   resolve: 'gatsby-plugin-styled-jsx',

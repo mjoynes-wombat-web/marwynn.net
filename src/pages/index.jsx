@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
@@ -10,9 +9,31 @@ import SignatureSmall from '../assets/img/signature_small.png';
 
 import Layout from '../layouts';
 
-const UnstyledIndexPage = ({ className, title }) => (
+const IndexPage = ({ title }) => (
   <Layout>
-    <main className={className}>
+    <style jsx>
+      {`
+      #signature {
+        margin: 1.125rem 0 0 1.125rem;
+        width: 325px;
+
+        @media screen and (max-width: 1700px) {
+          margin: 1rem 0 0 1rem;
+          width: 300px;
+        }
+
+        @media screen and (max-width: 925px) {
+          margin: 0.875rem 0 0 0.875rem;
+          width: 250px;
+        }
+
+        @media screen and (max-width: 700px) {
+          width: 200px;
+        }
+      }
+      `}
+    </style>
+    <main>
       <Helmet>
         <title>{`${title} - Home`}</title>
       </Helmet>
@@ -51,36 +72,12 @@ const UnstyledIndexPage = ({ className, title }) => (
   </Layout>
 );
 
-UnstyledIndexPage.propTypes = {
-  className: PropTypes.string,
+IndexPage.propTypes = {
   title: PropTypes.string,
 };
 
-UnstyledIndexPage.defaultProps = {
-  className: '',
+IndexPage.defaultProps = {
   title: 'SimeonSmith.me',
 };
-
-const IndexPage = styled(UnstyledIndexPage)`
-
-  #signature {
-    margin: 1.125rem 0 0 1.125rem;
-    width: 325px;
-
-    @media screen and (max-width: 1700px) {
-      margin: 1rem 0 0 1rem;
-      width: 300px;
-    }
-
-    @media screen and (max-width: 925px) {
-      margin: 0.875rem 0 0 0.875rem;
-      width: 250px;
-    }
-
-    @media screen and (max-width: 700px) {
-      width: 200px;
-    }
-  }
-`;
 
 export default IndexPage;

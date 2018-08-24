@@ -2,6 +2,57 @@ const chokidar = require('chokidar');
 const { remove } = require('fs-extra');
 const touch = require('touch');
 const glob = require('globby');
+const { createFilePath } = require('gatsby-source-filesystem');
+const path = require('path');
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: 'coding-with-kids',
+    });
+    createNodeField({
+      node,
+      name: 'slug',
+      value: `/coding-with-kids${slug}`,
+    });
+  }
+};
+
+exports.createPages = ({ graphql, boundActionCreators }) => {
+  const { createPage } = boundActionCreators;
+  return new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `).then((result) => {
+      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve('./src/pages/coding-with-kids/article/index.jsx'),
+          context: {
+            slug: node.fields.slug,
+          },
+        });
+      });
+
+      resolve();
+    }).catch((error) => {
+      reject(error);
+    });
+  });
+};
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({

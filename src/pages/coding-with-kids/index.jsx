@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import Layout from '../layouts';
+import Layout from '../../layouts';
 
 const CodingWithKids = ({ title }) => (
   <Layout>

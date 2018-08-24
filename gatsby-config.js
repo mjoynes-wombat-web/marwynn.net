@@ -17,6 +17,28 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-eslint',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'articles',
+        path: `${__dirname}/src/pages/coding-with-kids/article/markdown`,
+      },
+    },
     // {
     //   resolve: 'gatsby-plugin-styled-jsx',
     //   options: {

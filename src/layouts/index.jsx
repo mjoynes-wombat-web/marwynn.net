@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
 
 import Menu from '../components/menu';
 
@@ -33,7 +32,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children, data } = this.props;
+    const { children } = this.props;
     return (
       <div className="wrapper">
         <div className="background-wrapper">
@@ -57,13 +56,7 @@ class Layout extends React.Component {
             Background photo by Lisa Ann Yount.
           </a>
         </p>
-        <Helmet
-          title={data.title}
-          meta={[
-            { name: 'description', content: data.description },
-            { name: 'keywords', content: data.keywords },
-          ]}
-        >
+        <Helmet>
           <link rel="icon" type="image/png" href={favicon} sizes="110x110" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300i|Josefin+Slab:600|Open+Sans:300" />
         </Helmet>
@@ -78,31 +71,7 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-  children: PropTypes.element,
-  data: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-    keywords: PropTypes.string,
-  }),
-};
-
-Layout.defaultProps = {
-  children: null,
-  data: {
-    title: 'SimeonSmith.me',
-    description: 'Simeon Smith\'s Portfolio Website',
-    keywords: 'simeon, smith, graphic, designer, artist, web, developer',
-  },
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
 export default Layout;
-
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;

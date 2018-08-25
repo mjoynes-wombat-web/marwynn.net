@@ -36,14 +36,17 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'articles',
-        path: `${__dirname}/src/pages/coding-with-kids/article/markdown`,
+        path: `${__dirname}/src/articles/markdown`,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-styled-jsx',
-    //   options: {
-    //     plugins: ['styled-jsx-plugin-postcss'],
-    //   },
-    // },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'article-images',
+        path: `${__dirname}/static/assets/articles/imgs`,
+      },
+    },
   ],
 };

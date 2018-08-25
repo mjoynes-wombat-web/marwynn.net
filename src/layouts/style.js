@@ -20,10 +20,13 @@ body {
   background: ${colors.navy()};
   color: ${colors.carolina()};
   font-family: 'Open Sans', 'Arial', 'sans-serif';
-  font-size: 1.25rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 300;
+  font-weight: 300;  
+}
+
+code, body {
+  font-size: 1.25rem;
 
   @media screen and (max-width: 1700px) {
     font-size: 1.125rem;
@@ -167,17 +170,25 @@ h3 {
 
 p {
   margin: 1.125rem 0;
-  line-height: 1.5rem;
-
 
   @media screen and (max-width: 1700px) {
     margin: 1rem 0;
-    line-height: 1.375rem;
   }
 
   @media screen and (max-width: 925px) {
     margin: 0.875rem 0;
-    line-height: 1.25rem;
+  }
+}
+
+p, code {
+  line-height: 1.75rem;
+
+  @media screen and (max-width: 1700px) {
+    line-height: 1.625rem;
+  }
+
+  @media screen and (max-width: 925px) {
+    line-height: 1.5rem;
   }
 }
 

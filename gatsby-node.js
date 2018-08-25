@@ -4,25 +4,23 @@ const touch = require('touch');
 const glob = require('globby');
 const { createFilePath } = require('gatsby-source-filesystem');
 const path = require('path');
+const slugify = require('slugify');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({
-      node,
-      getNode,
-      basePath: 'coding-with-kids',
-    });
+    const name = slugify(node.frontmatter.title);
+    const date = node.frontmatter.date.replace(new RegExp('-', 'g'), '/');
     createNodeField({
       node,
       name: 'slug',
-      value: `/coding-with-kids${slug}`,
+      value: `/coding-with-kids/${date}/${name}`,
     });
   }
 };
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -40,7 +38,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
-          component: path.resolve('./src/pages/coding-with-kids/article/index.jsx'),
+          component: path.resolve('./src/articles/index.jsx'),
           context: {
             slug: node.fields.slug,
           },

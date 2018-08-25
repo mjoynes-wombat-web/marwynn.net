@@ -62,11 +62,12 @@ class ProjectCard extends React.Component {
   changeImg(e) {
     const { direction } = e.currentTarget.dataset;
     let { activeImg } = this.state;
+    const { imgs } = this.state;
 
     if (direction === 'right') {
-      activeImg += 1;
+      activeImg = imgs.length - 1 === activeImg ? 0 : activeImg + 1;
     } else if (direction === 'left') {
-      activeImg -= 1;
+      activeImg = activeImg === 0 ? imgs.length - 1 : activeImg - 1;
     }
     return this.setState({ activeImg });
   }
@@ -143,7 +144,7 @@ class ProjectCard extends React.Component {
 
   render() {
     const {
-      projectType, projectId, title, text, links, techs,
+      projectType, projectId, title, text, links, techs, projectsHeight,
     } = this.props;
     const { imgs, activeImg, nextImg } = this.state;
     return (
@@ -214,6 +215,19 @@ class ProjectCard extends React.Component {
         </div>
         <style jsx>
           {`
+            .project-card {
+              .image-wrapper {
+                height: ${projectsHeight}px;
+
+                @media screen and (max-width: 700px) {
+                  height: initial;
+                }
+              }
+            }
+            `}
+        </style>
+        <style jsx>
+          {`
           .project-card {
             box-sizing: border-box;
             background-color: ${colors.navy(0.3)};
@@ -246,11 +260,6 @@ class ProjectCard extends React.Component {
               padding: 1.375rem;
               position: relative;
               transition: height 0.25s;
-              height: ${props => props.projectsHeight || 250}px;
-
-              @media screen and (max-width: 700px) {
-                height: initial;
-              }
             }
 
             .image-wrapper :global(img) {
@@ -364,6 +373,7 @@ ProjectCard.propTypes = {
   text: PropTypes.string.isRequired,
   projectId: PropTypes.number.isRequired,
   projectType: PropTypes.string.isRequired,
+  projectsHeight: PropTypes.number,
   links: PropTypes.shape({
     site: PropTypes.string,
     repo: PropTypes.string,
@@ -382,6 +392,7 @@ ProjectCard.propTypes = {
 ProjectCard.defaultProps = {
   links: null,
   techs: null,
+  projectsHeight: 250,
 };
 
 export default ProjectCard;

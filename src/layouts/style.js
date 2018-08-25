@@ -24,11 +24,11 @@ html {
   }
 
   @media screen and (max-width: 925px) {
-    font-size: 0.75em
+    font-size: 0.8125em
   }
 
   @media screen and (max-width: 700px) {
-    font-size: 0.625em;
+    font-size: 0.75em;
   }
 }
 
@@ -120,14 +120,14 @@ a {
 }
 
 main {
-  margin: 5rem;
+  margin: 4rem;
   min-width: calc(100% - 10rem);
   padding-right: 0.5rem;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
   @media screen and (max-width: 700px) {
-    width: calc(100vw - 10rem);
+    width: calc(100vw - 8rem);
     overflow: initial;
   };
 }

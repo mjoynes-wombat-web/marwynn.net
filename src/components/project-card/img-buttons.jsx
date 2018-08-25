@@ -16,7 +16,6 @@ const ImgButtons = ({
       className="left"
       data-direction="left"
       onClick={onClick}
-      disabled={activeImg === 0}
       type="button"
     >
       <FontAwesomeIcon icon={faArrowCircleLeft} />
@@ -25,7 +24,6 @@ const ImgButtons = ({
       className="right"
       data-direction="right"
       onClick={onClick}
-      disabled={activeImg + 1 === imgsLength}
       type="button"
     >
       <FontAwesomeIcon icon={faArrowCircleRight} />
@@ -44,7 +42,7 @@ const ImgButtons = ({
           outline: none;
           border: none;
           z-index: 10;
-          transition: 0.5s;
+          transition: 0.25s;
         }
 
         button :global(.fa-arrow-circle-left), button :global(.fa-arrow-circle-right) {

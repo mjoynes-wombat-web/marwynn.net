@@ -5,32 +5,16 @@ import faReact from '@fortawesome/fontawesome-free-brands/faReact';
 import faNodeJS from '@fortawesome/fontawesome-free-brands/faNodeJs';
 import faJS from '@fortawesome/fontawesome-free-brands/faJs';
 
-const ReactLogo = ({ className }) => (
-  <FontAwesomeIcon alt="React" className={className} icon={faReact} />
+const ReactLogo = () => (
+  <FontAwesomeIcon alt="React" icon={faReact} />
 );
 
-ReactLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-ReactLogo.defaultProps = {
-  className: '',
-};
-
-const JavaScriptLogo = ({ className }) => (
-  <FontAwesomeIcon alt="JavaScript" className={className} icon={faJS} />
+const JavaScriptLogo = () => (
+  <FontAwesomeIcon alt="JavaScript" icon={faJS} />
 );
 
-JavaScriptLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-JavaScriptLogo.defaultProps = {
-  className: '',
-};
-
-const ReduxLogo = ({ className }) => (
-  <svg alt="redux" className={className} width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+const ReduxLogo = () => (
+  <svg alt="redux" width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g>
       <path d="M69.538,69.245c3.654,-0.378 6.425,-3.527 6.299,-7.307c-0.126,-3.779 -3.275,-6.803 -7.055,-6.803l-0.252,0c-3.905,0.126 -6.928,3.402 -6.803,7.307c0.126,1.89 0.882,3.528 2.016,4.662c-4.283,8.44 -10.834,14.613 -20.661,19.779c-6.677,3.527 -13.606,4.787 -20.535,3.905c-5.669,-0.756 -10.078,-3.275 -12.85,-7.433c-4.031,-6.173 -4.409,-12.85 -1.008,-19.527c2.394,-4.787 6.173,-8.315 8.567,-10.078c-0.504,-1.638 -1.26,-4.41 -1.638,-6.426c-18.267,13.229 -16.377,31.118 -10.834,39.559c4.157,6.299 12.598,10.204 21.921,10.204c2.519,0 5.039,-0.252 7.558,-0.882c16.126,-3.149 28.346,-12.724 35.275,-26.96Z" />
       <path d="M91.711,53.624c-9.574,-11.213 -23.684,-17.386 -39.81,-17.386l-2.016,0c-1.134,-2.268 -3.527,-3.779 -6.173,-3.779l-0.252,0c-3.905,0.126 -6.929,3.401 -6.803,7.307c0.126,3.779 3.276,6.803 7.055,6.803l0.252,0c2.772,-0.126 5.165,-1.89 6.173,-4.284l2.268,0c9.574,0 18.645,2.772 26.834,8.189c6.299,4.157 10.834,9.575 13.354,16.126c2.142,5.291 2.016,10.456 -0.252,14.866c-3.527,6.677 -9.449,10.33 -17.259,10.33c-5.04,0 -9.827,-1.512 -12.347,-2.646c-1.385,1.26 -3.905,3.276 -5.669,4.536c5.417,2.519 10.961,3.905 16.252,3.905c12.094,0 21.039,-6.677 24.44,-13.354c3.654,-7.307 3.402,-19.905 -6.047,-30.613Z" />
@@ -39,28 +23,12 @@ const ReduxLogo = ({ className }) => (
   </svg>
 );
 
-ReduxLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-ReduxLogo.defaultProps = {
-  className: '',
-};
-
-const NodeLogo = ({ className }) => (
-  <FontAwesomeIcon alt="NodeJS" className={className} icon={faNodeJS} />
+const NodeLogo = () => (
+  <FontAwesomeIcon alt="NodeJS" icon={faNodeJS} />
 );
 
-NodeLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-NodeLogo.defaultProps = {
-  className: '',
-};
-
-const ExpressLogo = ({ className }) => (
-  <svg alt="Express.JS" className={`${className} express`} width="100%" height="100%" viewBox="0 0 33 13" version="1.1" xmlns="http://www.w3.org/2000/svg">
+const ExpressLogo = () => (
+  <svg alt="Express.JS" className="express-logo logo" width="100%" height="100%" viewBox="0 0 33 13" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <rect className="artboard" x="0" y="0" width="33" height="12.187" />
     <g>
       <path d="M3.848,9.817l-3.848,0l0,-7.041l3.848,0l0,0.453l-3.357,0l0,2.663l3.169,0l0,0.453l-3.169,0l0,3.02l3.357,0l0,0.452Z" />
@@ -73,8 +41,8 @@ const ExpressLogo = ({ className }) => (
     </g>
     <style jsx>
       {`
-      .express {
-        padding-bottom: 0;
+      svg.express-logo.logo {
+        padding: 0.5rem 0.25rem 0 0.25rem;
         .artboard {
           fill: none;
         }
@@ -84,16 +52,8 @@ const ExpressLogo = ({ className }) => (
   </svg>
 );
 
-ExpressLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-ExpressLogo.defaultProps = {
-  className: '',
-};
-
-const MySQLLogo = ({ className }) => (
-  <svg alt="MySQL" className={`mysql-logo ${className}`} width="100%" height="100%" viewBox="0 0 1755 1192" version="1.1" xmlns="http://www.w3.org/2000/svg">
+const MySQLLogo = () => (
+  <svg alt="MySQL" className="mysql-logo logo" width="100%" height="100%" viewBox="0 0 1755 1192" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <g>
       <g>
         <path d="M421.723,1085.21l-67.682,0c-2.394,-114.243 -8.985,-221.645 -19.762,-322.285l-0.602,0l-103.047,322.285l-51.53,0l-102.432,-322.285l-0.588,0c-7.599,96.625 -12.386,204.053 -14.374,322.285l-61.692,0c3.976,-143.774 13.968,-278.563 29.937,-404.38l83.887,0l97.632,297.134l0.602,0l98.234,-297.134l80.263,0c17.578,147.371 27.963,282.173 31.154,404.38m293.524,-298.351c-27.556,149.541 -63.915,258.199 -109.037,326.025c-35.155,52.21 -73.672,78.341 -115.615,78.341c-11.182,0 -24.98,-3.374 -41.329,-10.07l0,-36.058c7.992,1.151 17.369,1.805 28.146,1.805c19.592,0 35.338,-5.389 47.345,-16.192c14.36,-13.157 21.54,-27.949 21.54,-44.31c0,-11.222 -5.598,-34.162 -16.767,-68.899l-74.274,-230.655l66.492,0l53.309,172.508c11.98,39.17 16.976,66.518 14.975,82.094c29.152,-77.857 49.516,-162.751 61.117,-254.615l64.098,0l0,0.026Z" />
@@ -105,37 +65,22 @@ const MySQLLogo = ({ className }) => (
     </g>
     <style jsx>
       {`
-      .mysql-logo {
+      svg.mysql-logo.logo {
         height: 2rem;
+        padding: 0.25rem;
       }
       `}
     </style>
   </svg>
 );
 
-MySQLLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-MySQLLogo.defaultProps = {
-  className: '',
-};
-
-const GatsbyLogo = ({ className }) => (
-  <svg className={className} viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+const GatsbyLogo = () => (
+  <svg viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
     <g>
       <path d="M128,0 C57.3075981,0 0,57.307374 0,128 C0,198.69285 57.3078221,256 128,256 C198.69285,256 256,198.692626 256,128 C256,57.307374 198.69285,0 128,0 Z M27.503973,129.334313 L126.665463,228.496027 C72.2144512,227.786305 28.2134711,183.785325 27.503973,129.334313 Z M150.496265,225.983324 L30.0166761,105.503735 C40.2328216,60.8232766 80.2223482,27.4871709 128,27.4871709 C161.397489,27.4871709 190.984927,43.7800881 209.262736,68.8464075 L195.346089,81.125855 C180.519662,59.8637627 155.886614,45.9486835 128,45.9486835 C92.4948508,45.9486835 62.259523,68.5011796 50.8311596,100.061636 L155.938588,205.169064 C181.463942,195.925651 201.095107,174.378594 207.669894,147.692325 L164.102633,147.692325 L164.102633,128.000224 L210.051317,128.000224 L210.051317,127.999776 L228.512829,127.999776 L228.512829,128 C228.512829,175.777652 195.176947,215.767178 150.496265,225.983324 Z" />
     </g>
   </svg>
 );
-
-GatsbyLogo.propTypes = {
-  className: PropTypes.string,
-};
-
-GatsbyLogo.defaultProps = {
-  className: '',
-};
 
 function pickLogo(type) {
   switch (type) {
@@ -168,7 +113,7 @@ const Logos = ({ type }) => (
         height: 1.5rem;
         fill: white;
         color: white;
-        padding: 0.25rem;
+        padding: 0.5rem 0.25rem;
 
         > * {
           fill: white;

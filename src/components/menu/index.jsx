@@ -259,7 +259,7 @@ class Menu extends React.Component {
                 font-size: 2.25rem;
                 margin: 0;
                 color: ${colors.lilacBright()};
-                font-family: 'Josefin Sans', 'Open Sans', 'Arial', sans-serif;
+                font-family: 'Open Sans', 'Arial', sans-serif;
                 line-height: normal;
                 overflow: visible;
 

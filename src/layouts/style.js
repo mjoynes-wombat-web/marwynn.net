@@ -39,7 +39,7 @@ code, body {
 
 h1 {
   color: white;
-  font-family: 'Josefin Slab', 'serif';
+  font-family: 'Markazi', 'serif';
   font-size: 2.875rem;
   font-weight: 600;
   margin: 2.375rem 0 1.25rem 0;
@@ -68,7 +68,7 @@ main .page-content > h1:first-child {
 
 h2 {
   color: white;
-  font-family: 'Josefin Slab', 'Arial', sans-serif;
+  font-family: 'Markazi', 'Arial', sans-serif;
   font-size: 2.125rem;
   margin: 2.375rem 0 1.2375rem 0;
 
@@ -88,7 +88,7 @@ h2 {
 
   &.sub-heading {
     color: ${colors.lilac()};
-    font-family: 'Josefin Sans', 'Arial', sans-serif;
+    font-family: 'Markazi', 'Arial', sans-serif;
     font-style: italic;
     font-weight: 300;
     font-size: 1.5625rem;
@@ -118,7 +118,7 @@ h2 {
 
 h3 {
   color: white;
-  font-family: 'Josefin Slab', 'Arial', sans-serif;
+  font-family: 'Markazi', 'Arial', sans-serif;
   font-size: 2rem;
   margin: 2.375rem 0 1.2375rem 0;
 
@@ -138,7 +138,7 @@ h3 {
 
   &.sub-heading {
     color: ${colors.lilac()};
-    font-family: 'Josefin Sans', 'Arial', sans-serif;
+    font-family: 'Markazi', 'Arial', sans-serif;
     font-style: italic;
     font-weight: 300;
     font-size: 1.375rem;

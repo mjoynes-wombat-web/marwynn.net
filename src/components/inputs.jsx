@@ -83,7 +83,7 @@ export const Label = ({
     {children}
     <style jsx>
       {`
-      font-family: 'Josefin Sans', 'Arial', sans-serif;
+      font-family: 'Open Sans', 'Arial', sans-serif;
       font-weight: 300;
       font-size: 1.5rem;
       color: ${colors.spring()};

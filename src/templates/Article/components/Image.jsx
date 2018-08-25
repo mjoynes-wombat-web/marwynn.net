@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
-const Images = ({
+const Image = ({
   src, alt, title, images,
 }) => {
   const { node: image } = images.edges.find(img => img.node.sizes.originalName === src.split('/').pop());
@@ -28,11 +28,19 @@ const Images = ({
   </>);
 };
 
-Images.propTypes = {
+Image.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
   title: PropTypes.string,
-  images: PropTypes.string,
+  images: PropTypes.shape({
+    edges: PropTypes.arrayOf(PropTypes.shape({
+      node: PropTypes.shape({
+        sizes: PropTypes.shape({
+          originalImg: PropTypes.string,
+        }),
+      }),
+    })),
+  }),
 };
 
-export default Images;
+export default Image;

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import Layout from '../../layouts';
-import BlogList from './BlogList';
+import BlogList from '../../components/blog/BlogList';
 
 const CodingWithKids = ({ title, data: { allMarkdownRemark } }) => (
   <Layout>

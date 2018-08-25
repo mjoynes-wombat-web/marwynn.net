@@ -28,7 +28,7 @@ const Button = ({
             0 0 0.75rem ${colors.lilac(1)};
           }
         }
-        font-family: 'Josefin Sans', 'Arial', sans-serif;
+        font-family: 'Open Sans', 'Arial', sans-serif;
         font-weight: 400;
         cursor: pointer;
         appearance: none;

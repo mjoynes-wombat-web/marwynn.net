@@ -32,7 +32,7 @@ const ImgBullets = ({
           transition: all 0.5s;
           font-size: 1.5rem;
           line-height: 0;
-          font-family: 'Josefin Slab', 'Arial', sans-serif;
+          font-family: 'Markazi', 'Arial', sans-serif;
           border: none;
           padding: 0;
           outline: none;

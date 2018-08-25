@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
-import colors from '../consts/colors';
-import Layout from '../layouts/index';
+import colors from '../../consts/colors';
+import Layout from '../../layouts';
 import Image from './components/Image';
 
 function createElements(elements, images) {
@@ -13,7 +13,7 @@ function createElements(elements, images) {
     const currentElement = element;
 
     if (currentElement.properties) {
-      if (currentElement.properties.className) currentElement.properties.className = currentElement.properties.className.join(' ');
+      if (currentElement.properties.className && typeof currentElement.properties.className !== 'string') currentElement.properties.className = currentElement.properties.className.join(' ');
       if (currentElement.properties.dataLanguage) {
         currentElement.properties.datalanguage = currentElement.properties.dataLanguage;
         delete currentElement.properties.dataLanguage;
@@ -40,7 +40,7 @@ function createElements(elements, images) {
   }, []);
 }
 
-const Article = ({ title, data: { markdownRemark: { frontmatter, htmlAst }, images } }) => (
+const Article = ({ data: { markdownRemark: { frontmatter, htmlAst }, images } }) => (
   <Layout>
     <Helmet>
       <title>{`${frontmatter.title} - ${frontmatter.date} - Coding With Kids - SimeonSmith.me`}</title>
@@ -143,24 +143,23 @@ const Article = ({ title, data: { markdownRemark: { frontmatter, htmlAst }, imag
 );
 
 Article.propTypes = {
-  title: PropTypes.string.isRequired,
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: {
+      frontmatter: PropTypes.shape({
         title: PropTypes.string,
         date: PropTypes.string,
-      },
+      }),
       htmlAst: PropTypes.object,
     }),
-    images: PropTypes.arrayOf(PropTypes.object),
+    images: PropTypes.object,
   }).isRequired,
 };
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!){
+  query BlogPostQuery($path: String!){
     markdownRemark(fields: {
       slug: {
-        eq: $slug
+        eq: $path
       }
     }) {
       excerpt

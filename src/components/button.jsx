@@ -28,7 +28,7 @@ const Button = ({
             0 0 0.75rem ${colors.lilac(1)};
           }
         }
-        font-family: 'Open Sans', 'Arial', sans-serif;
+        font-family: 'Open Sans', 'Arial' serif;
         font-weight: 400;
         cursor: pointer;
         appearance: none;
@@ -38,7 +38,7 @@ const Button = ({
         box-shadow: inset 0 0 0.5rem ${colors.lilacDeep(0.65)};
         color: ${colors.navy()};
         display: block;
-        font-size: 1.375rem;
+        font-size: 1.5rem;
         margin-top: 2rem;
         outline: none;
         padding: 1rem 0 0.75rem 0;

@@ -6,6 +6,7 @@ import colors from '../../consts/colors';
 import MenuButton from './menu-button';
 
 function animateMenuItem(menuItem, duration) {
+  console.log(duration);
   menuItem.classList.add('turnOff');
   menuItem.addEventListener(
     'animationend',
@@ -39,11 +40,10 @@ function animateLoad(siteLoad) {
   const durations = [];
 
   menuItems.forEach((menuItem) => {
-    const duration = Math.random() * (siteLoad ? 1000 : 400);
+    const duration = Math.random() * (siteLoad ? 2000 : 400);
     durations.push(duration);
     animateMenuItem(menuItem, duration);
   });
-
   durations.sort((a, b) => a - b);
 
   if (siteLoad) {
@@ -93,6 +93,7 @@ class Menu extends React.Component {
     const { isOpen } = this.state;
     return (
       <nav className={isOpen ? 'is-open' : ''} id="mainMenu">
+        <div className="menu-background" />
         <MenuButton
           buttonActive={isOpen}
           onClick={this.clickMenu}
@@ -101,19 +102,12 @@ class Menu extends React.Component {
           <li>
             <Link to="/" activeClassName="active" exact="true" onClick={this.selectPage}>Home</Link>
           </li>
-          <li className="slash">/</li>
           <li>
             <Link to="/my-work/" activeClassName="active" onClick={this.selectPage}>My Work</Link>
           </li>
-          {/* <li className="slash">/</li>
-          <li>
-            <Link to="/who-am-i/">Who Am I?</Link>
-          </li> */}
-          <li className="slash">/</li>
           <li>
             <Link to="/make-contact/" activeClassName="active" onClick={this.selectPage}>Make Contact</Link>
           </li>
-          <li className="slash">/</li>
           <li>
             <Link to="/coding-with-kids/" activeClassName="active" onClick={this.selectPage}>Coding With Kids</Link>
           </li>
@@ -197,18 +191,32 @@ class Menu extends React.Component {
           }
 
           nav#mainMenu {
-            bottom: 0;
+            top: 0;
+            right: 0;
             box-sizing: border-box;
-            padding: 2rem 8%;
+            padding: 3rem 2rem;
             position: absolute;
-            width: 100%;
             pointer-events: none;
+            z-index: 10;
 
             > * {
               pointer-events: all;
             }
 
-            @media screen and (max-width: 700px){
+            .menu-background {
+              opacity: 0;
+              background: linear-gradient(to left, ${colors.navy(0)} 8%, ${colors.navy(0.75)} 35%);
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              position: absolute;
+              transition: opacity 0.15s;
+              pointer-events: none;
+              z-index: -1;
+            }
+
+            @media screen and (max-width: 1300px){
               top: 0;
               right: 0;
               height: 100vh;
@@ -219,11 +227,16 @@ class Menu extends React.Component {
               background: transparent;
               transition: background 2s;
               pointer-events: none;
+              width: 100%;
+              position: fixed;
 
                 &.is-open {
-                  background: linear-gradient(to left, ${colors.navy(0)} 8%, ${colors.navy(0.75)} 35%);
-                  pointer-events: initial;
                   position: fixed;
+                  pointer-events: initial;
+
+                  .menu-background {
+                    opacity: 1;
+                  }
 
                   ul {
                   max-height: 20rem;
@@ -231,9 +244,15 @@ class Menu extends React.Component {
 
                   li {
                     opacity: 1;
+                    font-size: 2rem;
                   }
                 }
               }
+            }
+
+            @media screen and (max-width: 725px) {
+              width: 100%;
+              position: absolute;
             }
 
             ul {
@@ -245,7 +264,7 @@ class Menu extends React.Component {
               margin: 0;
               line-height: 0;
 
-              @media screen and (max-width: 700px){
+              @media screen and (max-width: 1300px){
                 flex-direction: column;
                 align-items: flex-end;
                 margin-top: 2rem;
@@ -256,49 +275,27 @@ class Menu extends React.Component {
 
               li {
                 display: flex;
-                font-size: 2.25rem;
+                font-size: 1.5rem;
                 margin: 0;
                 color: ${colors.lilacBright()};
-                font-family: 'Open Sans', 'Arial', sans-serif;
+                font-family: 'Josefin Slab', serif;
                 line-height: normal;
                 overflow: visible;
+                padding: 0 1.25rem;
 
-                @media screen and (max-width: 1700px) {
-                  font-size: 2rem;
-                }
-
-                @media screen and (max-width: 1100px) {
-                  font-size: 1.75rem;
-                }
-
-                @media screen and (max-width: 900px) {
-                  font-size: 1.5rem;
-                }
-
-                @media screen and (max-width: 700px) {
+                @media screen and (max-width: 1300px) {
                   flex-direction: column;
                   margin-bottom: 1rem;
                   opacity: 0;
+                  padding: 0.5rem 0;
                   transition: transform 0.5s, box-shadow 0.5s, opacity 0.15s;
-                }
-                
-                &.slash {
-                  cursor: default;
-
-                  @media screen and (max-width: 700px){
-                    opacity: 0;
-                    pointer-events: none;
-                    width: 0;
-                    height: 0;
-                    overflow: hidden;
-                  }
                 }
 
                 &.turnOn {
                   animation-name: fluorescentOn;
                   animation-duration: 2s;
 
-                  @media screen and (max-width: 700px) {
+                  @media screen and (max-width: 1300px) {
                     animation-name: mobileFluoOn;
                     animation-duration: 0.5s;
                   }
@@ -308,9 +305,10 @@ class Menu extends React.Component {
                   animation-name: fluorescentOn;
                   animation-duration: 2s;
 
-                  @media screen and (max-width: 700px){
+                  @media screen and (max-width: 1300px){
                     animation-name: mobileFluoOn;
                     animation-duration: 0.5s;
+                    transform-origin: right;
                   }
                 }
 
@@ -320,32 +318,30 @@ class Menu extends React.Component {
                   transition: none;
                 }
 
-                &.turnOff :global( #mainMenu a, #mainMenu a:link, #mainMenu a:visited, #mainMenu a:active, #mainMenu a:focus) {
-                  text-shadow: 0 0 0.125rem ${colors.lilacDeep(0.65)};
-                  color: ${colors.lilacBright(0.25)};
+                &.turnOff :global(#mainMenu a) {
+                  &:link, &:visited, &:active, &:focus, & {
+                    text-shadow: 0 0 0.125rem ${colors.lilacDeep(0.65)};
+                    color: ${colors.lilacBright(0.25)};
+                  }
                 }
               }
-              li :global( #mainMenu a, #mainMenu a:link, #mainMenu a:visited, #mainMenu a:active, #mainMenu a:focus) {
-                text-decoration: none;
-                color: ${colors.lilacBright()};
-                text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
-                transition: all 0.5s;
-                transition-timing-function: cubic-bezier(0.29, -0.69, 0.49, 1.46);
+              li :global(a) {
+                &:link, &:visited, &:active, &:focus {
+                  text-decoration: none;
+                  text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
+                  transition: text-shadow 0.5s, transform 0.5s;
+                  transition-timing-function: cubic-bezier(0.29, -0.69, 0.49, 1.46);
+                  color: ${colors.lilacBright()};
 
-                &.active {
-                  font-weight: 400;
-                  transform: scale(1.125);
-
-                  &:hover {
-                    transform: scale(1.125);
-                    text-shadow: 0 0 0.125rem ${colors.lilacDeep()};
-                    transition: all 0s;
+                  &.active {
+                    font-weight: 600;
+                    transform: scale(1.125) translate(0, -0.1875rem);
                   }
                 }
               }
 
-              li :global( #mainMenu :not(.slash) a:hover) {
-                transform: scale(1.0625);
+              li :global(a:hover) {
+                transform: scale(1.125);
                 text-shadow: 0 0 0.75rem ${colors.lilacDeep()};
               }
             }

@@ -20,13 +20,14 @@ const MenuButton = ({ buttonActive, onClick }) => (
       }
 
       .hamburger {
+        display: none;
         opacity: 0;
         pointer-events: none;
         width: 0;
         height: 0;
         overflow: hidden;
 
-        @media screen and (max-width: 700px){
+        @media screen and (max-width: 1300px){
           display: block;
           opacity: 1;
           pointer-events: auto;
@@ -108,7 +109,6 @@ const MenuButton = ({ buttonActive, onClick }) => (
     * @site https://www.simeonsmith.me
     */
     .hamburger {
-      display: inline-block;
       padding: 0;
       cursor: pointer;
       font: inherit;

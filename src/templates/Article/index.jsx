@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 import colors from '../../consts/colors';
 import Layout from '../../layouts';
 import Image from './components/Image';
+import BackToTop from '../../components/back-to-top';
 
 function createElements(elements, images) {
   return elements.reduce((elementAccu, element) => {
@@ -49,6 +50,7 @@ const Article = ({ data: { markdownRemark: { frontmatter, htmlAst }, images } })
       <p className="article-date">{frontmatter.date}</p>
       <h1 className="article-title">{frontmatter.title}</h1>
       {createElements(htmlAst.children, images)}
+      <BackToTop />
     </main>
     {/* <main dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} /> */}
 

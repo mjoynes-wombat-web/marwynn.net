@@ -222,7 +222,7 @@ main {
 }
 
 .background-gradient {
-  background: linear-gradient(to top, ${colors.navy(0)} 5%, ${colors.navy(0.65)} 30%);
+  background: linear-gradient(to bottom, ${colors.navy(0)} 5%, ${colors.navy(0.65)} 30%);
   left: 0;
   min-height: 100vh;
   min-width: 100vw;

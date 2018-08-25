@@ -66,9 +66,14 @@ class MyWork extends React.Component {
         <style jsx>
           {`
           .projects {
+            width: calc(100% - 4.5rem);
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+
+            @media screen and (max-width: 725px) {
+              width: 100%;
+            }
           }
           `}
         </style>

@@ -162,6 +162,7 @@ export const query = graphql`
         eq: $path
       }
     }) {
+      id
       excerpt
       html
       htmlAst

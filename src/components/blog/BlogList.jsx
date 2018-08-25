@@ -5,7 +5,7 @@ import BlogListArticle from './BlogListArticle';
 
 const BlogList = ({ articles }) => (
   <section className="blog-list">
-    {articles.map(({ node }) => <BlogListArticle article={node} />)}
+    {articles.map(({ node }) => <BlogListArticle key={node.id} article={node} />)}
   </section>
 );
 

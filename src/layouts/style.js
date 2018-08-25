@@ -168,6 +168,7 @@ h3 {
 
 p {
   margin: 1.125rem 0;
+  max-width: 65ch;
 
   @media screen and (max-width: 1700px) {
     margin: 1rem 0;
@@ -211,39 +212,22 @@ a {
 
 main {
   margin: 6rem;
-  max-height: calc(100vh - 16.25rem);
   min-width: calc(100% - 10rem);
   padding-right: 0.5rem;
   box-sizing: border-box;
-  overflow-y: scroll;
   position: relative;
   z-index: 1;
 
-  > div {
-    overflow: hidden;
-
-    @media screen and (max-width: 700px) {
-      overflow: initial;
-    }
-  }
-
   @media screen and (max-width: 1700px) {
     margin: 5rem;
-    max-height: calc(100vh - 14.25rem);
-  }
-
-  @media screen and (max-width: 1100px) {
-    max-height: calc(100vh - 14rem);
   }
 
   @media screen and (max-width: 900px) {
     margin: 4rem;
-    max-height: calc(100vh - 11.6rem);
   }
 
   @media screen and (max-width: 700px) {
     margin: 3rem;
-    max-height: unset;
     width: calc(100vw - 6rem);
     overflow: initial;
   };
@@ -255,7 +239,7 @@ main {
 }
 
 .page-content {
-  p {
+  p, h2, h3 {
     max-width: 45rem;
 
     @media screen and (max-width: 1700px) {
@@ -273,12 +257,14 @@ main {
 }
 
 .wrapper {
-  min-height: 100%;
+  min-height: 100vh;
   min-width: 100%;
+  overflow: auto;
+  position: relative;
 }
 
 .background-wrapper {
-  position: absolute;
+  position: fixed;
   min-width: 100vw;
   max-width: 100vw;
   min-height: 100vh;
@@ -313,26 +299,31 @@ main {
 }
 
 .bg-photo-credit {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   margin: 0;
-  padding: 0.25rem;
-  font-size: 0.375rem;
-  color: ${colors.lilacBright()};
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
   pointer-events: all;
   transition: none;
+  text-align: right;
+  font-weight: 700;
+  min-width: 100%;
 
   a:link, a:visited, a:active, a:focus {
-    color: ${colors.lilacBright()};
+    color: ${colors.lilacBright(0.75)};
     text-decoration: none;
   }
 
-  @media screen and (max-width: 700px) {
-    position: fixed;
-    right: initial;
-    width: 100%;
+  @media screen and (max-width: 875px) {
+    position: absolute;
+    bottom: 0;
     text-align: center;
+  }
+
+  @media screen and (max-width: 700px) {
+    right: initial;
     font-size: 0.75rem;
     color: ${colors.lilacBright(0.75)};
 

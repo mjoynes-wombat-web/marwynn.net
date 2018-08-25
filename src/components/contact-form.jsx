@@ -109,7 +109,6 @@ class ContactForm extends React.Component {
               transform: scale(1);
             }
           }
-          max-width: 100%;
 
           h3.error {
             animation-name: errorPulse;
@@ -168,7 +167,10 @@ class ContactForm extends React.Component {
           width="30rem"
           required
         />
-        <Button className={messageSending ? 'processing' : null}>
+        <Button
+          width="30rem"
+          className={messageSending ? 'processing' : null}
+        >
           {messageSending ? 'Sending Message...' : 'Make Contact'}
         </Button>
       </form>

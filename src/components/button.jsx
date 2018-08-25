@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import colors from '../consts/colors';
 
 const Button = ({
-  className, disabled, children, onClick,
+  className, disabled, children, onClick, width,
 }) => (
   <button className={className} disabled={disabled} type="submit" onClick={onClick}>
     {children}
@@ -39,12 +39,12 @@ const Button = ({
         color: ${colors.navy()};
         display: block;
         font-size: 1.375rem;
-        margin: 0 auto;
         margin-top: 2rem;
         outline: none;
         padding: 1rem 0 0.75rem 0;
         transition: all 0.5s;
         width: 100%;
+        max-width: ${width};
 
         &.processing {
           animation-name: pulse;

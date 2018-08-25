@@ -63,8 +63,6 @@ const Article = ({ data: { markdownRemark: { frontmatter, htmlAst }, images } })
           margin-top: 0;
         }
         p {
-          max-width: 65ch;
-
           code {
             font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
             font-weight: lighter;

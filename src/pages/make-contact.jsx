@@ -8,54 +8,6 @@ import Layout from '../layouts';
 
 const MakeContact = ({ title }) => (
   <Layout>
-    <style jsx>
-      {`
-      main {
-            max-width: none;
-        
-        .page-content {
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          max-width: 100%;
-          h1 {
-            flex: 1 0 100%;
-          }
-
-          .make-contact-text {
-            flex: 1 1 35rem;
-            /* max-width: 45rem;
-
-            @media screen and (max-width: 1700px) {
-                max-width: 35rem;
-            }
-
-            @media screen and (max-width: 925px) {
-            max-width: 30rem;
-            }
-
-            @media screen and (min-width: 1216px) {
-                margin-right: 2rem;
-            } */
-
-            > p:first-child {
-              margin-top: 0;
-            }
-          }
-        }
-        .page-content :global(form) {
-          flex: 0 2;
-
-          > h2:first-child {
-
-            @media screen and (min-width: 1248px) {
-              margin-top: 0;
-            }
-          }
-        }
-      }
-      `}
-    </style>
     <main>
       <Helmet>
         <title>{`Make Contact - ${title}`}</title>

@@ -49,19 +49,19 @@ class Layout extends React.Component {
             src={Background1080}
             alt="Blue Geode Background"
           />
+          <div className="background-gradient" />
         </div>
-        <div className="background-gradient" />
-        <p className="bg-photo-credit">
-          <a href="https://www.flickr.com/photos/136594255@N06/23696957286/in/photolist-RjVgij-49MV9f-8fh3H9-3EjPyR-zDWxv-8uEN47-bq4KFB-9n8Ynd-6D2qUY-8Lypuv-8Fm1wP-49HJ3T-8GLDMJ-49MDjm-49ME4A-C726P5-pNjEgX-8fhH1A-8AwJi7-p5FtS3">
-            Background photo by Lisa Ann Yount.
-          </a>
-        </p>
         <Helmet>
           <link rel="icon" type="image/png" href={favicon} sizes="110x110" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300i|Josefin+Slab:600|Open+Sans:300" />
         </Helmet>
         {children}
-        <Menu />
+        <p className="bg-photo-credit">
+          <a href="https://www.flickr.com/photos/136594255@N06/23696957286/in/photolist-RjVgij-49MV9f-8fh3H9-3EjPyR-zDWxv-8uEN47-bq4KFB-9n8Ynd-6D2qUY-8Lypuv-8Fm1wP-49HJ3T-8GLDMJ-49MDjm-49ME4A-C726P5-pNjEgX-8fhH1A-8AwJi7-p5FtS3">
+            Background photo by Lisa Ann Yount.
+          </a>
+        </p>
+        {/* <Menu /> */}
         <style jsx global>
           {layoutStyle}
         </style>

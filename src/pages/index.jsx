@@ -15,21 +15,7 @@ const IndexPage = ({ title }) => (
       {`
       #signature {
         margin: 1.125rem 0 0 1.125rem;
-        width: 325px;
-
-        @media screen and (max-width: 1700px) {
-          margin: 1rem 0 0 1rem;
-          width: 300px;
-        }
-
-        @media screen and (max-width: 925px) {
-          margin: 0.875rem 0 0 0.875rem;
-          width: 250px;
-        }
-
-        @media screen and (max-width: 700px) {
-          width: 200px;
-        }
+        width: 20.3125rem;
       }
       `}
     </style>

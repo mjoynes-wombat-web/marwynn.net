@@ -227,11 +227,11 @@ class ProjectCard extends React.Component {
             margin: 1rem 0;
 
             @media screen and (max-width: 1500px) {
-              width: calc(33.3333% - 1.3333rem);
+              width: calc(33.3333% - 1.5rem);
             }
 
             @media screen and (max-width: 1000px) {
-              width: calc(50% - 1rem);
+              width: calc(50% - 1.5rem);
             }
 
             @media screen and (max-width: 700px) {
@@ -299,24 +299,13 @@ class ProjectCard extends React.Component {
 
               h2 {
                 margin: 0;
-                min-height: 64px;
+                min-height: 4rem;
                 display: flex;
                 align-items: center;
                 font-size: 1.75rem;
 
-                @media screen and (max-width: 1700px) {
-                  min-height: 54px;
-                  font-size: 1.5rem;
-                }
-
-                @media screen and (max-width: 925px) {
-                  min-height: 50px;
-                  font-size: 1.375rem;
-                }
-
                 @media screen and (max-width: 700px) {
                   min-height: initial;
-                  font-size: 1.25rem;
                   margin-top: 0.5rem;
                 }
               }
@@ -326,20 +315,6 @@ class ProjectCard extends React.Component {
                 display: flex;
                 align-items: center;
                 font-size: 1.625rem;
-
-                @media screen and (max-width: 1700px) {
-                  margin: 0.375rem 0;
-                  font-size: 1.375rem;
-                }
-
-                @media screen and (max-width: 925px) {
-                  margin: 0.25rem 0;
-                  font-size: 1.25rem;
-                }
-
-                @media screen and (max-width: 700px) {
-                  font-size: 1.125rem;
-                }
               }
 
               p {

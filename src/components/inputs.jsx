@@ -31,18 +31,6 @@ input, textarea {
     transition: all 0.5s;
     width: 15rem;
 
-    @media screen and (max-width: 1700px) {
-      font-size: 1.125rem;
-    }
-
-    @media screen and (max-width: 925px) {
-      font-size: 1rem;
-    }
-  
-    @media screen and (max-width: 700px) {
-      font-size: 0.875rem;
-    }
-
     &:hover, &:focus, &:active {
       background-color: ${colors.navy()};
       box-shadow: inset 0 0 0.25rem ${colors.lilac(0.25)};
@@ -63,10 +51,6 @@ input, textarea {
     color: ${colors.lilac()};
     font-size: 0.875rem;
     line-height: normal;
-  
-    @media screen and (max-width: 700px) {
-      font-size: 0.75rem;
-    }
   }
 `;
 
@@ -87,18 +71,6 @@ export const Label = ({
       font-weight: 300;
       font-size: 1.5rem;
       color: ${colors.spring()};
-
-      @media screen and (max-width: 1700px) {
-        font-size: 1.375rem;
-      }
-
-      @media screen and (max-width: 925px) {
-        font-size: 1.25rem;
-      }
-
-      @media screen and (max-width: 700px) {
-        font-size: 1.125rem;
-      }
       `}
     </style>
   </label>

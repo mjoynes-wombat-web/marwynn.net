@@ -53,7 +53,7 @@ class Layout extends React.Component {
         </div>
         <Helmet>
           <link rel="icon" type="image/png" href={favicon} sizes="110x110" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300i|Josefin+Slab:600|Open+Sans:300" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,300|Josefin+Slab:600|Open+Sans:300" />
         </Helmet>
         {children}
         <p className="bg-photo-credit">

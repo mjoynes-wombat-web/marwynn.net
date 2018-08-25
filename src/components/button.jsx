@@ -52,18 +52,6 @@ const Button = ({
           animation-iteration-count: infinite;
         }
 
-        @media screen and (max-width: 1700px) {
-          font-size: 1.25rem;
-        }
-
-        @media screen and (max-width: 925px) {
-          font-size: 1.125rem;
-        }
-
-        @media screen and (max-width: 700px) {
-          font-size: 1rem;
-        }
-
         &:hover {
           background-color: ${colors.lilacBright()};
           box-shadow: inset 0 0 0.75rem ${colors.lilacDeep()},

@@ -8,8 +8,6 @@ import colors from '../../consts/colors';
 
 const ImgButtons = ({
   onClick,
-  activeImg,
-  imgsLength,
 }) => (
   <div className="img-buttons">
     <button
@@ -86,8 +84,6 @@ const ImgButtons = ({
 
 ImgButtons.propTypes = {
   onClick: PropTypes.func.isRequired,
-  activeImg: PropTypes.number.isRequired,
-  imgsLength: PropTypes.number.isRequired,
 };
 
 export default ImgButtons;

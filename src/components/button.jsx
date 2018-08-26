@@ -72,12 +72,14 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
   onClick: PropTypes.func,
+  width: PropTypes.string,
 };
 
 Button.defaultProps = {
   className: '',
   disabled: false,
   onClick: () => null,
+  width: '100%',
 };
 
 export default Button;

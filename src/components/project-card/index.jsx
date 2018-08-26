@@ -186,7 +186,16 @@ class ProjectCard extends React.Component {
         </div>
         <div className="text">
           <h2>{title}</h2>
-          <p>{text}</p>
+          <p>
+            {text}
+            {projectType === 'web' && links.blog
+              ? (
+                <>
+                  {' Find out how I made it '}<Link to={links.blog} target="_blank" rel="noopener noreferrer">here.</Link>
+                </>
+              )
+              : null}
+          </p>
           {projectType === 'web'
             ? (
               <div className="web-details">
@@ -203,13 +212,6 @@ class ProjectCard extends React.Component {
                       <a href={links.repo} target="_blank" rel="noopener noreferrer">
                         Code
                       </a>
-                    )
-                    : null}
-                  {links.blog
-                    ? (
-                      <Link to={links.blog} target="_blank" rel="noopener noreferrer">
-                        Blog
-                      </Link>
                     )
                     : null}
                 </p>
@@ -339,7 +341,6 @@ class ProjectCard extends React.Component {
                 margin: 0.5rem 0;
                 color: white;
                 display: inline-block;
-                display: flex;
                 align-items: center;
               }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import colors from '../../consts/colors';
@@ -30,6 +30,34 @@ function createElements(elements, images) {
       newElementsAccu.push(<Image {...currentElement.properties} images={images} />);
       return newElementsAccu;
     }
+    if (currentElement.tagName === 'a') {
+      if (!currentElement.properties.href.includes('http')) {
+        const newElement = (
+          <Link
+            {...currentElement.properties}
+            to={currentElement.properties.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {currentElement.children ? createElements(currentElement.children, images) : null}
+          </Link>
+        );
+        newElementsAccu.push(newElement);
+        return newElementsAccu;
+      }
+      const newElement = React
+        .createElement(
+          currentElement.tagName,
+          {
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            ...currentElement.properties,
+          },
+          currentElement.children ? createElements(currentElement.children, images) : null,
+        );
+      newElementsAccu.push(newElement);
+      return newElementsAccu;
+    }
     const newElement = React
       .createElement(
         currentElement.tagName,
@@ -41,14 +69,26 @@ function createElements(elements, images) {
   }, []);
 }
 
-const Article = ({ data: { markdownRemark: { frontmatter, htmlAst }, images } }) => (
+const Article = ({
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        title, date, repo, site,
+      }, htmlAst,
+    }, images,
+  },
+}) => (
   <Layout>
     <Helmet>
-      <title>{`${frontmatter.title} - ${frontmatter.date} - Coding With Kids - SimeonSmith.me`}</title>
+      <title>{`${title} - ${date} - Coding With Kids - SimeonSmith.me`}</title>
     </Helmet>
     <main className="blog-article">
-      <p className="article-date">{frontmatter.date}</p>
-      <h1 className="article-title">{frontmatter.title}</h1>
+      <p className="article-date">{date}</p>
+      <h1 className="article-title">{title}</h1>
+      <p className="article-links">
+        {repo ? (<a className="repo-link" href={repo} target="_blank" rel="noopener noreferrer">Code Repo</a>) : null}
+        {site ? (<a className="site-link" href={site} target="_blank" rel="noopener noreferrer">Live Site</a>) : null}
+      </p>
       {createElements(htmlAst.children, images)}
       <BackToTop />
     </main>
@@ -63,6 +103,15 @@ const Article = ({ data: { markdownRemark: { frontmatter, htmlAst }, images } })
 
         .article-title {
           margin-top: 0;
+        }
+
+        .article-links {
+          max-width: 60ch;
+        }
+        .article-links  :global(a) {
+          width: 25%;
+          min-width: 15ch;
+          display: inline-block;
         }
         p {
           code {
@@ -169,6 +218,8 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        repo
+        site
       }
     }
     images: allImageSharp {

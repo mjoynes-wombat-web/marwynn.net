@@ -21,11 +21,13 @@ const BlogListArticle = ({
     </h2>
     <p className="article-date">{date}</p>
     <p className="article-links">
-      <a className="repo-link" href={repo} target="_blank" rel="noopener noreferrer">Code Repo</a>
-      <a className="site-link" href={site} target="_blank" rel="noopener noreferrer">Live Site</a>
+      {repo ? (<a className="repo-link" href={repo} target="_blank" rel="noopener noreferrer">Code Repo</a>) : null}
+      {site ? (<a className="site-link" href={site} target="_blank" rel="noopener noreferrer">Live Site</a>) : null}
     </p>
     <p className="blog-excerpt">
       {excerpt}
+    </p>
+    <p>
       <Link to={slug}>Read More.</Link>
     </p>
     <style jsx>

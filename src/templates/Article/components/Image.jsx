@@ -7,7 +7,7 @@ const Image = ({
 }) => {
   const { node: image } = images.edges.find(img => img.node.sizes.originalName === src.split('/').pop());
   return (<>
-    <a href={image.sizes.originalImg || null}>
+    <a href={image.sizes.originalImg || null} target="_blank" rel="noopener noreferrer">
       <Img sizes={image.sizes} alt={alt} title={title} />
     </a>
     <style jsx global>

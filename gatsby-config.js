@@ -48,5 +48,11 @@ module.exports = {
         path: `${__dirname}/static/assets/articles/imgs`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve(`${__dirname}/src/layouts/index.jsx`),
+      },
+    },
   ],
 };

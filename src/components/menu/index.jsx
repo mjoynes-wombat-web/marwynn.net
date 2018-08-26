@@ -6,8 +6,6 @@ import colors from '../../consts/colors';
 import MenuButton from './menu-button';
 
 function animateMenuItem(menuItem, delay) {
-  console.log(delay);
-  console.log(menuItem);
   menuItem.classList.add('turnOff');
   menuItem.addEventListener(
     'animationend',
@@ -327,19 +325,21 @@ class Menu extends React.Component {
                     transform: scale(1.25);
                     
                     @media screen and (min-width: 1101px) {
-                      transform: scale(1.25) translate(0, -0.1875rem);
+                      transform: scale(1.25);
+                      top: -0.125rem;
+                      position: relative;
                     }
                   }
+                }
+
+                @media screen and (max-width: 1101px) {
+                  transform-origin: right;
                 }
               }
 
               li :global(a:hover) {
                 transform: scale(1.25);
                 text-shadow: 0 0 0.75rem ${colors.lilacDeep()};
-
-                @media screen and (max-width: 1101px) {
-                  transform-origin: right;
-                }
               }
             }
           }

@@ -5,7 +5,6 @@ import throttle from 'lodash/throttle';
 
 import ProjectCard from '../../components/project-card';
 import BackToTop from '../../components/back-to-top';
-import Layout from '../../layouts';
 
 import projects from './projects.json';
 
@@ -62,7 +61,7 @@ class MyWork extends React.Component {
     const { title } = this.props;
     const { projectsHeight } = this.state;
     return (
-      <Layout>
+      <main>
         <style jsx>
           {`
           .projects {
@@ -77,57 +76,55 @@ class MyWork extends React.Component {
           }
           `}
         </style>
-        <main>
-          <Helmet>
-            <title>
+        <Helmet>
+          <title>
 My Work -
-              {' '}
-              {title}
-            </title>
-          </Helmet>
-          <div className="page-content">
-            <h1>My Work</h1>
-            <p>
-            I have been a graphic designer for ten years and a
-            web designer for three. My clean design and stunning
-            visuals create easy to read and intriguing work.
-            </p>
-            <h2 id="web-design">Web Design Projects</h2>
-            <section className="web projects">
-              {Object.entries(projects.web).map(project => (
-                <ProjectCard
-                  projectsHeight={projectsHeight}
-                  resizeProjects={this.resizeProjects}
-                  projectType="web"
-                  key={`graphic${project[1].id}`}
-                  projectId={project[1].id}
-                  title={project[0]}
-                  text={project[1].text}
-                  imgs={project[1].imgs}
-                  links={project[1].links}
-                  techs={project[1].techs}
-                />
-              ))}
-            </section>
-            <h2 id="graphic-design">Graphic Design Projects</h2>
-            <section className="graphic projects">
-              {Object.entries(projects.graphic).map(project => (
-                <ProjectCard
-                  projectsHeight={projectsHeight}
-                  resizeProjects={this.resizeProjects}
-                  projectType="graphic"
-                  key={`graphic${project[1].id}`}
-                  projectId={project[1].id}
-                  title={project[0]}
-                  text={project[1].text}
-                  imgs={project[1].imgs}
-                />
-              ))}
-            </section>
-            <BackToTop />
-          </div>
-        </main>
-      </Layout>
+            {' '}
+            {title}
+          </title>
+        </Helmet>
+        <div className="page-content">
+          <h1>My Work</h1>
+          <p>
+          I have been a graphic designer for ten years and a
+          web designer for three. My clean design and stunning
+          visuals create easy to read and intriguing work.
+          </p>
+          <h2 id="web-design">Web Design Projects</h2>
+          <section className="web projects">
+            {Object.entries(projects.web).map(project => (
+              <ProjectCard
+                projectsHeight={projectsHeight}
+                resizeProjects={this.resizeProjects}
+                projectType="web"
+                key={`graphic${project[1].id}`}
+                projectId={project[1].id}
+                title={project[0]}
+                text={project[1].text}
+                imgs={project[1].imgs}
+                links={project[1].links}
+                techs={project[1].techs}
+              />
+            ))}
+          </section>
+          <h2 id="graphic-design">Graphic Design Projects</h2>
+          <section className="graphic projects">
+            {Object.entries(projects.graphic).map(project => (
+              <ProjectCard
+                projectsHeight={projectsHeight}
+                resizeProjects={this.resizeProjects}
+                projectType="graphic"
+                key={`graphic${project[1].id}`}
+                projectId={project[1].id}
+                title={project[0]}
+                text={project[1].text}
+                imgs={project[1].imgs}
+              />
+            ))}
+          </section>
+          <BackToTop />
+        </div>
+      </main>
     );
   }
 }

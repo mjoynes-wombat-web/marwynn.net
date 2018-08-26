@@ -3,22 +3,19 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
-import Layout from '../../layouts';
 import BlogList from '../../components/blog/BlogList';
 
 const CodingWithKids = ({ title, data: { allMarkdownRemark } }) => (
-  <Layout>
-    <main>
-      <Helmet>
-        <title>{`Coding With Kids - ${title}`}</title>
-      </Helmet>
-      <div className="page-content">
-        <h1>Coding With Kids</h1>
-        <p>Welcome to my blog about coding fun web apps for my kids to play with.</p>
-        <BlogList articles={allMarkdownRemark.edges} />
-      </div>
-    </main>
-  </Layout>
+  <main>
+    <Helmet>
+      <title>{`Coding With Kids - ${title}`}</title>
+    </Helmet>
+    <div className="page-content">
+      <h1>Coding With Kids</h1>
+      <p>Welcome to my blog about coding fun web apps for my kids to play with.</p>
+      <BlogList articles={allMarkdownRemark.edges} />
+    </div>
+  </main>
 );
 
 CodingWithKids.propTypes = {

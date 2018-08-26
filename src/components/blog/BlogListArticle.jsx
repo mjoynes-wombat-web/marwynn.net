@@ -21,8 +21,8 @@ const BlogListArticle = ({
     </h2>
     <p className="article-date">{date}</p>
     <p className="article-links">
-      <a className="repo-link" href={repo}>Code Repo</a>
-      <a className="site-link" href={site}>Live Site</a>
+      <a className="repo-link" href={repo} target="_blank" rel="noopener noreferrer">Code Repo</a>
+      <a className="site-link" href={site} target="_blank" rel="noopener noreferrer">Live Site</a>
     </p>
     <p className="blog-excerpt">
       {excerpt}

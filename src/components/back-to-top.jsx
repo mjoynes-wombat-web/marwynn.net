@@ -51,7 +51,7 @@ class BackToTop extends React.Component {
   render() {
     const { showToTopLink } = this.state;
     return (
-      <button onClick={this.backToTop} className={showToTopLink ? 'visible' : ''} href="./#" type="button">
+      <button onClick={this.backToTop} className={showToTopLink ? 'visible' : ''} type="button">
         <style jsx>
           {`
           button {

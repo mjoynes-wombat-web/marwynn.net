@@ -192,14 +192,14 @@ class ProjectCard extends React.Component {
                 <p className="links">
                   {links.site
                     ? (
-                      <a href={links.site}>
+                      <a href={links.site} target="_blank" rel="noopener noreferrer">
                           Website
                       </a>
                     )
                     : null}
                   {links.repo
                     ? (
-                      <a href={links.repo}>
+                      <a href={links.repo} target="_blank" rel="noopener noreferrer">
                         Code Repo
                       </a>
                     )

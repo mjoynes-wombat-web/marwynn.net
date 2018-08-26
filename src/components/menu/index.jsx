@@ -5,8 +5,9 @@ import colors from '../../consts/colors';
 
 import MenuButton from './menu-button';
 
-function animateMenuItem(menuItem, duration) {
-  console.log(duration);
+function animateMenuItem(menuItem, delay) {
+  console.log(delay);
+  console.log(menuItem);
   menuItem.classList.add('turnOff');
   menuItem.addEventListener(
     'animationend',
@@ -17,18 +18,17 @@ function animateMenuItem(menuItem, duration) {
   setTimeout(() => {
     menuItem.classList.remove('turnOff');
     menuItem.classList.add('turnOn');
-  }, duration);
+  }, delay);
 }
 
-function animateBg(duration) {
+function animateBg(delay) {
   const bgImg = document.getElementById('background');
 
   bgImg.classList.add('turnOff');
-
   setTimeout(() => {
     bgImg.classList.remove('turnOff');
     bgImg.classList.add('turnOn');
-  }, duration);
+  }, delay);
 }
 
 function animateLoad(siteLoad) {
@@ -37,17 +37,17 @@ function animateLoad(siteLoad) {
   const menuItems = Array.from(menuListItems);
   if (siteLoad) { menuItems.push(menuButton); }
 
-  const durations = [];
+  const delays = [];
 
   menuItems.forEach((menuItem) => {
-    const duration = Math.random() * (siteLoad ? 2000 : 400);
-    durations.push(duration);
-    animateMenuItem(menuItem, duration);
+    const delay = Math.random() * (siteLoad ? 1000 : 400);
+    delays.push(delay);
+    animateMenuItem(menuItem, delay);
   });
-  durations.sort((a, b) => a - b);
+  delays.sort((a, b) => a - b);
 
   if (siteLoad) {
-    animateBg(durations[0]);
+    animateBg(delays[0]);
   }
 }
 
@@ -291,34 +291,19 @@ class Menu extends React.Component {
                   transition: transform 0.5s, box-shadow 0.5s, opacity 0.15s;
                 }
 
-                &.turnOn {
-                  animation-name: fluorescentOn;
-                  animation-duration: 2s;
+                &.turnOn :global(a) {
+                  &:link, &:visited, &:active, &:focus, & {
+                    animation-name: fluorescentOn;
+                    animation-duration: 2s;
 
-                  @media screen and (max-width: 1300px) {
-                    animation-name: mobileFluoOn;
-                    animation-duration: 0.5s;
+                    @media screen and (max-width: 1300px){
+                      animation-name: mobileFluoOn;
+                      animation-duration: 0.5s;
+                    }
                   }
                 }
 
-                &.turnOn :global(#mainMenu a, #mainMenu a:link, #mainMenu a:visited, #mainMenu a:active, #mainMenu a:focus) {
-                  animation-name: fluorescentOn;
-                  animation-duration: 2s;
-
-                  @media screen and (max-width: 1300px){
-                    animation-name: mobileFluoOn;
-                    animation-duration: 0.5s;
-                    transform-origin: right;
-                  }
-                }
-
-                &.turnOff {
-                  text-shadow: 0 0 0.125rem ${colors.lilacDeep(0.65)};
-                  color: ${colors.lilacBright(0.25)};
-                  transition: none;
-                }
-
-                &.turnOff :global(#mainMenu a) {
+                &.turnOff :global(a) {
                   &:link, &:visited, &:active, &:focus, & {
                     text-shadow: 0 0 0.125rem ${colors.lilacDeep(0.65)};
                     color: ${colors.lilacBright(0.25)};
@@ -335,7 +320,10 @@ class Menu extends React.Component {
 
                   &.active {
                     font-weight: 600;
-                    transform: scale(1.125) translate(0, -0.1875rem);
+                    
+                    @media screen and (min-width: 1301px) {
+                      transform: scale(1.125) translate(0, -0.1875rem);
+                    }
                   }
                 }
               }
@@ -343,6 +331,10 @@ class Menu extends React.Component {
               li :global(a:hover) {
                 transform: scale(1.125);
                 text-shadow: 0 0 0.75rem ${colors.lilacDeep()};
+
+                @media screen and (max-width: 1300px) {
+                  transform-origin: right;
+                }
               }
             }
           }

@@ -222,7 +222,7 @@ main {
 }
 
 .background-gradient {
-  background: linear-gradient(to bottom, ${colors.navy(0)} 5%, ${colors.navy(0.65)} 30%);
+  background: linear-gradient(to bottom, ${colors.navy(0)} 4ch, ${colors.navy(0.65)} 18ch);
   left: 0;
   min-height: 100vh;
   min-width: 100vw;
@@ -232,10 +232,9 @@ main {
   transition: opacity 0.5s;
   pointer-events: none;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1400px) {
     position: fixed;
-    background: radial-gradient(at top right, ${colors.navy(0)} 4rem,
-${colors.navy(0.65)} 18rem);
+    background: radial-gradient(circle at top right,rgba(1, 14, 23, 0) 4rem,rgba(1, 14, 23, 0.65) 18rem);
 
     &.turnOff {
       opacity: 0;

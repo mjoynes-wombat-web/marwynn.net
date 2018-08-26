@@ -27,7 +27,7 @@ const MenuButton = ({ buttonActive, onClick }) => (
         height: 0;
         overflow: hidden;
 
-        @media screen and (max-width: 1300px){
+        @media screen and (max-width: 1100px){
           display: block;
           opacity: 1;
           pointer-events: auto;
@@ -124,7 +124,7 @@ const MenuButton = ({ buttonActive, onClick }) => (
         }
 
       :hover {
-      transform: scale(1.125);
+      transform: scale(1.25);
       }
     }
 

@@ -232,7 +232,7 @@ main {
   transition: opacity 0.5s;
   pointer-events: none;
 
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: 1000px) {
     position: fixed;
     background: radial-gradient(circle at top right,rgba(1, 14, 23, 0) 4rem,rgba(1, 14, 23, 0.65) 18rem);
 

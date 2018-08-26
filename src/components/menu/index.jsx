@@ -64,7 +64,11 @@ class Menu extends React.Component {
   }
 
   componentDidMount() {
-    animateLoad(true);
+    const { mountedOnce } = this.state;
+    if (!mountedOnce) {
+      animateLoad(true);
+      this.setState({ mountedOnce: true });
+    }
   }
 
   componentDidUpdate() {
@@ -216,7 +220,7 @@ class Menu extends React.Component {
               z-index: -1;
             }
 
-            @media screen and (max-width: 1300px){
+            @media screen and (max-width: 1100px){
               top: 0;
               right: 0;
               height: 100vh;
@@ -264,7 +268,7 @@ class Menu extends React.Component {
               margin: 0;
               line-height: 0;
 
-              @media screen and (max-width: 1300px){
+              @media screen and (max-width: 1100px){
                 flex-direction: column;
                 align-items: flex-end;
                 margin-top: 2rem;
@@ -281,9 +285,9 @@ class Menu extends React.Component {
                 font-family: 'Josefin Slab', serif;
                 line-height: normal;
                 overflow: visible;
-                padding: 0 1.25rem;
+                padding: 0 1.5rem;
 
-                @media screen and (max-width: 1300px) {
+                @media screen and (max-width: 1100px) {
                   flex-direction: column;
                   margin-bottom: 1rem;
                   opacity: 0;
@@ -296,7 +300,7 @@ class Menu extends React.Component {
                     animation-name: fluorescentOn;
                     animation-duration: 2s;
 
-                    @media screen and (max-width: 1300px){
+                    @media screen and (max-width: 1100px){
                       animation-name: mobileFluoOn;
                       animation-duration: 0.5s;
                     }
@@ -320,19 +324,20 @@ class Menu extends React.Component {
 
                   &.active {
                     font-weight: 600;
+                    transform: scale(1.25);
                     
-                    @media screen and (min-width: 1301px) {
-                      transform: scale(1.125) translate(0, -0.1875rem);
+                    @media screen and (min-width: 1101px) {
+                      transform: scale(1.25) translate(0, -0.1875rem);
                     }
                   }
                 }
               }
 
               li :global(a:hover) {
-                transform: scale(1.125);
+                transform: scale(1.25);
                 text-shadow: 0 0 0.75rem ${colors.lilacDeep()};
 
-                @media screen and (max-width: 1300px) {
+                @media screen and (max-width: 1101px) {
                   transform-origin: right;
                 }
               }

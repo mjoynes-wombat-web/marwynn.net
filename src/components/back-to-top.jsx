@@ -58,7 +58,7 @@ class BackToTop extends React.Component {
             position: fixed;
             opacity: 0;
             transition: all 0.5s;
-            bottom: 0.75rem;
+            bottom: 2.5rem;
             right: 0.75rem;
             z-index: 10;
             pointer-events: none;

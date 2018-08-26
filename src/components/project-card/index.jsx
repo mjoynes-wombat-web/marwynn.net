@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash/debounce';
+import { Link } from 'gatsby';
 
 import colors from '../../consts/colors';
 
@@ -200,8 +201,15 @@ class ProjectCard extends React.Component {
                   {links.repo
                     ? (
                       <a href={links.repo} target="_blank" rel="noopener noreferrer">
-                        Code Repo
+                        Code
                       </a>
+                    )
+                    : null}
+                  {links.blog
+                    ? (
+                      <Link to={links.blog} target="_blank" rel="noopener noreferrer">
+                        Blog
+                      </Link>
                     )
                     : null}
                 </p>

@@ -43,8 +43,41 @@
         { "id": 2, "type": "node" }
       ]
     },
-    "JavaScript 30 Challenge": {
+    "Crab Trap - Alpha": {
       "id": 2,
+      "text": "The alpha version of a game I made for my son.",
+      "imgs": [
+        {
+          "id": 0,
+          "url": "crab-trap-start.png"
+        },
+        {
+          "id": 1,
+          "url": "crab-trap-board.png"
+        }
+      ],
+      "links": {
+        "site": "https://codingwithkids.simeonsmith.me/crab-trap/build/index.html",
+        "repo": "https://github.com/CodingWithKids/crab-trap",
+        "blog": "/coding-with-kids/2018/08/10/Crab-Trap-Alpha"
+      },
+      "techs": [
+        {
+          "id": 0,
+          "type": "javascript"
+        },
+        {
+          "id": 1,
+          "type": "node"
+        },
+        {
+          "id": 2,
+          "type": "react"
+        }
+      ]
+    },
+    "JavaScript 30 Challenge": {
+      "id": 3,
       "text": "30 Day JavaScript coding challenge.",
       "imgs": [
         {

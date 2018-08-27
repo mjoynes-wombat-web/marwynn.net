@@ -144,6 +144,7 @@ main {
 
   .page-wrapper {
     min-height: 100%;
+    min-width: 100%;
     padding-bottom: 2rem;
     position: absolute;
   }

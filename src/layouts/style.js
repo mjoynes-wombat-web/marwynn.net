@@ -120,12 +120,13 @@ a {
 }
 
 main {
-  margin: 4rem;
+  position: absolute;
+  margin: 4rem 4rem 6rem 4rem;
   min-width: calc(100% - 10rem);
   padding-right: 0.5rem;
   box-sizing: border-box;
-  position: relative;
   z-index: 1;
+  min-height: calc(100% - 10rem);
   @media screen and (max-width: 700px) {
     width: calc(100vw - 8rem);
     overflow: initial;
@@ -141,13 +142,6 @@ main {
 .wrapper {
   min-height: 100vh;
   min-width: 100%;
-  overflow: auto;
-  position: relative;
-  box-sizing: border-box;
-
-  @media screen and (max-width: 875px) {
-    padding-bottom: 2rem;
-  }
 }
 
 .background-wrapper {
@@ -206,7 +200,7 @@ main {
 
   @media screen and (max-width: 875px) {
     position: absolute;
-    bottom: 0;
+    bottom: -6rem;
     text-align: center;
     padding: 0.75rem
   }

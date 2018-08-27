@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import Menu from '../components/menu';
-import PageTransition from './PageTransition';
+import PageTransition from '../components/PageTransition';
 
 import Background720 from '../assets/img/background_720.jpg';
 import Background768 from '../assets/img/background_768.jpg';

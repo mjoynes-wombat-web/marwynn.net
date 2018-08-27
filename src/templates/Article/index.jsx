@@ -78,22 +78,18 @@ const Article = ({
     }, images,
   },
 }) => (
-  <Layout>
+  <main className="blog-article">
     <Helmet>
       <title>{`${title} - ${date} - Coding With Kids - SimeonSmith.me`}</title>
     </Helmet>
-    <main className="blog-article">
-      <p className="article-date">{date}</p>
-      <h1 className="article-title">{title}</h1>
-      <p className="article-links">
-        {repo ? (<a className="repo-link" href={repo} target="_blank" rel="noopener noreferrer">Code Repo</a>) : null}
-        {site ? (<a className="site-link" href={site} target="_blank" rel="noopener noreferrer">Live Site</a>) : null}
-      </p>
-      {createElements(htmlAst.children, images)}
-      <BackToTop />
-    </main>
-    {/* <main dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} /> */}
-
+    <p className="article-date">{date}</p>
+    <h1 className="article-title">{title}</h1>
+    <p className="article-links">
+      {repo ? (<a className="repo-link" href={repo} target="_blank" rel="noopener noreferrer">Code Repo</a>) : null}
+      {site ? (<a className="site-link" href={site} target="_blank" rel="noopener noreferrer">Live Site</a>) : null}
+    </p>
+    {createElements(htmlAst.children, images)}
+    <BackToTop />
     <style jsx global>
       {`
       main.blog-article {
@@ -188,7 +184,7 @@ const Article = ({
       }
       `}
     </style>
-  </Layout>
+  </main>
 );
 
 Article.propTypes = {

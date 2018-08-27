@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
 import colors from '../../consts/colors';
 
@@ -93,6 +94,8 @@ class Menu extends React.Component {
 
   render() {
     const { isOpen } = this.state;
+    const { location } = this.props;
+    console.log(location.pathname.includes('//coding-with-kids/') ? 'active' : '');
     return (
       <nav className={isOpen ? 'is-open' : ''} id="mainMenu">
         <div className="menu-background" />
@@ -102,16 +105,16 @@ class Menu extends React.Component {
         />
         <ul>
           <li>
-            <Link to="/" activeClassName="active" exact="true" onClick={this.selectPage}>Home</Link>
+            <Link to="/" activeClassName="active" className={location.pathname === '//' ? 'active' : ''} exact="true" onClick={this.selectPage}>Home</Link>
           </li>
           <li>
-            <Link to="/my-work/" activeClassName="active" onClick={this.selectPage}>My Work</Link>
+            <Link to="/my-work/" activeClassName="active" className={location.pathname === '//my-work/' ? 'active' : ''} onClick={this.selectPage}>My Work</Link>
           </li>
           <li>
-            <Link to="/make-contact/" activeClassName="active" onClick={this.selectPage}>Make Contact</Link>
+            <Link to="/make-contact/" activeClassName="active" className={location.pathname === '//make-contact/' ? 'active' : ''} onClick={this.selectPage}>Make Contact</Link>
           </li>
           <li>
-            <Link to="/coding-with-kids/" activeClassName="active" onClick={this.selectPage}>Coding With Kids</Link>
+            <Link to="/coding-with-kids/" activeClassName="active" className={location.pathname.includes('//coding-with-kids/') ? 'active' : ''} onClick={this.selectPage}>Coding With Kids</Link>
           </li>
         </ul>
         <style jsx>
@@ -349,5 +352,11 @@ class Menu extends React.Component {
     );
   }
 }
+
+Menu.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+};
 
 export default Menu;

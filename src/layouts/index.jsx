@@ -66,7 +66,7 @@ class Layout extends React.Component {
             </p>
           </div>
         </PageTransition>
-        <Menu />
+        <Menu location={location} />
         <style jsx global>
           {layoutStyle}
         </style>

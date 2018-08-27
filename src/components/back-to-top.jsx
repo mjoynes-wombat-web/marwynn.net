@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import faArrowCircleRight from '@fortawesome/fontawesome-free-solid/faArrowCircleUp';
+import throttle from 'lodash/debounce';
 
 import colors from '../consts/colors';
 
@@ -12,17 +13,16 @@ class BackToTop extends React.Component {
     };
 
     this.checkScroll = this.checkScroll.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.throttleCheckScroll = throttle(this.checkScroll.bind(this), 32);
     this.backToTop = this.backToTop.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.checkScroll);
+    window.addEventListener('scroll', this.throttleCheckScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.checkScroll);
+    window.removeEventListener('scroll', this.throttleCheckScroll);
   }
 
   checkScroll() {

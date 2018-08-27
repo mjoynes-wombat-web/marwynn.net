@@ -40,7 +40,7 @@ const PageTransition = ({ children, location }) => (
       >
         <TransitionHandler location={window.location}>
           {/* This div receives the classes for transitioning. */}
-          <div className="page-wrapper">{children}</div>
+          {children}
         </TransitionHandler>
       </CSSTransition>
     </TransitionGroup>
@@ -62,9 +62,6 @@ const PageTransition = ({ children, location }) => (
         &.page-animation-exit-active {
           opacity: 0;
         }
-      }
-      .page-wrapper {
-        position: absolute;
       }
       `}
     </style>

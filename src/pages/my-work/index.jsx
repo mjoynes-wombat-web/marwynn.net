@@ -72,7 +72,7 @@ class MyWork extends React.Component {
             justify-content: space-between;
 
             @media screen and (max-width: 1100px) {
-              width: calc(100% - 4.5rem);
+              width: calc(100% - 5rem);
             }
 
             @media screen and (max-width: 725px) {

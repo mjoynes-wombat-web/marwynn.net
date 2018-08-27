@@ -121,13 +121,13 @@ a {
 
 main {
   margin: 4rem;
-  min-width: calc(100% - 10rem);
-  padding-right: 0.5rem;
+  min-width: calc(100% - 8rem);
   box-sizing: border-box;
   z-index: 1;
   min-height: calc(100% - 10rem);
   @media screen and (max-width: 700px) {
-    width: calc(100vw - 8rem);
+    margin: 3rem;
+    width: calc(100vw - 6rem);
     overflow: initial;
   };
 }

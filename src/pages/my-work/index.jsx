@@ -23,6 +23,7 @@ class MyWork extends React.Component {
   }
 
   componentDidMount() {
+    this.resizeProjects();
     window.addEventListener('resize', this.throttleResizeProjects);
   }
 

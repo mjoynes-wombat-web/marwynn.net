@@ -29,6 +29,7 @@ class ProjectCard extends React.Component {
   }
 
   componentDidMount() {
+    this.resizeProject();
     window.addEventListener('resize', this.throttleResizeProject);
   }
 
@@ -52,7 +53,7 @@ class ProjectCard extends React.Component {
 
       projectImgWrap.style.height = `${maxImgHeight}px`;
       return null;
-    } if (e.type === 'load' && window.innerWidth > 700) {
+    } if (e && e.type === 'load' && window.innerWidth > 700) {
       resizeProjects();
     }
 
@@ -227,11 +228,7 @@ class ProjectCard extends React.Component {
           {`
             .project-card {
               .image-wrapper {
-                height: ${projectsHeight}px;
-
-                @media screen and (max-width: 700px) {
-                  height: initial;
-                }
+                height: ${projectsHeight || 250}px;
               }
             }
             `}

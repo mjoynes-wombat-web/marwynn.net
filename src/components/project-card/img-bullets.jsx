@@ -24,14 +24,14 @@ const ImgBullets = ({
       {`
       nav {
         position: absolute;
-        bottom: -0.125rem;
+        bottom: -16px;
         z-index: 1;
 
         button {
           color: ${colors.lilacBright(0.5)};
           transition: all 0.5s;
-          font-size: 1.5rem;
-          line-height: 0;
+          font-size: 32px;
+          background-color: transparent;
           font-family: 'Josefin Slab', 'Arial', sans-serif;
           border: none;
           padding: 0;

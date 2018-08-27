@@ -4,7 +4,6 @@ import { graphql, Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import colors from '../../consts/colors';
-import Layout from '../../layouts';
 import Image from './components/Image';
 import BackToTop from '../../components/back-to-top';
 

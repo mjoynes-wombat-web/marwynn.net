@@ -33,7 +33,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, location } = this.props;
     return (
       <div className="wrapper">
         <div className="background-wrapper">
@@ -56,7 +56,7 @@ class Layout extends React.Component {
           <link rel="icon" type="image/png" href={favicon} sizes="110x110" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Slab:600,400|Open+Sans:300,400" />
         </Helmet>
-        <PageTransition>
+        <PageTransition location={location}>
           <div className="page-wrapper">
             {children}
             <p className="bg-photo-credit">
@@ -80,6 +80,9 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
   ]).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Layout;

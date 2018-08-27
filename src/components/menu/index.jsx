@@ -105,16 +105,16 @@ class Menu extends React.Component {
         />
         <ul>
           <li>
-            <Link to="/" activeClassName="active" className={location.pathname === '//' ? 'active' : ''} exact="true" onClick={this.selectPage}>Home</Link>
+            <Link to="/" className={location.pathname === '/' || location.pathname === '//' ? 'active' : ''} exact="true" onClick={this.selectPage}>Home</Link>
           </li>
           <li>
-            <Link to="/my-work/" activeClassName="active" className={location.pathname === '//my-work/' ? 'active' : ''} onClick={this.selectPage}>My Work</Link>
+            <Link to="/my-work/" className={location.pathname.includes('/my-work/') ? 'active' : ''} onClick={this.selectPage}>My Work</Link>
           </li>
           <li>
-            <Link to="/make-contact/" activeClassName="active" className={location.pathname === '//make-contact/' ? 'active' : ''} onClick={this.selectPage}>Make Contact</Link>
+            <Link to="/make-contact/" className={location.pathname.includes('/make-contact/') ? 'active' : ''} onClick={this.selectPage}>Make Contact</Link>
           </li>
           <li>
-            <Link to="/coding-with-kids/" activeClassName="active" className={location.pathname.includes('//coding-with-kids/') ? 'active' : ''} onClick={this.selectPage}>Coding With Kids</Link>
+            <Link to="/coding-with-kids/" className={location.pathname.includes('/coding-with-kids/') ? 'active' : ''} onClick={this.selectPage}>Coding With Kids</Link>
           </li>
         </ul>
         <style jsx>

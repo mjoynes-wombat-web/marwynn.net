@@ -5,4 +5,4 @@
 ✔ Fix height for project images. @done (8/25/2018, 2:37:44 PM)
 ✔ Menu doesn't appear bold on first page load. - It's an issue with v2 Gatsby Link component at build time. @done (8/26/2018, 7:49:48 PM)
 ☐ Change to activeClassName on menu once it's fixed.
-☐ When on larger screens don't preserve space for menu button on my work page.
+✔ When on larger screens don't preserve space for menu button on my work page. @done (8/26/2018, 7:53:55 PM)

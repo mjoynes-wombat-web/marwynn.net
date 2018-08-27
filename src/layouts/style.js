@@ -120,8 +120,7 @@ a {
 }
 
 main {
-  position: absolute;
-  margin: 4rem 4rem 6rem 4rem;
+  margin: 4rem;
   min-width: calc(100% - 10rem);
   padding-right: 0.5rem;
   box-sizing: border-box;
@@ -142,6 +141,12 @@ main {
 .wrapper {
   min-height: 100vh;
   min-width: 100%;
+
+  .page-wrapper {
+    min-height: 100%;
+    padding-bottom: 2rem;
+    position: absolute;
+  }
 }
 
 .background-wrapper {
@@ -200,7 +205,6 @@ main {
 
   @media screen and (max-width: 875px) {
     position: absolute;
-    bottom: -6rem;
     text-align: center;
     padding: 0.75rem
   }

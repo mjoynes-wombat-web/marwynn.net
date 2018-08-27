@@ -34,15 +34,6 @@ class Layout extends React.Component {
 
   render() {
     const { children } = this.props;
-    const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, {
-      photoCredit: (
-        <p className="bg-photo-credit">
-          <a href="https://www.flickr.com/photos/136594255@N06/23696957286/in/photolist-RjVgij-49MV9f-8fh3H9-3EjPyR-zDWxv-8uEN47-bq4KFB-9n8Ynd-6D2qUY-8Lypuv-8Fm1wP-49HJ3T-8GLDMJ-49MDjm-49ME4A-C726P5-pNjEgX-8fhH1A-8AwJi7-p5FtS3">
-          Background photo by Lisa Ann Yount.
-          </a>
-        </p>
-      ),
-    }));
     return (
       <div className="wrapper">
         <div className="background-wrapper">
@@ -66,7 +57,14 @@ class Layout extends React.Component {
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Slab:600,400|Open+Sans:300,400" />
         </Helmet>
         <PageTransition>
-          {childrenWithProps}
+          <div className="page-wrapper">
+            {children}
+            <p className="bg-photo-credit">
+              <a href="https://www.flickr.com/photos/136594255@N06/23696957286/in/photolist-RjVgij-49MV9f-8fh3H9-3EjPyR-zDWxv-8uEN47-bq4KFB-9n8Ynd-6D2qUY-8Lypuv-8Fm1wP-49HJ3T-8GLDMJ-49MDjm-49ME4A-C726P5-pNjEgX-8fhH1A-8AwJi7-p5FtS3">
+                Background photo by Lisa Ann Yount.
+              </a>
+            </p>
+          </div>
         </PageTransition>
         <Menu />
         <style jsx global>

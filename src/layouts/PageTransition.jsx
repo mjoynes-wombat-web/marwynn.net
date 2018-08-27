@@ -31,21 +31,21 @@ const exitActive = css.resolve`
 `;
 
 const PageTransition = ({ children, location }) => (
-  <>
-    <TransitionGroup>
-      <CSSTransition
-        classNames="page-animation"
-        timeout={{ enter: 500, exit: 250 }}
-        key={window.location.pathname}
-      >
-        <TransitionHandler location={window.location}>
-          {/* This div receives the classes for transitioning. */}
-          {children}
-        </TransitionHandler>
-      </CSSTransition>
-    </TransitionGroup>
-    <style jsx global>
-      {`
+<>
+  <TransitionGroup>
+    <CSSTransition
+      classNames="page-animation"
+      timeout={{ enter: 500, exit: 250 }}
+      key={location.pathname}
+    >
+      <TransitionHandler location={location}>
+        {/* This div receives the classes for transitioning. */}
+        {children}
+      </TransitionHandler>
+    </CSSTransition>
+  </TransitionGroup>
+  <style jsx global>
+    {`
       .page-animation-enter {
         opacity: 0;
         transition: opacity 0.25s linear 0.25s;
@@ -64,12 +64,12 @@ const PageTransition = ({ children, location }) => (
         }
       }
       `}
-    </style>
-    {enter.styles}
-    {enterActive.styles}
-    {exit.styles}
-    {exitActive.styles}
-  </>
+  </style>
+  {enter.styles}
+  {enterActive.styles}
+  {exit.styles}
+  {exitActive.styles}
+</>
 );
 
 PageTransition.propTypes = {

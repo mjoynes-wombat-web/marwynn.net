@@ -130,6 +130,7 @@ const Article = ({
         }
 
         .gatsby-highlight pre {
+          overflow: auto;
           max-width: 65ch;
           box-sizing: border-box;
           background-color: ${colors.navy(0.3)};

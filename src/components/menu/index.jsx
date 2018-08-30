@@ -95,7 +95,6 @@ class Menu extends React.Component {
   render() {
     const { isOpen } = this.state;
     const { location } = this.props;
-    console.log(location.pathname.includes('//coding-with-kids/') ? 'active' : '');
     return (
       <nav className={isOpen ? 'is-open' : ''} id="mainMenu">
         <div className="menu-background" />

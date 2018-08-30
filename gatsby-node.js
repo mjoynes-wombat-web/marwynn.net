@@ -9,7 +9,7 @@ const slugify = require('slugify');
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
-    const name = slugify(node.frontmatter.title);
+    const name = slugify(node.frontmatter.title, { lower: true });
     const date = node.frontmatter.date.replace(new RegExp('-', 'g'), '/');
     createNodeField({
       node,

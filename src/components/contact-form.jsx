@@ -85,7 +85,7 @@ class ContactForm extends React.Component {
   render() {
     const { messageSent, inputs, messageSending } = this.state;
     return (
-      <form onSubmit={this.sendMessage}>
+      <form method="POST" netlify>
         <style jsx>
           {`
           @keyframes errorPulse {

@@ -29,7 +29,7 @@ class ProjectCard extends React.Component {
   }
 
   componentDidMount() {
-    this.resizeProject();
+    setTimeout(this.resizeProject, 500);
     window.addEventListener('resize', this.throttleResizeProject);
   }
 

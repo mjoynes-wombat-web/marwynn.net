@@ -89,7 +89,7 @@ class ContactForm extends React.Component {
         name="make-contact"
         method="post"
         data-netlify="true"
-        data-netlify-honepot="bot-field"
+        data-netlify-honeypot="bot-field"
       >
         <style jsx>
           {`

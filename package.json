@@ -40,7 +40,6 @@
   "scripts": {
     "build": "npm run test && gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
     "test": "mocha --require babel-core/register",
     "serve": "gatsby serve --host 192.168.86.200"
   },

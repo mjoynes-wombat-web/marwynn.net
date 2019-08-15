@@ -88,7 +88,7 @@ class ContactForm extends React.Component {
       <form
         name="make-contact"
         method="post"
-        action="#"
+        action="/make-contact/thank-you/"
         data-netlify="true"
         data-netlify-honeypot="dont-field"
       >

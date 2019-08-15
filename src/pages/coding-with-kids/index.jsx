@@ -28,7 +28,7 @@ CodingWithKids.propTypes = {
 };
 
 CodingWithKids.defaultProps = {
-  title: 'SimeonSmith.me',
+  title: 'SimeonSmith.dev',
 };
 
 export const query = graphql`

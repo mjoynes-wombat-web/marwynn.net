@@ -63,7 +63,7 @@ IndexPage.propTypes = {
 };
 
 IndexPage.defaultProps = {
-  title: 'SimeonSmith.me',
+  title: 'SimeonSmith.dev',
 };
 
 export default IndexPage;

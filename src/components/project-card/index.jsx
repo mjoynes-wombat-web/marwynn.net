@@ -161,7 +161,7 @@ class ProjectCard extends React.Component {
               />
             )
             : null}
-          {imgs.map(img => (
+          {imgs.map((img) => (
             <img
               data-key={`${projectType}${projectId}img${img.id}`}
               key={`${projectType}${projectId}img${img.id}`}
@@ -192,7 +192,8 @@ class ProjectCard extends React.Component {
             {projectType === 'web' && links.blog
               ? (
                 <>
-                  {' Find out how I made it '}<Link to={links.blog} target="_blank" rel="noopener noreferrer">here.</Link>
+                  {' Find out how I made it '}
+                  <Link to={links.blog} target="_blank" rel="noopener noreferrer">here.</Link>
                 </>
               )
               : null}
@@ -218,7 +219,7 @@ class ProjectCard extends React.Component {
                 </p>
                 <h3>Made with:</h3>
                 <div className="logos">
-                  {techs.map(tech => <Logos key={`${projectType}${projectId}tech${tech.id}`} type={tech.type} />)}
+                  {techs.map((tech) => <Logos key={`${projectType}${projectId}tech${tech.id}`} type={tech.type} />)}
                 </div>
               </div>
             )
@@ -383,6 +384,7 @@ ProjectCard.propTypes = {
   links: PropTypes.shape({
     site: PropTypes.string,
     repo: PropTypes.string,
+    blog: PropTypes.string,
   }),
   techs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,

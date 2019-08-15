@@ -21,7 +21,7 @@ NotFoundPage.propTypes = {
 };
 
 NotFoundPage.defaultProps = {
-  title: 'SimeonSmith.me',
+  title: 'SimeonSmith.dev',
 };
 
 export default NotFoundPage;

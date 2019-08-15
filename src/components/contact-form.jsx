@@ -53,10 +53,10 @@ class ContactForm extends React.Component {
       firstName: currentInputs.name,
       senderEmail: currentInputs.email,
       receiverEmail: 'ssmith@wombatweb.us',
-      subject: `${currentInputs.subject} - SimeonSmith.me`,
+      subject: `${currentInputs.subject} - SimeonSmith.dev`,
       msg: currentInputs.message,
       confirmation: 'Thank you for reaching out to me. I will get back to you within 24 hours.',
-      receptionMsg: 'This message was sent from simeonsmith.me.',
+      receptionMsg: 'This message was sent from simeonsmith.dev.',
       receiverName: 'Simeon Smith',
     };
 
@@ -128,8 +128,7 @@ class ContactForm extends React.Component {
             <h3 className={`sub-heading ${messageSent ? null : 'error'}`}>
               {messageSent
                 ? 'Thank you for contacting me.'
-                : "Your message couldn't be sent. Please try again."
-              }
+                : "Your message couldn't be sent. Please try again."}
             </h3>
           )
           : null}

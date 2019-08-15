@@ -70,6 +70,10 @@ BlogListArticle.propTypes = {
       repo: PropTypes.string,
       site: PropTypes.string,
     }),
+    fields: PropTypes.shape({
+      slug: PropTypes.string,
+    }),
+    excerpt: PropTypes.string,
   }).isRequired,
 };
 

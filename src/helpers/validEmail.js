@@ -17,7 +17,7 @@ const validEmail = (email) => {
   // Confirm that the domain name is only alpha and periods
   const domainChars = 'abcdefghijklmnopqrstuvwxyz.'.split('');
   const domainLetters = email.slice(email.indexOf('@') + 1).split('');
-  const isDomainAlpha = () => domainLetters.every(letter => domainChars.indexOf(letter) > -1);
+  const isDomainAlpha = () => domainLetters.every((letter) => domainChars.indexOf(letter) > -1);
   if (!isDomainAlpha()) return false;
 
   return true;

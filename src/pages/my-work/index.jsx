@@ -97,7 +97,7 @@ My Work -
           </p>
           <h2 id="web-design">Web Design Projects</h2>
           <section className="web projects">
-            {Object.entries(projects.web).map(project => (
+            {Object.entries(projects.web).map((project) => (
               <ProjectCard
                 projectsHeight={projectsHeight}
                 resizeProjects={this.resizeProjects}
@@ -114,7 +114,7 @@ My Work -
           </section>
           <h2 id="graphic-design">Graphic Design Projects</h2>
           <section className="graphic projects">
-            {Object.entries(projects.graphic).map(project => (
+            {Object.entries(projects.graphic).map((project) => (
               <ProjectCard
                 projectsHeight={projectsHeight}
                 resizeProjects={this.resizeProjects}
@@ -139,7 +139,7 @@ MyWork.propTypes = {
 };
 
 MyWork.defaultProps = {
-  title: 'SimeonSmith.me',
+  title: 'SimeonSmith.dev',
 };
 
 export default MyWork;

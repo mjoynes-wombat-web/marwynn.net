@@ -10,11 +10,11 @@ const ImgBullets = ({
   onClick,
 }) => (
   <nav>
-    {imgs.map(img => (
+    {imgs.map((img) => (
       <button
         className={activeImg === img.id ? 'active' : null}
         key={`project${projectId}img${img.id}bullet`}
-        onClick={e => onClick(e, img.id)}
+        onClick={(e) => onClick(e, img.id)}
         type="button"
       >
         •

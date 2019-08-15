@@ -4,7 +4,8 @@
     "react/prop-types": 1,
     "no-unused-vars": 1,
     "react/prefer-stateless-function": 1,
-    "import/no-extraneous-dependencies": 1
+    "import/no-extraneous-dependencies": 1,
+    "react/jsx-props-no-spreading": 0
   },
   "env": {
     "browser": true

@@ -79,7 +79,7 @@ const Article = ({
 }) => (
   <main className="blog-article">
     <Helmet>
-      <title>{`${title} - ${date} - Coding With Kids - SimeonSmith.me`}</title>
+      <title>{`${title} - ${date} - Coding With Kids - SimeonSmith.dev`}</title>
     </Helmet>
     <p className="article-date">{date}</p>
     <h1 className="article-title">{title}</h1>
@@ -193,6 +193,8 @@ Article.propTypes = {
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
         date: PropTypes.string,
+        repo: PropTypes.string,
+        site: PropTypes.string,
       }),
       htmlAst: PropTypes.object,
     }),

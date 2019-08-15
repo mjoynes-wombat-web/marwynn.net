@@ -88,9 +88,12 @@ class ContactForm extends React.Component {
       <form
         name="make-contact"
         method="post"
+        action="#"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        data-netlify-honeypot="dont-field"
       >
+        <input type="hidden" name="dont-field" />
+        <input type="hidden" name="form-name" value="make-contact" />
         <style jsx>
           {`
           @keyframes errorPulse {

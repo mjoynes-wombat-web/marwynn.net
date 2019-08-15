@@ -81,7 +81,12 @@ class MyWork extends React.Component {
           }
           `}
         </style>
-        <Helmet>
+        <Helmet
+          meta={[
+            { name: 'description', content: "Simeon Smith's Portfolio of Work" },
+            { name: 'keywords', content: 'web, designer, developer, graphic, production, devops, development, design, portfolio, samples' },
+          ]}
+        >
           <title>
 My Work -
             {' '}

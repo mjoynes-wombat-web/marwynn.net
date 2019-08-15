@@ -78,7 +78,12 @@ const Article = ({
   },
 }) => (
   <main className="blog-article">
-    <Helmet>
+    <Helmet
+      meta={[
+        { name: 'description', content: `${title} - Coding With Kids blog article.` },
+        { name: 'keywords', content: 'web, designer, developer, graphic, production, devops, development, design, portfolio, samples, coding, kids, blog' },
+      ]}
+    >
       <title>{`${title} - ${date} - Coding With Kids - SimeonSmith.dev`}</title>
     </Helmet>
     <p className="article-date">{date}</p>

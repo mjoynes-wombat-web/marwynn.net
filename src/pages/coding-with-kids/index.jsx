@@ -7,7 +7,12 @@ import BlogList from '../../components/blog/BlogList';
 
 const CodingWithKids = ({ title, data: { allMarkdownRemark } }) => (
   <main>
-    <Helmet>
+    <Helmet
+      meta={[
+        { name: 'description', content: 'Coding with Kids Blog Articles' },
+        { name: 'keywords', content: 'web, designer, developer, graphic, production, devops, development, design, portfolio, samples, coding, kids' },
+      ]}
+    >
       <title>{`Coding With Kids - ${title}`}</title>
     </Helmet>
     <div className="page-content">

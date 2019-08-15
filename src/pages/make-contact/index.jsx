@@ -6,7 +6,12 @@ import ContactForm from '../../components/contact-form';
 
 const MakeContact = ({ title }) => (
   <main>
-    <Helmet>
+    <Helmet
+      meta={[
+        { name: 'description', content: 'Get in contact with Simeon Smith.' },
+        { name: 'keywords', content: 'web, designer, developer, graphic, production, devops, development, design, portfolio, samples, contact, email' },
+      ]}
+    >
       <title>{`Make Contact - ${title}`}</title>
     </Helmet>
     <div className="page-content">

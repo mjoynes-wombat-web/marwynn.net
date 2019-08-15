@@ -8,6 +8,7 @@ const MenuButton = ({ buttonActive, onClick }) => (
     className={['hamburger', 'hamburger--spring', buttonActive ? 'is-active' : ''].join(' ')}
     type="button"
     onClick={onClick}
+    aria-label="Menu"
   >
     <span className="hamburger-box">
       <span className="hamburger-inner" />

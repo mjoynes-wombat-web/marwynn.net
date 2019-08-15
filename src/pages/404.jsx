@@ -4,7 +4,12 @@ import { Helmet } from 'react-helmet';
 
 const NotFoundPage = ({ title }) => (
   <main>
-    <Helmet>
+    <Helmet
+      meta={[
+        { name: 'description', content: 'This page cannot be found.' },
+        { name: 'keywords', content: 'web, designer, developer, graphic, production, devops, development, design, portfolio, samples, 404' },
+      ]}
+    >
       <title>{`Page Not Found - ${title}`}</title>
     </Helmet>
     <div className="page-content">

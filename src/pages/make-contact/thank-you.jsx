@@ -4,7 +4,12 @@ import { Helmet } from 'react-helmet';
 
 const MakeContact = ({ title }) => (
   <main>
-    <Helmet>
+    <Helmet
+      meta={[
+        { name: 'description', content: 'Thank you for contacting Simeon Smith.' },
+        { name: 'keywords', content: 'web, designer, developer, graphic, production, devops, development, design, portfolio, samples, contact, email' },
+      ]}
+    >
       <title>{`Thank You - Make Contact - ${title}`}</title>
     </Helmet>
     <div className="page-content">

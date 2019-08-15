@@ -52,7 +52,13 @@ class Layout extends React.Component {
           />
           <div className="background-gradient" />
         </div>
-        <Helmet>
+        <Helmet
+          htmlAttributes={{ lang: 'en-us' }}
+          meta={[
+            { name: 'description', content: "Simeon Smith's Portfolio Website" },
+            { name: 'keywords', content: 'web, designer, developer, graphic, production, devops, development, design, portfolio, samples' },
+          ]}
+        >
           <link rel="icon" type="image/png" href={favicon} sizes="110x110" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Slab:600,400|Open+Sans:300,400" />
         </Helmet>

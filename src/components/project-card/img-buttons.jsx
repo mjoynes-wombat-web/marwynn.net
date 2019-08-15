@@ -15,6 +15,7 @@ const ImgButtons = ({
       data-direction="left"
       onClick={onClick}
       type="button"
+      aria-label="Previous Image"
     >
       <FontAwesomeIcon icon={faArrowCircleLeft} />
     </button>
@@ -23,6 +24,7 @@ const ImgButtons = ({
       data-direction="right"
       onClick={onClick}
       type="button"
+      aria-label="Next Image"
     >
       <FontAwesomeIcon icon={faArrowCircleRight} />
     </button>

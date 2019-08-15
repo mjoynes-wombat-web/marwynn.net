@@ -15,6 +15,14 @@ module.exports = {
     },
     'gatsby-plugin-sitemap',
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-5M78GGV',
+        includeInDevelopment: true,
+        defaultDataLayer: { platform: 'gatsby' },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'gatsby-starter-default',

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import ContactForm from '../components/contact-form';
+import ContactForm from '../../components/contact-form';
 
 const MakeContact = ({ title }) => (
   <main>

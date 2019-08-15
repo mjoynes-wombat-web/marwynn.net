@@ -74,7 +74,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }, options) => {
       watcher.on('change', (event) => {
         remove(newOptions.remove)
           .then(() => glob(newOptions.touch))
-          .then(files => Promise.all(files.map(file => touch(file))))
+          .then((files) => Promise.all(files.map((file) => touch(file))))
           .catch(console.error);
       });
       process.on('exit', () => watcher.close());

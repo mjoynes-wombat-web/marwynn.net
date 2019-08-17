@@ -3,9 +3,9 @@ backend:
   repo: ssmith-wombatweb/simeonsmith.me
   squash_merges: true
   commit_messages:
-    create: Created {{collection}}':' “{{slug}}”
-    update: Updated {{collection}}':' “{{slug}}”
-    delete: Deleted {{collection}}':' “{{slug}}”
+    create: "Created {{collection}}: \“{{slug}}\”"
+    update: "Updated {{collection}}: \“{{slug}}\”"
+    delete: "Deleted {{collection}}: \“{{slug}}\”"
     uploadMedia: Upload “{{path}}”
     deleteMedia: Delete “{{path}}”
 publish_mode: editorial_workflow

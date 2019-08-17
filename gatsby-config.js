@@ -5,6 +5,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify-cms',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

@@ -4,7 +4,6 @@ title: Crab Trap - Alpha
 repo: 'https://github.com/codingwithkids/crab-trap'
 site: 'https://codingwithkids.simeonsmith.dev/crab-trap/build/index.html'
 ---
-
 One of the challenges I face when trying to become a better developer is finding time to learn new technologies. It often means sacrificing time with family and friends. I came up with the idea to build things that I can involve my family in.
 
 In [Wes Bos's](https://twitter.com/wesbos) [JavaScript30 course](https://javascript30.com/) you build a whack-a-mole game. This reminded me of going to Chuck E. Cheese when I was young. There was a game where crabs would walk back and forth, hiding behind sand, while you tried to hit them with a hammer. I decided to take the idea of that game and make Crab Trap. While building it I got my son and wife's input on the illustrations and game mechanics.
@@ -52,9 +51,9 @@ I am using the react-transition-group to animate between the scenes. The transit
 
 The [GameBoard](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/scenes/GameBoard/index.jsx) scene is where all the game mechanics are brought together. The state for the difficulty, score, hiding spots, number of crabs, board initialization status, and paused state are controlled by this component.
 
-The GameBoard creates a grid of spots. A certain percentage of these spots are hideable. The percentage range of spots that are hideable change with the difficulty. It also contains a number of crabs which walk from hiding spot to hiding spot. The speed and number of the crabs go up with the game difficulty as well.
+The GameBoard creates a grid of spots. A certain percentage of these spots are hide-able. The percentage range of spots that are hide-able change with the difficulty. It also contains a number of crabs which walk from hiding spot to hiding spot. The speed and number of the crabs go up with the game difficulty as well.
 
-The [hideable spots](https://github.com/CodingWithKids/crab-trap/tree/alpha/src/scenes/GameBoard/components/spots) are shown by the four hiding spot images being display at their spot. These png images intercept the click through to the crab. The crab is also rendered un-clickable when it's paused behind the hiding spot. The 4 spots are [driftwood](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/drift-wood.png), [rocks](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/rock.png), a [sand castle](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/sand-castle.png), and a [turtle](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/turtle.png). The sand castle and turtle are programmed to show up approximately half as often to make them more unique.
+The [hide-able spots](https://github.com/CodingWithKids/crab-trap/tree/alpha/src/scenes/GameBoard/components/spots) are shown by the four hiding spot images being display at their spot. These png images intercept the click through to the crab. The crab is also rendered un-clickable when it's paused behind the hiding spot. The 4 spots are [driftwood](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/drift-wood.png), [rocks](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/rock.png), a [sand castle](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/sand-castle.png), and a [turtle](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/turtle.png). The sand castle and turtle are programmed to show up approximately half as often to make them more unique.
 
 When a [crab](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/components/Crab/index.jsx) is clicked, the [bucket](https://github.com/CodingWithKids/crab-trap/blob/alpha/src/assets/images/bucket.png) animates down to trap it and the score counter ticks up. The crab is also rendered un-clickable to prevent multiple clicks on the same crab. Then both the crab and the bucket fade out. This is immediately replaced by a new crab which gets placed off the left or right of the screen at a random height.
 
@@ -76,9 +75,9 @@ When the score state changes the score animation is triggered. This is accomplis
 </TransitionGroup>
 ```
 
-The CSSTransition component also gives me classes which I can use in my CSS to make an animation. These class names are defined in the `classNames="number"` portion of the code. This acts as the prefix to a set of classes. When the span is entering it is first given a `number-enter` class and then immediately a `number-enter-active` class. This allows you to apply initial css using `.number-enter` and then any transition changes to `.number-enter-active`. Finally, once the time is up, it applies a `number-enter-done` class if you want to make changes for the final entry state. The same things happens for the unmounting component but with the suffixes of `-exit` and `-exit-active`. Since the component is gone at the end of the time there is no class with `-exit-done`.
+The CSSTransition component also gives me classes which I can use in my CSS to make an animation. These class names are defined in the `classNames="number"` portion of the code. This acts as the prefix to a set of classes. When the span is entering it is first given a `number-enter` class and then immediately a `number-enter-active` class. This allows you to apply initial css using `.number-enter` and then any transition changes to `.number-enter-active`. Finally, once the time is up, it applies a `number-enter-done` class if you want to make changes for the final entry state. The same things happens for the un-mounting component but with the suffixes of `-exit` and `-exit-active`. Since the component is gone at the end of the time there is no class with `-exit-done`.
 
-The difficulty increases by 1 for every 10 points scored. The GameBoard is then re-initialized to accommodate the increase in hiding spots and crabs. The number of hiding spots and crabs gets capped out at a certain point due to screen size and to keep the processing load at a manageable level. However, the crabs continue to get faster at each difficulty.
+The difficulty increases 1 for every 10 points scored. The GameBoard is then re-initialized to accommodate the increase in hiding spots and crabs. The number of hiding spots and crabs gets capped out at a certain point due to screen size and to keep the processing load at a manageable level. However, the crabs continue to get faster at each difficulty.
 
 ## What I Learned
 
@@ -93,9 +92,11 @@ So I decided to do some testing of my own. I had originally written my CSS anima
 The other thing my research turned up was that having fewer CSS selectors improved performance. So I went about making more specific selectors rather than chaining them together. After running performance tests before and after I found only a 0.5 seconds performance boost in the painting portion over 30 seconds.
 
 ![Before Selector Pairing](/assets/articles/imgs/pre-selector-pairing.jpg "Before Selector Pairing")
+
 > Before Selector Pairing
 
 ![After Selector Pairing](/assets/articles/imgs/post-selector-pairing.jpg "After Selector Pairing")
+
 > After Selector Pairing
 
 I was still having animation glitches, and the animations would only be visibly smooth on my laptop. My phone, while pretty decent, was still glitching. I ran another performance profile and found that styled-components was taking a long time to calculate styles.
@@ -103,9 +104,11 @@ I was still having animation glitches, and the animations would only be visibly 
 Doing some research turn up the fact that [inline styles in React Native perform better than styled-components](https://medium.com/@jm90mm/a-quick-performance-comparison-of-styled-components-vs-inline-styles-in-react-native-21d8f6a561d7). So I decided to test this in React myself. I moved my static CSS for the crab to a SASS file. Running a performance profile on this showed no discernable change. I then moved all dynamic styling to inline styling. This removed all animation glitch from the crab. As you can see from the profile graphs below the frame rate bounces up and down more (green line) but it never gets as low as it did with styled-components.
 
 ![Before Moving Dynamic Styling to Inline](/assets/articles/imgs/pre-dynamic-to-inline-style.jpg "Before Moving Dynamic Styling to Inline")
+
 > Before Moving Dynamic Styling to Inline
 
 ![After Moving Dynamic Styling to Inline](/assets/articles/imgs/post-dynamic-to-inline-style.jpg "After Moving Dynamic Styling to Inline")
+
 > After Moving Dynamic Styling to Inline
 
 This resulted in a visually smoother animation. It appears that in general dynamic string interpolation is slower in all CSS in JS libraries. So in instances where you need a value to change on a regular basis, like my crabs' movement, it's better to do inline styles. You can see a [thorough benchmark](https://github.com/A-gambit/CSS-IN-JS-Benchmarks/blob/master/RESULT.md) of the various CSS in JS frameworks.
@@ -113,6 +116,7 @@ This resulted in a visually smoother animation. It appears that in general dynam
 I still find that the animation can be janky on my phone. The higher difficulties with 6 crabs and the faster speed result in a problem. Typically I only notice when I've clicked on a crab and the bucket is animating down. As you can see, there is significant frame rate drop when the click events is fired.
 
 ![Frame Rate Drop when Crab is Clicked](/assets/articles/imgs/click-frame-rate-drop.jpg "Frame Rate Drop when Crab is Clicked")
+
 > Frame Rate Drop when Crab is Clicked
 
 I was aware that SVGs and CSS animations are probably not the best method for a game. This is echoed by my experiences at my job. I currently work as a graphic designer for an apparel manufacturer. We get quite large client files for garment art and then have to group them together in 5 yard sections. We then gang these into 70 yard runs.
